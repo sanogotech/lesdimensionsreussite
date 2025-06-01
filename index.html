@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 5 Dimensions Clés de la Réussite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .dimension-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .values-card { border-top: 5px solid #1abc9c; }
+        .grit-card { border-top: 5px solid #e74c3c; }
+        .smart-card { border-top: 5px solid #3498db; }
+        .soft-card { border-top: 5px solid #f39c12; }
+        .hard-card { border-top: 5px solid #9b59b6; }
+        
+        .progress {
+            height: 25px;
+            border-radius: 12px;
+        }
+        
+        .progress-bar {
+            font-weight: 600;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .btn-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .result-card {
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .tooltip-inner {
+            max-width: 300px;
+            padding: 10px;
+        }
+        
+        .impact-visual {
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .dimension-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-chess-queen me-2"></i>5 Dimensions
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dimensions">Dimensions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#test">Auto-évaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#plan">Plan d'action</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Les 5 Dimensions Clés de la Réussite</h1>
+            <p class="lead mb-4">Découvrez l'équilibre fondamental entre compétences, énergie et valeurs pour une réussite durable</p>
+            <a href="#test" class="btn btn-light btn-lg px-4 me-2">Faire le test</a>
+            <a href="#dimensions" class="btn btn-outline-light btn-lg px-4">Explorer</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Introduction -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="fw-bold mb-4">🔎 Introduction</h2>
+                    <p class="lead">La réussite professionnelle et personnelle repose sur <strong>plus que des diplômes ou des talents techniques</strong>. Elle s'ancre dans un équilibre entre compétences, savoir-être, énergie, stratégie et valeurs profondes.</p>
+                    <p>Chaque dimension joue un rôle <strong>complémentaire</strong> avec un <strong>poids spécifique</strong>.</p>
+                    <blockquote class="blockquote mt-4">
+                        <p>🎯 <strong>Réussir, ce n'est pas additionner les savoirs, c'est les aligner.</strong></p>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Visualization -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-center mb-4">📊 Répartition des 5 dimensions selon leur impact</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Dimension</th>
+                                    <th>Poids (%)</th>
+                                    <th>Priorité</th>
+                                    <th>Pourquoi ?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-dove me-2"></i> Valeurs fondamentales</td>
+                                    <td><strong>30%</strong></td>
+                                    <td>1️⃣</td>
+                                    <td>C'est la <strong>boussole intérieure</strong> : sans elles, tout le reste peut être dangereux</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-fire me-2"></i> Niaque</td>
+                                    <td><strong>25%</strong></td>
+                                    <td>2️⃣</td>
+                                    <td>L'<strong>énergie durable</strong>, la discipline et le courage pour <strong>tenir dans la durée</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-brain me-2"></i> Smart Skills</td>
+                                    <td><strong>20%</strong></td>
+                                    <td>3️⃣</td>
+                                    <td>L'<strong>agilité intellectuelle</strong>, la capacité à s'adapter et à innover</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-seedling me-2"></i> Soft Skills</td>
+                                    <td><strong>15%</strong></td>
+                                    <td>4️⃣</td>
+                                    <td>Le <strong>savoir-être</strong> relationnel, essentiel pour coopérer et créer de la confiance</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-bullseye me-2"></i> Hard Skills</td>
+                                    <td><strong>10%</strong></td>
+                                    <td>5️⃣</td>
+                                    <td>Le <strong>socle technique</strong>, nécessaire mais <strong>insuffisant seul</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-8 mx-auto">
+                    <h4 class="text-center mb-3">Représentation visuelle de l'impact</h4>
+                    <div class="impact-visual">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-dove me-2"></i> Valeurs fondamentales :</span>
+                            <span class="text-success">██████████████████████████░░░░░░ 30%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-fire me-2"></i> La niaque :</span>
+                            <span class="text-danger">█████████████████████████░░░░░░░░ 25%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-brain me-2"></i> Smart Skills :</span>
+                            <span class="text-primary">███████████████████░░░░░░░░░░░░░ 20%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-seedling me-2"></i> Soft Skills :</span>
+                            <span class="text-warning">████████████░░░░░░░░░░░░░░░░░░░ 15%</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-bullseye me-2"></i> Hard Skills :</span>
+                            <span class="text-info">███████░░░░░░░░░░░░░░░░░░░░░░░ 10%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensions Cards -->
+        <section id="dimensions" class="mb-5">
+            <h2 class="text-center fw-bold mb-5">🧩 Détail des 5 dimensions</h2>
+            
+            <div class="row g-4">
+                <!-- Valeurs Fondamentales -->
+                <div class="col-lg-6">
+                    <div class="card dimension-card values-card h-100">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-dove me-2"></i> 1. Valeurs Fondamentales – <strong>La boussole intérieure</strong> (30%)
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Les principes qui orientent vos choix et comportements profonds.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Intégrité, honnêteté, foi</li>
+                                <li>Vision du long terme, responsabilité morale</li>
+                                <li>Humilité, gratitude, sagesse</li>
+                                <li>"L'obstacle est le chemin"</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Donne du sens</li>
+                                <li>Inspire confiance</li>
+                                <li>Vous tient debout dans la tempête</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- La Niaque -->
+                <div class="col-lg-6">
+                    <div class="card dimension-card grit-card h-100">
+                        <div class="card-header bg-danger text-white">
+                            <i class="fas fa-fire me-2"></i> 2. La Niaque – <strong>L'énergie intérieure</strong> (25%)
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Volonté, discipline, courage, capacité à avancer malgré les obstacles.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Rigueur, persévérance, courage</li>
+                                <li>Capacité à agir malgré la peur</li>
+                                <li>Résilience dans l'effort</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Vous rend <strong>imparable</strong></li>
+                                <li>Permet de <strong>résister à l'échec</strong></li>
+                                <li>Amène à <strong>aller plus loin que la moyenne</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Smart Skills -->
+                <div class="col-lg-6">
+                    <div class="card dimension-card smart-card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-brain me-2"></i> 3. Smart Skills – <strong>L'intelligence stratégique</strong> (20%)
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Capacité à apprendre, relier, anticiper et innover.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Apprendre à apprendre</li>
+                                <li>Innovation, créativité</li>
+                                <li>Veille technologique et curiosité</li>
+                                <li>Résolution de problèmes complexes</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Vous permet de <strong>rester pertinent</strong></li>
+                                <li>D'adapter vos compétences au monde qui change</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="col-lg-6">
+                    <div class="card dimension-card soft-card h-100">
+                        <div class="card-header bg-warning text-dark">
+                            <i class="fas fa-seedling me-2"></i> 4. Soft Skills – <strong>Le savoir-être relationnel</strong> (15%)
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Compétences humaines, sociales, émotionnelles.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Communication, écoute, empathie</li>
+                                <li>Gestion de conflit, leadership</li>
+                                <li>Travail d'équipe</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Crée un <strong>environnement sain</strong></li>
+                                <li>Favorise la <strong>coopération</strong>, la <strong>mobilisation</strong> et la <strong>réputation</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hard Skills -->
+                <div class="col-lg-6 mx-auto">
+                    <div class="card dimension-card hard-card h-100">
+                        <div class="card-header bg-info text-white">
+                            <i class="fas fa-bullseye me-2"></i> 5. Hard Skills – <strong>Le savoir-faire technique</strong> (10%)
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Compétences techniques propres à un métier.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Informatique, finance, gestion</li>
+                                <li>Langues</li>
+                                <li>Diplômes, certifications</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Nécessaires pour <strong>entrer dans le métier</strong></li>
+                                <li>Mais doivent être <strong>portées par les autres dimensions</strong> pour avoir de l'impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auto-Evaluation Test -->
+        <section id="test" class="test-section mb-5">
+            <h2 class="text-center fw-bold mb-4">📝 Test d'Auto-Évaluation</h2>
+            <p class="text-center mb-4">Évaluez vos forces sur chaque dimension (de 1 à 10)</p>
+            
+            <form id="evaluationForm">
+                <div class="row g-3">
+                    <!-- Valeurs Fondamentales -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-dove me-2"></i> Valeurs Fondamentales
+                            </div>
+                            <div class="card-body">
+                                <p>À quel point vos valeurs guident-elles vos décisions au quotidien ?</p>
+                                <div class="mb-3">
+                                    <label for="valuesScore" class="form-label">Note (1-10): <span id="valuesValue">5</span></label>
+                                    <input type="range" class="form-range" min="1" max="10" id="valuesScore" value="5">
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="valuesComment" style="height: 100px"></textarea>
+                                    <label for="valuesComment">Comment pourriez-vous améliorer ce domaine ?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- La Niaque -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-danger text-white">
+                                <i class="fas fa-fire me-2"></i> La Niaque
+                            </div>
+                            <div class="card-body">
+                                <p>Quelle est votre capacité à persévérer face aux obstacles ?</p>
+                                <div class="mb-3">
+                                    <label for="gritScore" class="form-label">Note (1-10): <span id="gritValue">5</span></label>
+                                    <input type="range" class="form-range" min="1" max="10" id="gritScore" value="5">
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="gritComment" style="height: 100px"></textarea>
+                                    <label for="gritComment">Comment pourriez-vous améliorer ce domaine ?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart Skills -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-brain me-2"></i> Smart Skills
+                            </div>
+                            <div class="card-body">
+                                <p>À quel point êtes-vous capable d'apprendre rapidement et de résoudre des problèmes complexes ?</p>
+                                <div class="mb-3">
+                                    <label for="smartScore" class="form-label">Note (1-10): <span id="smartValue">5</span></label>
+                                    <input type="range" class="form-range" min="1" max="10" id="smartScore" value="5">
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="smartComment" style="height: 100px"></textarea>
+                                    <label for="smartComment">Comment pourriez-vous améliorer ce domaine ?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Soft Skills -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning text-dark">
+                                <i class="fas fa-seedling me-2"></i> Soft Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Comment évaluez-vous vos compétences relationnelles et émotionnelles ?</p>
+                                <div class="mb-3">
+                                    <label for="softScore" class="form-label">Note (1-10): <span id="softValue">5</span></label>
+                                    <input type="range" class="form-range" min="1" max="10" id="softScore" value="5">
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="softComment" style="height: 100px"></textarea>
+                                    <label for="softComment">Comment pourriez-vous améliorer ce domaine ?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hard Skills -->
+                    <div class="col-md-6 mx-auto">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <i class="fas fa-bullseye me-2"></i> Hard Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Comment évaluez-vous vos compétences techniques spécifiques à votre domaine ?</p>
+                                <div class="mb-3">
+                                    <label for="hardScore" class="form-label">Note (1-10): <span id="hardValue">5</span></label>
+                                    <input type="range" class="form-range" min="1" max="10" id="hardScore" value="5">
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="hardComment" style="height: 100px"></textarea>
+                                    <label for="hardComment">Comment pourriez-vous améliorer ce domaine ?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-custom btn-lg" id="calculateBtn">
+                        <i class="fas fa-calculator me-2"></i>Calculer mon score
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Results Section (initially hidden) -->
+            <div id="resultsSection" class="mt-5" style="display: none;">
+                <h3 class="text-center mb-4">📊 Vos Résultats</h3>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card result-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Score par dimension</h5>
+                                <div class="mb-3">
+                                    <label>Valeurs Fondamentales (30%)</label>
+                                    <div class="progress">
+                                        <div id="valuesProgress" class="progress-bar bg-success" role="progressbar" style="width: 50%">5/10</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>La Niaque (25%)</label>
+                                    <div class="progress">
+                                        <div id="gritProgress" class="progress-bar bg-danger" role="progressbar" style="width: 50%">5/10</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Smart Skills (20%)</label>
+                                    <div class="progress">
+                                        <div id="smartProgress" class="progress-bar bg-primary" role="progressbar" style="width: 50%">5/10</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Soft Skills (15%)</label>
+                                    <div class="progress">
+                                        <div id="softProgress" class="progress-bar bg-warning" role="progressbar" style="width: 50%">5/10</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Hard Skills (10%)</label>
+                                    <div class="progress">
+                                        <div id="hardProgress" class="progress-bar bg-info" role="progressbar" style="width: 50%">5/10</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="card result-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Score global pondéré</h5>
+                                <div class="text-center my-4">
+                                    <div class="display-4 fw-bold" id="totalScore">50</div>
+                                    <div class="text-muted">sur 100</div>
+                                </div>
+                                <div class="progress" style="height: 30px;">
+                                    <div id="totalProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%"></div>
+                                </div>
+                                <div class="mt-3" id="scoreInterpretation">
+                                    <p class="mb-1"><strong>Interprétation :</strong></p>
+                                    <p>Vous avez un équilibre moyen entre les différentes dimensions. Certains aspects pourraient être renforcés.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-lightbulb me-2"></i> Recommandations personnalisées
+                    </div>
+                    <div class="card-body">
+                        <div id="recommendations">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="btn btn-outline-primary me-2" id="saveResultsBtn">
+                        <i class="fas fa-save me-2"></i>Enregistrer mes résultats
+                    </button>
+                    <button class="btn btn-primary" id="actionPlanBtn">
+                        <i class="fas fa-clipboard-list me-2"></i>Créer un plan d'action
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Plan -->
+        <section id="plan" class="mb-5" style="display: none;">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Plan de Développement Personnel</h3>
+                </div>
+                <div class="card-body">
+                    <p>Basé sur vos résultats, voici un plan équilibré pour développer vos 5 dimensions :</p>
+                    
+                    <div class="accordion" id="planAccordion">
+                        <!-- Valeurs Fondamentales -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fas fa-dove text-success me-2"></i> Valeurs Fondamentales (30%)
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#planAccordion">
+                                <div class="accordion-body">
+                                    <h5>Objectifs :</h5>
+                                    <ul>
+                                        <li>Définir clairement vos 3-5 valeurs fondamentales</li>
+                                        <li>Prendre des décisions alignées avec ces valeurs</li>
+                                        <li>Développer une pratique régulière de réflexion (journal, méditation)</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-3">Actions concrètes :</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planValue1">
+                                        <label class="form-check-label" for="planValue1">Écrire mes valeurs fondamentales et les afficher visiblement</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planValue2">
+                                        <label class="form-check-label" for="planValue2">Tenir un journal de réflexion 10 min par jour</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planValue3">
+                                        <label class="form-check-label" for="planValue3">Identifier un mentor qui incarne ces valeurs</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- La Niaque -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-fire text-danger me-2"></i> La Niaque (25%)
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                                <div class="accordion-body">
+                                    <h5>Objectifs :</h5>
+                                    <ul>
+                                        <li>Développer une discipline quotidienne</li>
+                                        <li>Renforcer la résilience face aux obstacles</li>
+                                        <li>Créer des routines productives</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-3">Actions concrètes :</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planGrit1">
+                                        <label class="form-check-label" for="planGrit1">Mettre en place une routine matinale productive</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planGrit2">
+                                        <label class="form-check-label" for="planGrit2">Pratiquer une activité physique régulière</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planGrit3">
+                                        <label class="form-check-label" for="planGrit3">Lire des biographies de personnes résilientes</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Smart Skills -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-brain text-primary me-2"></i> Smart Skills (20%)
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                                <div class="accordion-body">
+                                    <h5>Objectifs :</h5>
+                                    <ul>
+                                        <li>Améliorer la capacité d'apprentissage</li>
+                                        <li>Développer la pensée critique et créative</li>
+                                        <li>Rester à jour dans son domaine</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-3">Actions concrètes :</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSmart1">
+                                        <label class="form-check-label" for="planSmart1">Apprendre une nouvelle compétence chaque trimestre</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSmart2">
+                                        <label class="form-check-label" for="planSmart2">Pratiquer la résolution de problèmes (énigmes, cas pratiques)</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSmart3">
+                                        <label class="form-check-label" for="planSmart3">Dédier 1h/semaine à la veille dans son domaine</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Soft Skills -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    <i class="fas fa-seedling text-warning me-2"></i> Soft Skills (15%)
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                                <div class="accordion-body">
+                                    <h5>Objectifs :</h5>
+                                    <ul>
+                                        <li>Améliorer la communication et l'écoute</li>
+                                        <li>Développer l'intelligence émotionnelle</li>
+                                        <li>Renforcer le leadership</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-3">Actions concrètes :</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSoft1">
+                                        <label class="form-check-label" for="planSoft1">Pratiquer l'écoute active dans toutes les conversations</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSoft2">
+                                        <label class="form-check-label" for="planSoft2">Lire des livres sur l'intelligence émotionnelle</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planSoft3">
+                                        <label class="form-check-label" for="planSoft3">Demander des feedbacks réguliers à son entourage</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hard Skills -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    <i class="fas fa-bullseye text-info me-2"></i> Hard Skills (10%)
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                                <div class="accordion-body">
+                                    <h5>Objectifs :</h5>
+                                    <ul>
+                                        <li>Maîtriser les compétences techniques clés de son domaine</li>
+                                        <li>Obtenir les certifications pertinentes</li>
+                                        <li>Rester à jour technologiquement</li>
+                                    </ul>
+                                    
+                                    <h5 class="mt-3">Actions concrètes :</h5>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planHard1">
+                                        <label class="form-check-label" for="planHard1">Identifier les 3 compétences techniques les plus importantes à développer</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planHard2">
+                                        <label class="form-check-label" for="planHard2">Suivre une formation certifiante dans l'année</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="planHard3">
+                                        <label class="form-check-label" for="planHard3">Créer un projet pratique pour appliquer ces compétences</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Suivi du plan :</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="planStartDate" class="form-label">Date de début :</label>
+                                    <input type="date" class="form-control" id="planStartDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="planReviewDate" class="form-label">Date de révision :</label>
+                                    <input type="date" class="form-control" id="planReviewDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="planNotes" class="form-label">Notes personnelles :</label>
+                            <textarea class="form-control" id="planNotes" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary me-2" id="printPlanBtn">
+                            <i class="fas fa-print me-2"></i>Imprimer le plan
+                        </button>
+                        <button class="btn btn-success" id="savePlanBtn">
+                            <i class="fas fa-save me-2"></i>Enregistrer le plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-5">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h2 class="card-title text-center fw-bold mb-4">✅ Conclusion</h2>
+                    <div class="text-center">
+                        <p class="lead">🎓 <strong>Ce n'est pas votre savoir-faire qui fera votre grandeur, mais votre manière d'agir, de réagir, et de rester fidèle à vous-même.</strong></p>
+                    </div>
+                    
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item bg-light">Sans <strong>valeurs</strong>, le talent devient dangereux.</li>
+                        <li class="list-group-item bg-light">Sans <strong>niaque</strong>, le potentiel s'éteint.</li>
+                        <li class="list-group-item bg-light">Sans <strong>smart skills</strong>, on devient vite obsolète.</li>
+                        <li class="list-group-item bg-light">Sans <strong>soft skills</strong>, on se coupe des autres.</li>
+                        <li class="list-group-item bg-light">Sans <strong>hard skills</strong>, on ne peut rien livrer.</li>
+                    </ul>
+                    
+                    <blockquote class="blockquote text-center mt-4">
+                        <p class="mb-0"><strong>Alignez ces 5 dimensions</strong> → vous serez <strong>respecté, utile, durable et libre</strong>.</p>
+                    </blockquote>
+                    
+                    <div class="text-center mt-4">
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary">
+                                    <i class="fas fa-question-circle me-2"></i>En savoir plus
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-success">
+                                    <i class="fas fa-book me-2"></i>Ressources recommandées
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-info">
+                                    <i class="fas fa-user-tie me-2"></i>Coaching personnalisé
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Prêt à développer vos 5 dimensions ?</h2>
+                    <p class="lead mb-5">Contactez-nous pour un coaching personnalisé ou un atelier dans votre organisation</p>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+                                <h5>Email</h5>
+                                <p>contact@5dimensions.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-phone fa-2x mb-3 text-primary"></i>
+                                <h5>Téléphone</h5>
+                                <p>+33 1 23 45 67 89</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-calendar-alt fa-2x mb-3 text-primary"></i>
+                                <h5>Rendez-vous</h5>
+                                <p>Prendre rendez-vous en ligne</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-chess-queen me-2"></i>Les 5 Dimensions de la Réussite</h5>
+                    <p class="small">Un modèle holistique pour une réussite durable et équilibrée.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Liens</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-white">Accueil</a></li>
+                        <li><a href="#dimensions" class="text-white">Dimensions</a></li>
+                        <li><a href="#test" class="text-white">Auto-évaluation</a></li>
+                        <li><a href="#plan" class="text-white">Plan d'action</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Réseaux</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small mb-0">&copy; 2023 5 Dimensions. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white small me-3">Confidentialité</a>
+                    <a href="#" class="text-white small me-3">Conditions</a>
+                    <a href="#" class="text-white small">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Update slider values
+        document.getElementById('valuesScore').addEventListener('input', function() {
+            document.getElementById('valuesValue').textContent = this.value;
+        });
+        
+        document.getElementById('gritScore').addEventListener('input', function() {
+            document.getElementById('gritValue').textContent = this.value;
+        });
+        
+        document.getElementById('smartScore').addEventListener('input', function() {
+            document.getElementById('smartValue').textContent = this.value;
+        });
+        
+        document.getElementById('softScore').addEventListener('input', function() {
+            document.getElementById('softValue').textContent = this.value;
+        });
+        
+        document.getElementById('hardScore').addEventListener('input', function() {
+            document.getElementById('hardValue').textContent = this.value;
+        });
+        
+        // Calculate score
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            // Get scores
+            const valuesScore = parseInt(document.getElementById('valuesScore').value);
+            const gritScore = parseInt(document.getElementById('gritScore').value);
+            const smartScore = parseInt(document.getElementById('smartScore').value);
+            const softScore = parseInt(document.getElementById('softScore').value);
+            const hardScore = parseInt(document.getElementById('hardScore').value);
+            
+            // Calculate weighted scores
+            const weightedValues = valuesScore * 0.30;
+            const weightedGrit = gritScore * 0.25;
+            const weightedSmart = smartScore * 0.20;
+            const weightedSoft = softScore * 0.15;
+            const weightedHard = hardScore * 0.10;
+            
+            // Total score (out of 10, converted to percentage)
+            const totalScore = Math.round((weightedValues + weightedGrit + weightedSmart + weightedSoft + weightedHard) * 10);
+            
+            // Update progress bars
+            document.getElementById('valuesProgress').style.width = `${valuesScore * 10}%`;
+            document.getElementById('valuesProgress').textContent = `${valuesScore}/10`;
+            
+            document.getElementById('gritProgress').style.width = `${gritScore * 10}%`;
+            document.getElementById('gritProgress').textContent = `${gritScore}/10`;
+            
+            document.getElementById('smartProgress').style.width = `${smartScore * 10}%`;
+            document.getElementById('smartProgress').textContent = `${smartScore}/10`;
+            
+            document.getElementById('softProgress').style.width = `${softScore * 10}%`;
+            document.getElementById('softProgress').textContent = `${softScore}/10`;
+            
+            document.getElementById('hardProgress').style.width = `${hardScore * 10}%`;
+            document.getElementById('hardProgress').textContent = `${hardScore}/10`;
+            
+            // Update total score
+            document.getElementById('totalScore').textContent = totalScore;
+            document.getElementById('totalProgress').style.width = `${totalScore}%`;
+            
+            // Interpretation
+            let interpretation = '';
+            if (totalScore >= 80) {
+                interpretation = '<p class="mb-1"><strong>Excellent !</strong></p><p>Vous avez un équilibre remarquable entre les différentes dimensions. Continuez à cultiver cet alignement.</p>';
+            } else if (totalScore >= 60) {
+                interpretation = '<p class="mb-1"><strong>Bon équilibre</strong></p><p>Vos dimensions sont bien développées, mais certains aspects pourraient encore être renforcés pour une réussite optimale.</p>';
+            } else if (totalScore >= 40) {
+                interpretation = '<p class="mb-1"><strong>Équilibre moyen</strong></p><p>Vous avez des bases solides mais certaines dimensions nécessitent un développement plus poussé.</p>';
+            } else {
+                interpretation = '<p class="mb-1"><strong>À développer</strong></p><p>Plusieurs dimensions clés nécessitent une attention particulière. Un plan de développement serait bénéfique.</p>';
+            }
+            document.getElementById('scoreInterpretation').innerHTML = interpretation;
+            
+            // Generate recommendations
+            let recommendations = '<div class="row">';
+            
+            // Values recommendations
+            if (valuesScore < 6) {
+                recommendations += `
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-success">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-dove me-2"></i> Valeurs Fondamentales
+                            </div>
+                            <div class="card-body">
+                                <p>Pour renforcer vos valeurs :</p>
+                                <ul>
+                                    <li>Pratiquez la réflexion quotidienne (journal, méditation)</li>
+                                    <li>Identifiez des modèles qui incarnent vos valeurs</li>
+                                    <li>Prenez des décisions alignées avec vos principes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Grit recommendations
+            if (gritScore < 6) {
+                recommendations += `
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger text-white">
+                                <i class="fas fa-fire me-2"></i> La Niaque
+                            </div>
+                            <div class="card-body">
+                                <p>Pour développer votre persévérance :</p>
+                                <ul>
+                                    <li>Établissez une routine matinale productive</li>
+                                    <li>Fixez-vous des défis progressifs</li>
+                                    <li>Pratiquez une activité physique régulière</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Smart Skills recommendations
+            if (smartScore < 6) {
+                recommendations += `
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-brain me-2"></i> Smart Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Pour améliorer votre agilité :</p>
+                                <ul>
+                                    <li>Apprenez une nouvelle compétence chaque trimestre</li>
+                                    <li>Pratiquez la résolution de problèmes complexes</li>
+                                    <li>Développez votre curiosité intellectuelle</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Soft Skills recommendations
+            if (softScore < 6) {
+                recommendations += `
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-warning">
+                            <div class="card-header bg-warning text-dark">
+                                <i class="fas fa-seedling me-2"></i> Soft Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Pour améliorer vos relations :</p>
+                                <ul>
+                                    <li>Pratiquez l'écoute active</li>
+                                    <li>Demandez des feedbacks réguliers</li>
+                                    <li>Lisez sur l'intelligence émotionnelle</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Hard Skills recommendations
+            if (hardScore < 6) {
+                recommendations += `
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-info">
+                            <div class="card-header bg-info text-white">
+                                <i class="fas fa-bullseye me-2"></i> Hard Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Pour renforcer vos compétences techniques :</p>
+                                <ul>
+                                    <li>Identifiez les compétences clés à développer</li>
+                                    <li>Suivez une formation certifiante</li>
+                                    <li>Appliquez vos connaissances dans des projets concrets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            recommendations += '</div>';
+            document.getElementById('recommendations').innerHTML = recommendations;
+            
+            // Show results section
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Action Plan Button
+        document.getElementById('actionPlanBtn').addEventListener('click', function() {
+            document.getElementById('plan').style.display = 'block';
+            document.getElementById('plan').scrollIntoView({ behavior: 'smooth' });
+            
+            // Set dates
+            const today = new Date();
+            const reviewDate = new Date();
+            reviewDate.setMonth(today.getMonth() + 3);
+            
+            document.getElementById('planStartDate').valueAsDate = today;
+            document.getElementById('planReviewDate').valueAsDate = reviewDate;
+        });
+        
+        // Print Plan Button
+        document.getElementById('printPlanBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Save Plan Button
+        document.getElementById('savePlanBtn').addEventListener('click', function() {
+            alert('Plan enregistré avec succès !');
+        });
+        
+        // Save Results Button
+        document.getElementById('saveResultsBtn').addEventListener('click', function() {
+            alert('Résultats enregistrés avec succès !');
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Create radar chart
+        const ctx = document.createElement('canvas');
+        ctx.id = 'radarChart';
+        document.querySelector('.chart-container').appendChild(ctx);
+        
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Valeurs', 'Niaque', 'Smart Skills', 'Soft Skills', 'Hard Skills'],
+                datasets: [{
+                    label: 'Votre profil',
+                    data: [5, 5, 5, 5, 5],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(52, 152, 219, 1)'
+                }, {
+                    label: 'Profil idéal',
+                    data: [10, 8.3, 6.7, 5, 3.3],
+                    backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(46, 204, 113, 1)',
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}/10`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Update chart when calculating score
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const valuesScore = parseInt(document.getElementById('valuesScore').value);
+            const gritScore = parseInt(document.getElementById('gritScore').value);
+            const smartScore = parseInt(document.getElementById('smartScore').value);
+            const softScore = parseInt(document.getElementById('softScore').value);
+            const hardScore = parseInt(document.getElementById('hardScore').value);
+            
+            radarChart.data.datasets[0].data = [valuesScore, gritScore, smartScore, softScore, hardScore];
+            radarChart.update();
+        });
+    </script>
+</body>
+</html>
