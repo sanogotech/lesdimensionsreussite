@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+CTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -76,12 +76,33 @@
             margin-bottom: 30px;
         }
         
-        .test-section {
+        .test-section, .quiz-section, .results-details-section, .plan-section {
             background-color: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #fcfcfc;
+        }
+
+        .quiz-question h5 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .quiz-question .form-check {
+            margin-bottom: 10px;
+        }
+
+        .quiz-navigation button {
+            margin: 0 10px;
         }
         
         .btn-custom {
@@ -133,7 +154,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -148,7 +168,7 @@
                         <a class="nav-link active" href="#dimensions">Dimensions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#test">Auto-évaluation</a>
+                        <a class="nav-link" href="#quiz">Quiz</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#plan">Plan d'action</a>
@@ -161,19 +181,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container text-center">
             <h1 class="display-4 fw-bold mb-4">Les 5 Dimensions Clés de la Réussite</h1>
             <p class="lead mb-4">Découvrez l'équilibre fondamental entre compétences, énergie et valeurs pour une réussite durable</p>
-            <a href="#test" class="btn btn-light btn-lg px-4 me-2">Faire le test</a>
+            <a href="#quiz" class="btn btn-light btn-lg px-4 me-2">Faire le quiz</a>
             <a href="#dimensions" class="btn btn-outline-light btn-lg px-4">Explorer</a>
         </div>
     </section>
 
-    <!-- Main Content -->
     <div class="container my-5">
-        <!-- Introduction -->
         <section class="mb-5">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -187,10 +204,8 @@
             </div>
         </section>
 
-        <!-- Impact Visualization -->
         <section class="mb-5">
             <div class="row">
-			
               <div class="col-lg-11 mx-auto">
 				<h3 class="text-center mb-4">📊 Répartition des 5 dimensions selon leur impact</h3>
 				<div class="table-responsive">
@@ -284,8 +299,6 @@
 					</table>
 				</div>
 			</div>
-
-				
             </div>
             
             <div class="row mt-4">
@@ -317,12 +330,10 @@
             </div>
         </section>
 
-        <!-- Dimensions Cards -->
         <section id="dimensions" class="mb-5">
             <h2 class="text-center fw-bold mb-5">🧩 Détail des 5 dimensions</h2>
             
             <div class="row g-4">
-                <!-- Valeurs Fondamentales -->
                 <div class="col-lg-6">
                     <div class="card dimension-card values-card h-100">
                         <div class="card-header bg-success text-white">
@@ -350,7 +361,6 @@
                     </div>
                 </div>
                 
-                <!-- La Niaque -->
                 <div class="col-lg-6">
                     <div class="card dimension-card grit-card h-100">
                         <div class="card-header bg-danger text-white">
@@ -377,7 +387,6 @@
                     </div>
                 </div>
                 
-                <!-- Smart Skills -->
                 <div class="col-lg-6">
                     <div class="card dimension-card smart-card h-100">
                         <div class="card-header bg-primary text-white">
@@ -404,7 +413,6 @@
                     </div>
                 </div>
                 
-                <!-- Soft Skills -->
                 <div class="col-lg-6">
                     <div class="card dimension-card soft-card h-100">
                         <div class="card-header bg-warning text-dark">
@@ -430,7 +438,6 @@
                     </div>
                 </div>
                 
-                <!-- Hard Skills -->
                 <div class="col-lg-6 mx-auto">
                     <div class="card dimension-card hard-card h-100">
                         <div class="card-header bg-info text-white">
@@ -458,158 +465,255 @@
             </div>
         </section>
 
-        <!-- Auto-Evaluation Test -->
-        <section id="test" class="test-section mb-5">
-            <h2 class="text-center fw-bold mb-4">📝 Test d'Auto-Évaluation</h2>
-            <p class="text-center mb-4">Évaluez vos forces sur chaque dimension (de 1 à 10)</p>
+        <section id="quiz" class="quiz-section mb-5">
+            <h2 class="text-center fw-bold mb-4">🧠 Testez vos 5 Dimensions !</h2>
+            <p class="text-center mb-4">Répondez sincèrement à ces 10 questions pour découvrir votre profil.</p>
             
-            <form id="evaluationForm">
-                <div class="row g-3">
-                    <!-- Valeurs Fondamentales -->
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header bg-success text-white">
-                                <i class="fas fa-dove me-2"></i> Valeurs Fondamentales
-                            </div>
-                            <div class="card-body">
-                                <p>À quel point vos valeurs guident-elles vos décisions au quotidien ?</p>
-                                <div class="mb-3">
-                                    <label for="valuesScore" class="form-label">Note (1-10): <span id="valuesValue">5</span></label>
-                                    <input type="range" class="form-range" min="1" max="10" id="valuesScore" value="5">
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="valuesComment" style="height: 100px"></textarea>
-                                    <label for="valuesComment">Comment pourriez-vous améliorer ce domaine ?</label>
-                                </div>
-                            </div>
-                        </div>
+            <form id="quizForm">
+                <div class="quiz-question" data-dimension="values">
+                    <h5>1. Lorsqu'une décision importante doit être prise, sur quoi basez-vous principalement votre choix ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1a" value="1">
+                        <label class="form-check-label" for="q1a">Sur les retours rapides et les bénéfices immédiats.</label>
                     </div>
-                    
-                    <!-- La Niaque -->
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header bg-danger text-white">
-                                <i class="fas fa-fire me-2"></i> La Niaque
-                            </div>
-                            <div class="card-body">
-                                <p>Quelle est votre capacité à persévérer face aux obstacles ?</p>
-                                <div class="mb-3">
-                                    <label for="gritScore" class="form-label">Note (1-10): <span id="gritValue">5</span></label>
-                                    <input type="range" class="form-range" min="1" max="10" id="gritScore" value="5">
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="gritComment" style="height: 100px"></textarea>
-                                    <label for="gritComment">Comment pourriez-vous améliorer ce domaine ?</label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1b" value="2">
+                        <label class="form-check-label" for="q1b">Sur une analyse logique et des faits concrets.</label>
                     </div>
-                    
-                    <!-- Smart Skills -->
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header bg-primary text-white">
-                                <i class="fas fa-brain me-2"></i> Smart Skills
-                            </div>
-                            <div class="card-body">
-                                <p>À quel point êtes-vous capable d'apprendre rapidement et de résoudre des problèmes complexes ?</p>
-                                <div class="mb-3">
-                                    <label for="smartScore" class="form-label">Note (1-10): <span id="smartValue">5</span></label>
-                                    <input type="range" class="form-range" min="1" max="10" id="smartScore" value="5">
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="smartComment" style="height: 100px"></textarea>
-                                    <label for="smartComment">Comment pourriez-vous améliorer ce domaine ?</label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1c" value="3">
+                        <label class="form-check-label" for="q1c">Sur les conseils de personnes expérimentées et mon intuition.</label>
                     </div>
-                    
-                    <!-- Soft Skills -->
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header bg-warning text-dark">
-                                <i class="fas fa-seedling me-2"></i> Soft Skills
-                            </div>
-                            <div class="card-body">
-                                <p>Comment évaluez-vous vos compétences relationnelles et émotionnelles ?</p>
-                                <div class="mb-3">
-                                    <label for="softScore" class="form-label">Note (1-10): <span id="softValue">5</span></label>
-                                    <input type="range" class="form-range" min="1" max="10" id="softScore" value="5">
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="softComment" style="height: 100px"></textarea>
-                                    <label for="softComment">Comment pourriez-vous améliorer ce domaine ?</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Hard Skills -->
-                    <div class="col-md-6 mx-auto">
-                        <div class="card h-100">
-                            <div class="card-header bg-info text-white">
-                                <i class="fas fa-bullseye me-2"></i> Hard Skills
-                            </div>
-                            <div class="card-body">
-                                <p>Comment évaluez-vous vos compétences techniques spécifiques à votre domaine ?</p>
-                                <div class="mb-3">
-                                    <label for="hardScore" class="form-label">Note (1-10): <span id="hardValue">5</span></label>
-                                    <input type="range" class="form-range" min="1" max="10" id="hardScore" value="5">
-                                </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Comment pourriez-vous améliorer ce domaine ?" id="hardComment" style="height: 100px"></textarea>
-                                    <label for="hardComment">Comment pourriez-vous améliorer ce domaine ?</label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" id="q1d" value="4">
+                        <label class="form-check-label" for="q1d">Sur mes principes moraux et ce qui est juste à long terme.</label>
                     </div>
                 </div>
-                
-                <div class="text-center mt-4">
-                    <button type="button" class="btn btn-custom btn-lg" id="calculateBtn">
-                        <i class="fas fa-calculator me-2"></i>Calculer mon score
+
+                <div class="quiz-question" data-dimension="values">
+                    <h5>2. Face à une situation où l'intégrité est mise à l'épreuve, que faites-vous ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2a" value="1">
+                        <label class="form-check-label" for="q2a">Je m'adapte à la situation pour minimiser les problèmes.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2b" value="2">
+                        <label class="form-check-label" for="q2b">Je recherche une solution pragmatique, même si elle n'est pas idéale.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2c" value="3">
+                        <label class="form-check-label" for="q2c">Je défends mes convictions, même si cela peut me coûter.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" id="q2d" value="4">
+                        <label class="form-check-label" for="q2d">Je dis la vérité, coûte que coûte, car c'est mon devoir.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="grit">
+                    <h5>3. Comment réagissez-vous face à un échec ou un revers important ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3a" value="1">
+                        <label class="form-check-label" for="q3a">Je me démotive et j'ai du mal à me remettre au travail.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3b" value="2">
+                        <label class="form-check-label" for="q3b">J'analyse ce qui n'a pas fonctionné et j'essaie de corriger.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3c" value="3">
+                        <label class="form-check-label" for="q3c">Je prends du recul, puis je repars avec une détermination accrue.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" id="q3d" value="4">
+                        <label class="form-check-label" for="q3d">Je vois l'échec comme une leçon indispensable et je redouble d'efforts.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="grit">
+                    <h5>4. Quelle est votre approche lorsque vous devez accomplir une tâche difficile et répétitive ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4a" value="1">
+                        <label class="form-check-label" for="q4a">Je la remets à plus tard ou j'essaie de la déléguer.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4b" value="2">
+                        <label class="form-check-label" for="q4b">Je la fais, mais avec peu d'enthousiasme.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4c" value="3">
+                        <label class="form-check-label" for="q4c">Je me fixe un objectif clair et je la fais par discipline.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" id="q4d" value="4">
+                        <label class="form-check-label" for="q4d">Je la prends comme un entraînement pour ma persévérance.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="smart">
+                    <h5>5. Comment abordez-vous l'apprentissage de nouvelles compétences ou technologies ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5a" value="1">
+                        <label class="form-check-label" for="q5a">J'attends qu'on me le demande ou que ce soit nécessaire.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5b" value="2">
+                        <label class="form-check-label" for="q5b">J'apprends ce qui est directement utile à mon travail actuel.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5c" value="3">
+                        <label class="form-check-label" for="q5c">Je suis proactif, toujours à la recherche de nouvelles connaissances.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" id="q5d" value="4">
+                        <label class="form-check-label" for="q5d">J'aime relier les informations de différents domaines pour innover.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="smart">
+                    <h5>6. Face à un problème inédit, comment réagit votre esprit ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6a" value="1">
+                        <label class="form-check-label" for="q6a">Je me sens dépassé et je cherche de l'aide externe.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6b" value="2">
+                        <label class="form-check-label" for="q6b">J'essaie de trouver une solution basée sur des méthodes connues.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6c" value="3">
+                        <label class="form-check-label" for="q6c">J'analyse la situation sous différents angles pour trouver une approche créative.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" id="q6d" value="4">
+                        <label class="form-check-label" for="q6d">Je vois cela comme une opportunité d'innover et de tester de nouvelles idées.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="soft">
+                    <h5>7. Lors d'une discussion tendue, comment gérez-vous la situation ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7a" value="1">
+                        <label class="form-check-label" for="q7a">J'évite la confrontation ou je me retire de la discussion.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7b" value="2">
+                        <label class="form-check-label" for="q7b">J'exprime mon point de vue clairement, quitte à être direct.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7c" value="3">
+                        <label class="form-check-label" for="q7c">J'écoute activement, j'essaie de comprendre l'autre partie et de trouver un compromis.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" id="q7d" value="4">
+                        <label class="form-check-label" for="q7d">Je cherche à désamorcer la tension, à renforcer le lien et à trouver une solution mutuellement bénéfique.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="soft">
+                    <h5>8. Comment évaluez-vous votre capacité à motiver et inspirer les autres ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8a" value="1">
+                        <label class="form-check-label" for="q8a">Je ne me sens pas à l'aise dans ce rôle.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8b" value="2">
+                        <label class="form-check-label" for="q8b">J'y arrive avec mes proches, mais pas en contexte professionnel.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8c" value="3">
+                        <label class="form-check-label" for="q8c">J'utilise la logique et la persuasion pour convaincre.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" id="q8d" value="4">
+                        <label class="form-check-label" for="q8d">J'adapte ma communication, montre l'exemple et valorise les contributions.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="hard">
+                    <h5>9. À quel point vous tenez-vous informé des avancées techniques dans votre domaine professionnel ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9a" value="1">
+                        <label class="form-check-label" for="q9a">Très peu, je me concentre sur mes tâches actuelles.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9b" value="2">
+                        <label class="form-check-label" for="q9b">Occasionnellement, si cela impacte directement mon travail.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9c" value="3">
+                        <label class="form-check-label" for="q9c">Régulièrement via des publications et conférences spécialisées.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" id="q9d" value="4">
+                        <label class="form-check-label" for="q9d">Constamment, je suis un early adopter et j'aime tester de nouvelles technologies.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-dimension="hard">
+                    <h5>10. Quelle est votre confiance dans votre capacité à résoudre un problème technique complexe lié à votre expertise ?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10a" value="1">
+                        <label class="form-check-label" for="q10a">Faible, je préfère laisser cela à d'autres experts.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10b" value="2">
+                        <label class="form-check-label" for="q10b">Modérée, j'aurais besoin d'aide ou de recherche approfondie.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10c" value="3">
+                        <label class="form-check-label" for="q10c">Élevée, je suis souvent capable de le faire seul.</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" id="q10d" value="4">
+                        <label class="form-check-label" for="q10d">Très élevée, je suis une référence dans ce domaine.</label>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 quiz-navigation">
+                    <button type="submit" class="btn btn-custom btn-lg" id="submitQuizBtn">
+                        <i class="fas fa-check-circle me-2"></i>Voir mes résultats
                     </button>
                 </div>
             </form>
+        </section>
+
+        <section id="quizResultsSection" class="results-details-section mt-5" style="display: none;">
+            <h3 class="text-center fw-bold mb-4">📈 Votre Profil des 5 Dimensions</h3>
             
-            <!-- Results Section (initially hidden) -->
-            <div id="resultsSection" class="mt-5" style="display: none;">
-                <h3 class="text-center mb-4">📊 Vos Résultats</h3>
-                
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card result-card mb-4">
-                            <div class="card-body">
-                                <h5 class="card-title">Score par dimension</h5>
-                                <div class="mb-3">
-                                    <label>Valeurs Fondamentales (30%)</label>
-                                    <div class="progress">
-                                        <div id="valuesProgress" class="progress-bar bg-success" role="progressbar" style="width: 50%">5/10</div>
-                                    </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card result-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Score par dimension</h5>
+                            <div class="mb-3">
+                                <label>Valeurs Fondamentales (30%)</label>
+                                <div class="progress">
+                                    <div id="quizValuesProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%">0/10</div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>La Niaque (25%)</label>
-                                    <div class="progress">
-                                        <div id="gritProgress" class="progress-bar bg-danger" role="progressbar" style="width: 50%">5/10</div>
-                                    </div>
+                            </div>
+                            <div class="mb-3">
+                                <label>La Niaque (25%)</label>
+                                <div class="progress">
+                                    <div id="quizGritProgress" class="progress-bar bg-danger" role="progressbar" style="width: 0%">0/10</div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Smart Skills (20%)</label>
-                                    <div class="progress">
-                                        <div id="smartProgress" class="progress-bar bg-primary" role="progressbar" style="width: 50%">5/10</div>
-                                    </div>
+                            </div>
+                            <div class="mb-3">
+                                <label>Smart Skills (20%)</label>
+                                <div class="progress">
+                                    <div id="quizSmartProgress" class="progress-bar bg-primary" role="progressbar" style="width: 0%">0/10</div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Soft Skills (15%)</label>
-                                    <div class="progress">
-                                        <div id="softProgress" class="progress-bar bg-warning" role="progressbar" style="width: 50%">5/10</div>
-                                    </div>
+                            </div>
+                            <div class="mb-3">
+                                <label>Soft Skills (15%)</label>
+                                <div class="progress">
+                                    <div id="quizSoftProgress" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0/10</div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Hard Skills (10%)</label>
-                                    <div class="progress">
-                                        <div id="hardProgress" class="progress-bar bg-info" role="progressbar" style="width: 50%">5/10</div>
+                            </div>
+                            <div class="mb-3">
+                                <label>Hard Skills (10%)</label>
+                                <div class="progress">
+                                    <div id="quizHardProgress" class="progress-bar bg-info" role="progressbar" style="width: 0%">0/10</div>
                                     </div>
                                 </div>
                             </div>
@@ -621,16 +725,29 @@
                             <div class="card-body">
                                 <h5 class="card-title">Score global pondéré</h5>
                                 <div class="text-center my-4">
-                                    <div class="display-4 fw-bold" id="totalScore">50</div>
+                                    <div class="display-4 fw-bold" id="quizTotalScore">0</div>
                                     <div class="text-muted">sur 100</div>
                                 </div>
                                 <div class="progress" style="height: 30px;">
-                                    <div id="totalProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%"></div>
+                                    <div id="quizTotalProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
                                 </div>
-                                <div class="mt-3" id="scoreInterpretation">
+                                <div class="mt-3" id="quizScoreInterpretation">
                                     <p class="mb-1"><strong>Interprétation :</strong></p>
-                                    <p>Vous avez un équilibre moyen entre les différentes dimensions. Certains aspects pourraient être renforcés.</p>
+                                    <p>Votre profil est en cours d'analyse...</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header bg-dark text-white">
+                                <i class="fas fa-chart-line me-2"></i> Visualisation de votre profil
+                            </div>
+                            <div class="card-body chart-container">
+                                <canvas id="quizRadarChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -638,28 +755,56 @@
                 
                 <div class="card mb-4">
                     <div class="card-header bg-dark text-white">
-                        <i class="fas fa-lightbulb me-2"></i> Recommandations personnalisées
+                        <i class="fas fa-lightbulb me-2"></i> Synthèse et Recommandations personnalisées
                     </div>
                     <div class="card-body">
-                        <div id="recommendations">
-                            <!-- Filled by JavaScript -->
-                        </div>
+                        <div id="quizRecommendations">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4" id="roadmapSection">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-road me-2"></i> Feuille de route indicative
+                    </div>
+                    <div class="card-body">
+                        <div id="roadmapContent">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4" id="booksSection">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-book-open me-2"></i> Top 5 Livres recommandés
+                    </div>
+                    <div class="card-body">
+                        <ul id="bookRecommendations" class="list-group list-group-flush">
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4" id="bestPracticesSection">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-check-double me-2"></i> Bonnes Pratiques & Principes
+                    </div>
+                    <div class="card-body">
+                        <ul id="bestPractices" class="list-group list-group-flush">
+                            </ul>
                     </div>
                 </div>
                 
                 <div class="text-center">
-                    <button class="btn btn-outline-primary me-2" id="saveResultsBtn">
+                    <button class="btn btn-outline-primary me-2" id="saveQuizResultsBtn">
                         <i class="fas fa-save me-2"></i>Enregistrer mes résultats
                     </button>
-                    <button class="btn btn-primary" id="actionPlanBtn">
+                    <button class="btn btn-primary" id="quizActionPlanBtn">
                         <i class="fas fa-clipboard-list me-2"></i>Créer un plan d'action
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Action Plan -->
-        <section id="plan" class="mb-5" style="display: none;">
+        <section id="plan" class="plan-section mb-5" style="display: none;">
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     <h3 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Plan de Développement Personnel</h3>
@@ -668,7 +813,6 @@
                     <p>Basé sur vos résultats, voici un plan équilibré pour développer vos 5 dimensions :</p>
                     
                     <div class="accordion" id="planAccordion">
-                        <!-- Valeurs Fondamentales -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
@@ -701,7 +845,6 @@
                             </div>
                         </div>
                         
-                        <!-- La Niaque -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
@@ -734,7 +877,6 @@
                             </div>
                         </div>
                         
-                        <!-- Smart Skills -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
@@ -767,7 +909,6 @@
                             </div>
                         </div>
                         
-                        <!-- Soft Skills -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
@@ -800,7 +941,6 @@
                             </div>
                         </div>
                         
-                        <!-- Hard Skills -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
@@ -868,7 +1008,6 @@
             </div>
         </section>
 
-        <!-- Conclusion -->
         <section class="mb-5">
             <div class="card bg-light">
                 <div class="card-body">
@@ -913,7 +1052,6 @@
         </section>
     </div>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
@@ -948,7 +1086,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
@@ -961,7 +1098,7 @@
                     <ul class="list-unstyled small">
                         <li><a href="#" class="text-white">Accueil</a></li>
                         <li><a href="#dimensions" class="text-white">Dimensions</a></li>
-                        <li><a href="#test" class="text-white">Auto-évaluation</a></li>
+                        <li><a href="#quiz" class="text-white">Quiz</a></li>
                         <li><a href="#plan" class="text-white">Plan d'action</a></li>
                     </ul>
                 </div>
@@ -989,203 +1126,339 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Update slider values
-        document.getElementById('valuesScore').addEventListener('input', function() {
+        // Old slider-based evaluation (kept for reference, but quiz replaces primary assessment)
+        document.getElementById('valuesScore')?.addEventListener('input', function() {
             document.getElementById('valuesValue').textContent = this.value;
         });
-        
-        document.getElementById('gritScore').addEventListener('input', function() {
+        document.getElementById('gritScore')?.addEventListener('input', function() {
             document.getElementById('gritValue').textContent = this.value;
         });
-        
-        document.getElementById('smartScore').addEventListener('input', function() {
+        document.getElementById('smartScore')?.addEventListener('input', function() {
             document.getElementById('smartValue').textContent = this.value;
         });
-        
-        document.getElementById('softScore').addEventListener('input', function() {
+        document.getElementById('softScore')?.addEventListener('input', function() {
             document.getElementById('softValue').textContent = this.value;
         });
-        
-        document.getElementById('hardScore').addEventListener('input', function() {
+        document.getElementById('hardScore')?.addEventListener('input', function() {
             document.getElementById('hardValue').textContent = this.value;
         });
         
-        // Calculate score
-        document.getElementById('calculateBtn').addEventListener('click', function() {
-            // Get scores
-            const valuesScore = parseInt(document.getElementById('valuesScore').value);
-            const gritScore = parseInt(document.getElementById('gritScore').value);
-            const smartScore = parseInt(document.getElementById('smartScore').value);
-            const softScore = parseInt(document.getElementById('softScore').value);
-            const hardScore = parseInt(document.getElementById('hardScore').value);
+        // Remove old calculation button event listener if it exists
+        const oldCalculateBtn = document.getElementById('calculateBtn');
+        if (oldCalculateBtn) {
+            oldCalculateBtn.removeEventListener('click', () => {});
+            oldCalculateBtn.style.display = 'none'; // Hide the old button
+        }
+        document.getElementById('test')?.style.display = 'none'; // Hide the old test section
+
+        // Quiz Logic
+        const quizForm = document.getElementById('quizForm');
+        const quizResultsSection = document.getElementById('quizResultsSection');
+        const submitQuizBtn = document.getElementById('submitQuizBtn');
+        let quizRadarChart; // Declare chart variable
+
+        const quizQuestions = [
+            { id: 'q1', dimension: 'values', weight: 0.30 },
+            { id: 'q2', dimension: 'values', weight: 0.30 },
+            { id: 'q3', dimension: 'grit', weight: 0.25 },
+            { id: 'q4', dimension: 'grit', weight: 0.25 },
+            { id: 'q5', dimension: 'smart', weight: 0.20 },
+            { id: 'q6', dimension: 'smart', weight: 0.20 },
+            { id: 'q7', dimension: 'soft', weight: 0.15 },
+            { id: 'q8', dimension: 'soft', weight: 0.15 },
+            { id: 'q9', dimension: 'hard', weight: 0.10 },
+            { id: 'q10', dimension: 'hard', weight: 0.10 }
+        ];
+
+        submitQuizBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const scores = {
+                values: 0,
+                grit: 0,
+                smart: 0,
+                soft: 0,
+                hard: 0
+            };
+            const dimensionQuestionCounts = {
+                values: 0,
+                grit: 0,
+                smart: 0,
+                soft: 0,
+                hard: 0
+            };
+
+            let allQuestionsAnswered = true;
+
+            quizQuestions.forEach(q => {
+                const selectedOption = quizForm.querySelector(`input[name="${q.id}"]:checked`);
+                if (selectedOption) {
+                    scores[q.dimension] += parseInt(selectedOption.value);
+                    dimensionQuestionCounts[q.dimension]++;
+                } else {
+                    allQuestionsAnswered = false;
+                }
+            });
+
+            if (!allQuestionsAnswered) {
+                alert('Veuillez répondre à toutes les questions du quiz avant de soumettre.');
+                return;
+            }
+
+            // Calculate average score per dimension (out of 4, then scale to 10)
+            const dimensionScores = {
+                values: (scores.values / dimensionQuestionCounts.values) * 2.5, // 2 questions * max 4 = 8, scale to 10
+                grit: (scores.grit / dimensionQuestionCounts.grit) * 2.5,
+                smart: (scores.smart / dimensionQuestionCounts.smart) * 2.5,
+                soft: (scores.soft / dimensionQuestionCounts.soft) * 2.5,
+                hard: (scores.hard / dimensionQuestionCounts.hard) * 2.5
+            };
+
+            // Round to 1 decimal place
+            Object.keys(dimensionScores).forEach(key => {
+                dimensionScores[key] = Math.round(dimensionScores[key] * 10) / 10;
+            });
             
-            // Calculate weighted scores
-            const weightedValues = valuesScore * 0.30;
-            const weightedGrit = gritScore * 0.25;
-            const weightedSmart = smartScore * 0.20;
-            const weightedSoft = softScore * 0.15;
-            const weightedHard = hardScore * 0.10;
+            // Calculate weighted total score (out of 100)
+            const weightedValues = dimensionScores.values * 0.30 * 10;
+            const weightedGrit = dimensionScores.grit * 0.25 * 10;
+            const weightedSmart = dimensionScores.smart * 0.20 * 10;
+            const weightedSoft = dimensionScores.soft * 0.15 * 10;
+            const weightedHard = dimensionScores.hard * 0.10 * 10;
             
-            // Total score (out of 10, converted to percentage)
-            const totalScore = Math.round((weightedValues + weightedGrit + weightedSmart + weightedSoft + weightedHard) * 10);
-            
+            const totalWeightedScore = Math.round(weightedValues + weightedGrit + weightedSmart + weightedSoft + weightedHard);
+
             // Update progress bars
-            document.getElementById('valuesProgress').style.width = `${valuesScore * 10}%`;
-            document.getElementById('valuesProgress').textContent = `${valuesScore}/10`;
+            document.getElementById('quizValuesProgress').style.width = `${dimensionScores.values * 10}%`;
+            document.getElementById('quizValuesProgress').textContent = `${dimensionScores.values}/10`;
             
-            document.getElementById('gritProgress').style.width = `${gritScore * 10}%`;
-            document.getElementById('gritProgress').textContent = `${gritScore}/10`;
+            document.getElementById('quizGritProgress').style.width = `${dimensionScores.grit * 10}%`;
+            document.getElementById('quizGritProgress').textContent = `${dimensionScores.grit}/10`;
             
-            document.getElementById('smartProgress').style.width = `${smartScore * 10}%`;
-            document.getElementById('smartProgress').textContent = `${smartScore}/10`;
+            document.getElementById('quizSmartProgress').style.width = `${dimensionScores.smart * 10}%`;
+            document.getElementById('quizSmartProgress').textContent = `${dimensionScores.smart}/10`;
             
-            document.getElementById('softProgress').style.width = `${softScore * 10}%`;
-            document.getElementById('softProgress').textContent = `${softScore}/10`;
+            document.getElementById('quizSoftProgress').style.width = `${dimensionScores.soft * 10}%`;
+            document.getElementById('quizSoftProgress').textContent = `${dimensionScores.soft}/10`;
             
-            document.getElementById('hardProgress').style.width = `${hardScore * 10}%`;
-            document.getElementById('hardProgress').textContent = `${hardScore}/10`;
-            
+            document.getElementById('quizHardProgress').style.width = `${dimensionScores.hard * 10}%`;
+            document.getElementById('quizHardProgress').textContent = `${dimensionScores.hard}/10`;
+
             // Update total score
-            document.getElementById('totalScore').textContent = totalScore;
-            document.getElementById('totalProgress').style.width = `${totalScore}%`;
-            
+            document.getElementById('quizTotalScore').textContent = totalWeightedScore;
+            document.getElementById('quizTotalProgress').style.width = `${totalWeightedScore}%`;
+            document.getElementById('quizTotalProgress').className = `progress-bar progress-bar-striped progress-bar-animated ${getProgressBarColor(totalWeightedScore)}`;
+
+
             // Interpretation
             let interpretation = '';
-            if (totalScore >= 80) {
-                interpretation = '<p class="mb-1"><strong>Excellent !</strong></p><p>Vous avez un équilibre remarquable entre les différentes dimensions. Continuez à cultiver cet alignement.</p>';
-            } else if (totalScore >= 60) {
-                interpretation = '<p class="mb-1"><strong>Bon équilibre</strong></p><p>Vos dimensions sont bien développées, mais certains aspects pourraient encore être renforcés pour une réussite optimale.</p>';
-            } else if (totalScore >= 40) {
-                interpretation = '<p class="mb-1"><strong>Équilibre moyen</strong></p><p>Vous avez des bases solides mais certaines dimensions nécessitent un développement plus poussé.</p>';
+            if (totalWeightedScore >= 80) {
+                interpretation = '<p class="mb-1"><strong>Excellent !</strong></p><p>Votre profil est très équilibré et solide. Vous avez une forte conscience de l\'importance de toutes les dimensions pour la réussite durable. Continuez à cultiver cet alignement et à inspirer les autres.</p>';
+            } else if (totalWeightedScore >= 60) {
+                interpretation = '<p class="mb-1"><strong>Bon équilibre</strong></p><p>Vos dimensions sont bien développées, avec des points forts clairs. Vous êtes sur la bonne voie, mais l\'identification de vos dimensions les moins fortes peut vous aider à optimiser votre potentiel.</p>';
+            } else if (totalWeightedScore >= 40) {
+                interpretation = '<p class="mb-1"><strong>Équilibre moyen</strong></p><p>Vous avez des bases solides, mais certaines dimensions nécessitent un développement plus poussé pour atteindre votre plein potentiel. C\'est une excellente opportunité de croissance.</p>';
             } else {
-                interpretation = '<p class="mb-1"><strong>À développer</strong></p><p>Plusieurs dimensions clés nécessitent une attention particulière. Un plan de développement serait bénéfique.</p>';
+                interpretation = '<p class="mb-1"><strong>Besoin de développement ciblé</strong></p><p>Plusieurs dimensions clés nécessitent une attention particulière. Un plan de développement structuré axé sur vos faiblesses identifiées serait extrêmement bénéfique pour votre réussite.</p>';
             }
-            document.getElementById('scoreInterpretation').innerHTML = interpretation;
-            
-            // Generate recommendations
-            let recommendations = '<div class="row">';
-            
-            // Values recommendations
-            if (valuesScore < 6) {
-                recommendations += `
-                    <div class="col-md-6 mb-3">
-                        <div class="card border-success">
-                            <div class="card-header bg-success text-white">
-                                <i class="fas fa-dove me-2"></i> Valeurs Fondamentales
-                            </div>
-                            <div class="card-body">
-                                <p>Pour renforcer vos valeurs :</p>
-                                <ul>
-                                    <li>Pratiquez la réflexion quotidienne (journal, méditation)</li>
-                                    <li>Identifiez des modèles qui incarnent vos valeurs</li>
-                                    <li>Prenez des décisions alignées avec vos principes</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Grit recommendations
-            if (gritScore < 6) {
-                recommendations += `
-                    <div class="col-md-6 mb-3">
-                        <div class="card border-danger">
-                            <div class="card-header bg-danger text-white">
-                                <i class="fas fa-fire me-2"></i> La Niaque
-                            </div>
-                            <div class="card-body">
-                                <p>Pour développer votre persévérance :</p>
-                                <ul>
-                                    <li>Établissez une routine matinale productive</li>
-                                    <li>Fixez-vous des défis progressifs</li>
-                                    <li>Pratiquez une activité physique régulière</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Smart Skills recommendations
-            if (smartScore < 6) {
-                recommendations += `
-                    <div class="col-md-6 mb-3">
-                        <div class="card border-primary">
-                            <div class="card-header bg-primary text-white">
-                                <i class="fas fa-brain me-2"></i> Smart Skills
-                            </div>
-                            <div class="card-body">
-                                <p>Pour améliorer votre agilité :</p>
-                                <ul>
-                                    <li>Apprenez une nouvelle compétence chaque trimestre</li>
-                                    <li>Pratiquez la résolution de problèmes complexes</li>
-                                    <li>Développez votre curiosité intellectuelle</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Soft Skills recommendations
-            if (softScore < 6) {
-                recommendations += `
-                    <div class="col-md-6 mb-3">
-                        <div class="card border-warning">
-                            <div class="card-header bg-warning text-dark">
-                                <i class="fas fa-seedling me-2"></i> Soft Skills
-                            </div>
-                            <div class="card-body">
-                                <p>Pour améliorer vos relations :</p>
-                                <ul>
-                                    <li>Pratiquez l'écoute active</li>
-                                    <li>Demandez des feedbacks réguliers</li>
-                                    <li>Lisez sur l'intelligence émotionnelle</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Hard Skills recommendations
-            if (hardScore < 6) {
-                recommendations += `
-                    <div class="col-md-6 mb-3">
-                        <div class="card border-info">
-                            <div class="card-header bg-info text-white">
-                                <i class="fas fa-bullseye me-2"></i> Hard Skills
-                            </div>
-                            <div class="card-body">
-                                <p>Pour renforcer vos compétences techniques :</p>
-                                <ul>
-                                    <li>Identifiez les compétences clés à développer</li>
-                                    <li>Suivez une formation certifiante</li>
-                                    <li>Appliquez vos connaissances dans des projets concrets</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            recommendations += '</div>';
-            document.getElementById('recommendations').innerHTML = recommendations;
-            
+            document.getElementById('quizScoreInterpretation').innerHTML = interpretation;
+
+            // Generate recommendations, roadmap, books, best practices
+            generateDetailedResults(dimensionScores);
+
             // Show results section
-            document.getElementById('resultsSection').style.display = 'block';
-            
-            // Scroll to results
-            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            quizResultsSection.style.display = 'block';
+            quizResultsSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Initialize or update radar chart
+            updateRadarChart(dimensionScores);
         });
-        
+
+        function getProgressBarColor(score) {
+            if (score >= 80) return 'bg-success';
+            if (score >= 60) return 'bg-info';
+            if (score >= 40) return 'bg-warning';
+            return 'bg-danger';
+        }
+
+        function updateRadarChart(scores) {
+            const chartData = [
+                scores.values,
+                scores.grit,
+                scores.smart,
+                scores.soft,
+                scores.hard
+            ];
+
+            if (quizRadarChart) {
+                quizRadarChart.data.datasets[0].data = chartData;
+                quizRadarChart.update();
+            } else {
+                const ctx = document.getElementById('quizRadarChart').getContext('2d');
+                quizRadarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Valeurs', 'Niaque', 'Smart Skills', 'Soft Skills', 'Hard Skills'],
+                        datasets: [{
+                            label: 'Votre profil',
+                            data: chartData,
+                            backgroundColor: 'rgba(52, 152, 219, 0.4)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+                        }, {
+                            label: 'Profil idéal',
+                            data: [10, 10, 10, 10, 10], // Ideal profile: all 10s for comparison
+                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(46, 204, 113, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(46, 204, 113, 1)',
+                            borderDash: [5, 5]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true,
+                                    color: 'rgba(0,0,0,0.1)'
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 10,
+                                pointLabels: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    },
+                                    color: var(--dark-color)
+                                },
+                                ticks: {
+                                    display: false // Hide numerical ticks
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw}/10`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+
+        function generateDetailedResults(scores) {
+            const recommendationsDiv = document.getElementById('quizRecommendations');
+            const roadmapContentDiv = document.getElementById('roadmapContent');
+            const bookRecommendationsList = document.getElementById('bookRecommendations');
+            const bestPracticesList = document.getElementById('bestPractices');
+
+            let recommendationsHtml = '<h4>Synthèse de votre profil :</h4>';
+            let roadmapHtml = '<p>Votre feuille de route se concentrera sur les dimensions nécessitant le plus d\'attention :</p><ul>';
+            let bookListHtml = '';
+            let practicesHtml = '';
+
+            const sortedDimensions = Object.entries(scores).sort(([,scoreA], [,scoreB]) => scoreA - scoreB);
+
+            recommendationsHtml += '<p>Voici une analyse personnalisée basée sur vos réponses :</p>';
+            
+            sortedDimensions.forEach(([dimension, score]) => {
+                let dimensionName = '';
+                let colorClass = '';
+                let iconClass = '';
+                let advice = '';
+
+                switch (dimension) {
+                    case 'values': dimensionName = 'Valeurs Fondamentales'; colorClass = 'border-success'; iconClass = 'fas fa-dove';
+                        if (score < 6) advice = `Vos ${dimensionName} sont un pilier fondamental. Un score inférieur à 6 indique qu'il est crucial de clarifier vos principes et de les intégrer davantage dans vos décisions pour une direction solide et un impact durable.`;
+                        else advice = `Vos ${dimensionName} sont un point fort. Continuez à les ancrer profondément pour guider toutes vos actions et inspirer confiance.`;
+                        break;
+                    case 'grit': dimensionName = 'La Niaque'; colorClass = 'border-danger'; iconClass = 'fas fa-fire';
+                        if (score < 6) advice = `Votre Niaque (persévérance, résilience) semble nécessiter un renforcement. Développer cette énergie intérieure vous aidera à surmonter les obstacles et à maintenir le cap sur le long terme.`;
+                        else advice = `Votre Niaque est bien développée. Cette capacité à persévérer et à vous relever est un atout majeur pour atteindre vos objectifs les plus ambitieux.`;
+                        break;
+                    case 'smart': dimensionName = 'Smart Skills'; colorClass = 'border-primary'; iconClass = 'fas fa-brain';
+                        if (score < 6) advice = `Vos Smart Skills (apprentissage, adaptabilité, innovation) pourraient être améliorées. Cultiver votre curiosité et votre agilité intellectuelle vous permettra de rester pertinent et de prospérer dans un monde en évolution rapide.`;
+                        else advice = `Vos Smart Skills sont solides. Votre capacité à apprendre vite et à innover vous rend précieux et vous assure de rester à la pointe.`;
+                        break;
+                    case 'soft': dimensionName = 'Soft Skills'; colorClass = 'border-warning'; iconClass = 'fas fa-seedling';
+                        if (score < 6) advice = `Vos Soft Skills (communication, empathie, leadership relationnel) semblent être un axe de développement. Améliorer ces compétences humaines renforcera vos collaborations et votre influence positive.`;
+                        else advice = `Vos Soft Skills sont excellentes. Votre savoir-être relationnel facilite la coopération, la confiance et la mobilisation de votre entourage.`;
+                        break;
+                    case 'hard': dimensionName = 'Hard Skills'; colorClass = 'border-info'; iconClass = 'fas fa-bullseye';
+                        if (score < 6) advice = `Vos Hard Skills (compétences techniques) sont à consolider. Bien que moins influentes seules, elles sont la base de votre expertise et méritent d'être régulièrement mises à jour.`;
+                        else advice = `Vos Hard Skills sont un atout technique solide. Elles vous donnent la crédibilité nécessaire pour opérer dans votre domaine. Assurez-vous qu'elles soient toujours portées par vos autres dimensions.`;
+                        break;
+                }
+
+                recommendationsHtml += `
+                    <div class="card ${colorClass} mb-3">
+                        <div class="card-header bg-light">
+                            <i class="${iconClass} me-2"></i> <strong>${dimensionName}</strong> (Score: ${score}/10)
+                        </div>
+                        <div class="card-body">
+                            <p>${advice}</p>
+                        </div>
+                    </div>
+                `;
+
+                if (score < 7) { // Add to roadmap if score is below 7
+                    roadmapHtml += `<li><strong>${dimensionName}</strong>: ${advice.replace('Votre ', 'Développer votre ').replace('Vos ', 'Développer vos ')}</li>`;
+                }
+            });
+
+            roadmapHtml += '</ul>';
+
+            recommendationsDiv.innerHTML = recommendationsHtml;
+            roadmapContentDiv.innerHTML = roadmapHtml;
+
+            // Book Recommendations (fixed for now, could be dynamic later)
+            const books = [
+                { title: "Réfléchissez et devenez riche", author: "Napoleon Hill" },
+                { title: "L'art subtil de s'en foutre", author: "Mark Manson" },
+                { title: "Atomic Habits", author: "James Clear" },
+                { title: "L'intelligence émotionnelle", author: "Daniel Goleman" },
+                { title: "Deep Work", author: "Cal Newport" }
+            ];
+            bookListHtml = books.map(book => `<li class="list-group-item"><strong>${book.title}</strong> par ${book.author}</li>`).join('');
+            bookRecommendationsList.innerHTML = bookListHtml;
+
+            // Best Practices & Principles (fixed for now, could be dynamic later)
+            const practices = [
+                "**Cohérence Valeurs-Actions**: Agissez toujours en accord avec vos principes fondamentaux.",
+                "**Discipline Quotidienne**: La régularité bat l'intensité. Mettez en place des routines efficaces.",
+                "**Apprentissage Continu**: Ne cessez jamais d'apprendre, d'adapter et de vous réinventer.",
+                "**Communication Active**: Écoutez plus que vous ne parlez et pratiquez l'empathie.",
+                "**Maîtrise Spécifique**: Excellez dans votre domaine technique, mais ne vous y limitez pas."
+            ];
+            practicesHtml = practices.map(practice => `<li class="list-group-item">${practice}</li>`).join('');
+            bestPracticesList.innerHTML = practicesHtml;
+        }
+
         // Action Plan Button
-        document.getElementById('actionPlanBtn').addEventListener('click', function() {
+        document.getElementById('quizActionPlanBtn').addEventListener('click', function() {
             document.getElementById('plan').style.display = 'block';
             document.getElementById('plan').scrollIntoView({ behavior: 'smooth' });
             
@@ -1208,9 +1481,9 @@
             alert('Plan enregistré avec succès !');
         });
         
-        // Save Results Button
-        document.getElementById('saveResultsBtn').addEventListener('click', function() {
-            alert('Résultats enregistrés avec succès !');
+        // Save Quiz Results Button
+        document.getElementById('saveQuizResultsBtn').addEventListener('click', function() {
+            alert('Résultats du quiz enregistrés avec succès !');
         });
         
         // Initialize tooltips
@@ -1218,69 +1491,7 @@
         tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
-        
-        // Create radar chart
-        const ctx = document.createElement('canvas');
-        ctx.id = 'radarChart';
-        document.querySelector('.chart-container').appendChild(ctx);
-        
-        const radarChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['Valeurs', 'Niaque', 'Smart Skills', 'Soft Skills', 'Hard Skills'],
-                datasets: [{
-                    label: 'Votre profil',
-                    data: [5, 5, 5, 5, 5],
-                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                    borderColor: 'rgba(52, 152, 219, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(52, 152, 219, 1)'
-                }, {
-                    label: 'Profil idéal',
-                    data: [10, 8.3, 6.7, 5, 3.3],
-                    backgroundColor: 'rgba(46, 204, 113, 0.2)',
-                    borderColor: 'rgba(46, 204, 113, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(46, 204, 113, 1)',
-                    borderDash: [5, 5]
-                }]
-            },
-            options: {
-                scales: {
-                    r: {
-                        angleLines: {
-                            display: true
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 10
-                    }
-                },
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.dataset.label}: ${context.raw}/10`;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        
-        // Update chart when calculating score
-        document.getElementById('calculateBtn').addEventListener('click', function() {
-            const valuesScore = parseInt(document.getElementById('valuesScore').value);
-            const gritScore = parseInt(document.getElementById('gritScore').value);
-            const smartScore = parseInt(document.getElementById('smartScore').value);
-            const softScore = parseInt(document.getElementById('softScore').value);
-            const hardScore = parseInt(document.getElementById('hardScore').value);
-            
-            radarChart.data.datasets[0].data = [valuesScore, gritScore, smartScore, softScore, hardScore];
-            radarChart.update();
-        });
+
     </script>
 </body>
 </html>
