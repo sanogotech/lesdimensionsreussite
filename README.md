@@ -13,15 +13,18 @@ Chaque dimension joue un rôle **complémentaire** avec un **poids spécifique**
 
 ---
 
-## 🧩 Répartition des 5 dimensions selon leur impact
+### 🧩 Répartition des 5 dimensions selon leur impact
 
-| **Dimension**             | **Poids (%)** | **Priorité** | **Pourquoi ?**                                                                   |
-| ------------------------- | ------------- | ------------ | -------------------------------------------------------------------------------- |
-| 🕊️ Valeurs fondamentales | **30%**       | 1️⃣          | C’est la **boussole intérieure** : sans elles, tout le reste peut être dangereux |
-| 🔥 Niaque                 | **25%**       | 2️⃣          | L’**énergie durable**, la discipline et le courage pour **tenir dans la durée**  |
-| 🧠 Smart Skills           | **20%**       | 3️⃣          | L’**agilité intellectuelle**, la capacité à s’adapter et à innover               |
-| 🌱 Soft Skills            | **15%**       | 4️⃣          | Le **savoir-être** relationnel, essentiel pour coopérer et créer de la confiance |
-| 🎯 Hard Skills            | **10%**       | 5️⃣          | Le **socle technique**, nécessaire mais **insuffisant seul**                     |
+| Dimension                     | Poids (%) | Priorité | Pourquoi ?                                                                   | 5 Exemples concrets                                                                                                                                                                                                                                    |
+| ----------------------------- | --------- | -------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 🕊️ **Valeurs fondamentales** | 30%       | 1️⃣      | C’est la boussole intérieure : sans elles, tout le reste peut être dangereux | - Agir avec intégrité même sous pression<br>- Dire la vérité au détriment du confort<br>- Refuser un client contraire à l’éthique<br>- Défendre un collègue injustement critiqué<br>- Prendre ses responsabilités sans blâmer                          |
+| 🔥 **Niaque**                 | 25%       | 2️⃣      | L’énergie durable, la discipline et le courage pour tenir dans la durée      | - Se lever tôt pour avancer sur un projet<br>- Terminer une tâche difficile sans abandonner<br>- S’entraîner chaque jour malgré la fatigue<br>- Apprendre après un échec<br>- Rebondir après un refus ou un obstacle                                   |
+| 🧠 **Smart Skills**           | 20%       | 3️⃣      | L’agilité intellectuelle, la capacité à s’adapter et à innover               | - Résoudre un problème inédit en changeant d’angle<br>- Proposer une nouvelle méthode plus efficace<br>- Apprendre une nouvelle compétence rapidement<br>- Relier des idées venant de domaines différents<br>- Réagir avec lucidité dans l’incertitude |
+| 🌱 **Soft Skills**            | 15%       | 4️⃣      | Le savoir-être relationnel, essentiel pour coopérer et créer de la confiance | - Écouter activement en réunion<br>- Gérer un conflit avec empathie<br>- Donner un feedback constructif<br>- Motiver un collègue démoralisé<br>- Adapter son discours à son interlocuteur                                                              |
+| 🎯 **Hard Skills**            | 10%       | 5️⃣      | Le socle technique, nécessaire mais insuffisant seul                         | - Savoir coder en Python ou Java<br>- Maîtriser Excel avancé<br>- Rédiger un rapport clair et structuré<br>- Connaître les normes de sécurité ISO<br>- Analyser des données avec Power BI                                                              |
+
+
+
 
 ---
 
