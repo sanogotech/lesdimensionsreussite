@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz des 5 Dimensions Clés de la Réussite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-color) !important;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            font-weight: 600;
+            border-top-left-radius: 10px !important;
+            border-top-right-radius: 10px !important;
+            padding: 15px 20px;
+        }
+
+        .quiz-question label {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 10px;
+            transition: all 0.2s ease-in-out;
+            display: block;
+            background-color: #fff;
+        }
+
+        .quiz-question label:hover {
+            background-color: var(--light-color);
+            border-color: var(--secondary-color);
+        }
+
+        .quiz-question input[type="radio"] {
+            display: none;
+        }
+
+        .quiz-question input[type="radio"]:checked + label {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            height: 25px;
+            line-height: 25px;
+            font-weight: bold;
+            color: white;
+            transition: width 0.6s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .progress {
+            height: 25px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .results-section h2, .plan-section h2 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #quizRadarChart {
+            max-width: 500px;
+            max-height: 500px;
+            margin: 20px auto;
+        }
+
+        .list-group-item {
+            border-color: #e9ecef;
+            background-color: #fcfcfc;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        /* Custom card borders for detailed results */
+        .card.border-success { border: 2px solid #28a745 !important; }
+        .card.border-danger { border: 2px solid #dc3545 !important; }
+        .card.border-primary { border: 2px solid #007bff !important; }
+        .card.border-warning { border: 2px solid #ffc107 !important; }
+        .card.border-info { border: 2px solid #17a2b8 !important; }
+        
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin: 30px 0;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary-color);
+        }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-step-header {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-step-header:before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-step-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .dimension-card {
+            transition: all 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            #quizRadarChart {
+                max-width: 100%;
+            }
+            .timeline {
+                padding-left: 30px;
+            }
+            .timeline-step-header {
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Les 5 Dimensions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quiz">Le Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quizResultsSection">Vos Résultats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#plan">Plan d'Action</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Découvrez vos 5 Dimensions Clés de la Réussite</h1>
+            <p>Ce quiz interactif vous aidera à évaluer vos compétences et traits de caractère essentiels pour une réussite durable, en équilibrant vos Valeurs, Niaque, Smart Skills, Soft Skills et Hard Skills.</p>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <section id="quiz" class="mb-5">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-question-circle me-2"></i> Répondez au Quiz
+                </div>
+                <div class="card-body">
+                    <form id="quizForm">
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q1: À quel point vos actions quotidiennes sont-elles alignées avec vos principes et croyances fondamentales ?</strong></p>
+                            <input type="radio" id="q1_1" name="q1" value="1"><label for="q1_1">1 - Très peu, mes actions divergent souvent de mes valeurs.</label>
+                            <input type="radio" id="q1_2" name="q1" value="2"><label for="q1_2">2 - Parfois, j'ai du mal à toujours suivre mes valeurs.</label>
+                            <input type="radio" id="q1_3" name="q1" value="3"><label for="q1_3">3 - Souvent, j'essaie de maintenir la cohérence.</label>
+                            <input type="radio" id="q1_4" name="q1" value="4"><label for="q1_4">4 - Très souvent, mes actions reflètent fortement mes valeurs.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q2: Dans quelle mesure vos décisions importantes (professionnelles ou personnelles) sont-elles guidées par un sens clair de l'éthique et de l'intégrité ?</strong></p>
+                            <input type="radio" id="q2_1" name="q2" value="1"><label for="q2_1">1 - Rarement, je me concentre plus sur les résultats que sur l'éthique.</label>
+                            <input type="radio" id="q2_2" name="q2" value="2"><label for="q2_2">2 - Parfois, l'éthique est une considération secondaire.</label>
+                            <input type="radio" id="q2_3" name="q2" value="3"><label for="q2_3">3 - Souvent, l'éthique est importante mais pas toujours prioritaire.</label>
+                            <input type="radio" id="q2_4" name="q2" value="4"><label for="q2_4">4 - Toujours, l'éthique et l'intégrité sont au cœur de toutes mes décisions.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q3: Face à un échec ou un revers, comment réagissez-vous ?</strong></p>
+                            <input type="radio" id="q3_1" name="q3" value="1"><label for="q3_1">1 - J'abandonne facilement et perds ma motivation.</label>
+                            <input type="radio" id="q3_2" name="q3" value="2"><label for="q3_2">2 - Je suis découragé(e) et mets du temps à m'en remettre.</label>
+                            <input type="radio" id="q3_3" name="q3" value="3"><label for="q3_3">3 - J'analyse ce qui n'a pas marché et essaie de rebondir.</label>
+                            <input type="radio" id="q3_4" name="q3" value="4"><label for="q3_4">4 - Je vois chaque échec comme une leçon et redouble d'efforts.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q4: Quand vous commencez un projet difficile ou à long terme, quelle est votre persévérance ?</strong></p>
+                            <input type="radio" id="q4_1" name="q4" value="1"><label for="q4_1">1 - Je perds rapidement mon enthousiasme et ma concentration.</label>
+                            <input type="radio" id="q4_2" name="q4" value="2"><label for="q4_2">2 - Je persiste un temps, mais les difficultés me freinent.</label>
+                            <input type="radio" id="q4_3" name="q4" value="3"><label for="q4_3">3 - Je suis déterminé(e) à aller jusqu'au bout, même avec des défis.</label>
+                            <input type="radio" id="q4_4" name="q4" value="4"><label for="q4_4">4 - Je suis inébranlable et trouve toujours des moyens de surmonter les obstacles.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q5: Comment abordez-vous les nouvelles informations ou les changements inattendus dans votre environnement (professionnel ou personnel) ?</strong></p>
+                            <input type="radio" id="q5_1" name="q5" value="1"><label for="q5_1">1 - Je résiste au changement et préfère rester dans ma zone de confort.</label>
+                            <input type="radio" id="q5_2" name="q5" value="2"><label for="q5_2">2 - Je m'adapte avec difficulté et après un certain temps.</label>
+                            <input type="radio" id="q5_3" name="q5" value="3"><label for="q5_3">3 - Je suis ouvert(e) et essaie de comprendre rapidement.</label>
+                            <input type="radio" id="q5_4" name="q5" value="4"><label for="q5_4">4 - J'accueille activement le nouveau et y vois des opportunités d'apprentissage.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q6: Quelle est votre capacité à résoudre des problèmes complexes ou à penser de manière innovante ?</strong></p>
+                            <input type="radio" id="q6_1" name="q6" value="1"><label for="q6_1">1 - Je préfère les solutions simples et éprouvées, l'innovation n'est pas mon fort.</label>
+                            <input type="radio" id="q6_2" name="q6" value="2"><label for="q6_2">2 - Je peux résoudre des problèmes avec de l'aide, mais l'innovation est difficile.</label>
+                            <input type="radio" id="q6_3" name="q6" value="3"><label for="q6_3">3 - Je suis capable de trouver des solutions créatives et d'innover sur certains sujets.</label>
+                            <input type="radio" id="q6_4" name="q6" value="4"><label for="q6_4">4 - Je suis un(e) penseur(euse) critique et innovant(e), je cherche toujours de nouvelles approches.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q7: Dans quelle mesure êtes-vous conscient(e) de vos propres émotions et de celles des autres, et comment les gérez-vous ?</strong></p>
+                            <input type="radio" id="q7_1" name="q7" value="1"><label for="q7_1">1 - J'ai du mal à identifier mes émotions et celles des autres, et à réagir de manière appropriée.</label>
+                            <input type="radio" id="q7_2" name="q7" value="2"><label for="q7_2">2 - Je suis parfois conscient(e) des émotions, mais leur gestion est un défi.</label>
+                            <input type="radio" id="q7_3" name="q7" value="3"><label for="q7_3">3 - Je suis généralement conscient(e) des émotions et j'essaie de les gérer constructivement.</label>
+                            <input type="radio" id="q7_4" name="q7" value="4"><label for="q7_4">4 - J'ai une grande intelligence émotionnelle, je perçois et gère les émotions efficacement pour construire de bonnes relations.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q8: Comment interagissez-vous avec les autres dans un cadre d'équipe ou collaboratif ?</strong></p>
+                            <input type="radio" id="q8_1" name="q8" value="1"><label for="q8_1">1 - Je préfère travailler seul(e) et j'ai des difficultés à collaborer.</label>
+                            <input type="radio" id="q8_2" name="q8" value="2"><label for="q8_2">2 - Je participe, mais la collaboration n'est pas toujours fluide.</label>
+                            <input type="radio" id="q8_3" name="q8" value="3"><label for="q8_3">3 - Je suis un(e) bon(ne) coéquipier(e) et je contribue activement.</label>
+                            <input type="radio" id="q8_4" name="q8" value="4"><label for="q8_4">4 - Je suis un(e) leader collaboratif(ve) qui inspire et motive les autres.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q9: Dans quelle mesure maîtrisez-vous les compétences techniques ou les connaissances spécifiques à votre domaine d'activité ?</strong></p>
+                            <input type="radio" id="q9_1" name="q9" value="1"><label for="q9_1">1 - Mes compétences techniques sont limitées ou dépassées.</label>
+                            <input type="radio" id="q9_2" name="q9" value="2"><label for="q9_2">2 - J'ai des bases, mais je dois souvent faire appel à d'autres.</label>
+                            <input type="radio" id="q9_3" name="q9" value="3"><label for="q9_3">3 - Je suis compétent(e) dans la plupart des aspects de mon domaine.</label>
+                            <input type="radio" id="q9_4" name="q9" value="4"><label for="q9_4">4 - Je suis un(e) expert(e) reconnu(e) et un(e) référence dans mon domaine.</label>
+                        </div>
+
+                        <div class="mb-4 quiz-question">
+                            <p class="mb-2"><strong>Q10: À quelle fréquence mettez-vous à jour ou apprenez-vous de nouvelles compétences techniques pour rester pertinent(e) ?</strong></p>
+                            <input type="radio" id="q10_1" name="q10" value="1"><label for="q10_1">1 - Rarement ou jamais, je me repose sur mes acquis.</label>
+                            <input type="radio" id="q10_2" name="q10" value="2"><label for="q10_2">2 - Occasionnellement, quand c'est absolument nécessaire.</label>
+                            <input type="radio" id="q10_3" name="q10" value="3"><label for="q10_3">3 - Régulièrement, je suis les évolutions de mon domaine.</label>
+                            <input type="radio" id="q10_4" name="q10" value="4"><label for="q10_4">4 - Constamment, je suis proactif(ve) dans l'acquisition de nouvelles compétences techniques.</label>
+                        </div>
+
+                        <button type="button" id="submitQuizBtn" class="btn btn-primary btn-lg w-100"><i class="fas fa-chart-line me-2"></i> Obtenir mon Analyse</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="quizResultsSection" style="display: none;" class="mb-5">
+            <h2 class="text-center mb-4">Vos Résultats du Quiz</h2>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-percent me-2"></i> Votre Score Global
+                </div>
+                <div class="card-body text-center">
+                    <p class="display-4 fw-bold mb-3"><span id="quizTotalScore">0</span><small>/100</small></p>
+                    <div class="progress mb-3">
+                        <div id="quizTotalProgress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div id="quizScoreInterpretation" class="alert alert-info" role="alert">
+                        <p class="mb-0">Votre interprétation personnalisée apparaîtra ici après avoir rempli le quiz.</p>
+                    </div>
+                    <button id="saveQuizResultsBtn" class="btn btn-outline-primary mt-3 me-2"><i class="fas fa-save me-2"></i> Enregistrer les Résultats</button>
+                    <button id="quizActionPlanBtn" class="btn btn-accent mt-3"><i class="fas fa-clipboard-list me-2"></i> Créer un Plan d'Action</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-2"></i> Détail des Scores par Dimension (sur 10)
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <strong>Valeurs Fondamentales:</strong>
+                                <div class="progress">
+                                    <div id="quizValuesProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%;">0/10</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong>La Niaque:</strong>
+                                <div class="progress">
+                                    <div id="quizGritProgress" class="progress-bar bg-danger" role="progressbar" style="width: 0%;">0/10</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Smart Skills:</strong>
+                                <div class="progress">
+                                    <div id="quizSmartProgress" class="progress-bar bg-primary" role="progressbar" style="width: 0%;">0/10</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Soft Skills:</strong>
+                                <div class="progress">
+                                    <div id="quizSoftProgress" class="progress-bar bg-warning" role="progressbar" style="width: 0%;">0/10</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Hard Skills:</strong>
+                                <div class="progress">
+                                    <div id="quizHardProgress" class="progress-bar bg-info" role="progressbar" style="width: 0%;">0/10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="fas fa-compass me-2"></i> Votre Profil en un Coup d'Œil (Radar Chart)
+                        </div>
+                        <div class="card-body d-flex justify-content-center align-items-center">
+                            <canvas id="quizRadarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb me-2"></i> Recommandations et Analyse Détaillée
+                </div>
+                <div class="card-body" id="quizRecommendations">
+                    <p>Vos recommandations personnalisées apparaîtront ici.</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-road me-2"></i> Feuille de Route Personnalisée
+                </div>
+                <div class="card-body" id="roadmapContent">
+                    <p>Votre feuille de route personnalisée apparaîtra ici après le quiz.</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book-open me-2"></i> Livres Recommandés
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" id="bookRecommendations">
+                        <li class="list-group-item">Les livres recommandés apparaîtront ici</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-check-double me-2"></i> Meilleures Pratiques et Principes
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" id="bestPractices">
+                        <li class="list-group-item">Les meilleures pratiques apparaîtront ici</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan" style="display: none;" class="mb-5">
+            <h2 class="text-center mb-4">Votre Plan d'Action Personnalisé</h2>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clipboard-list me-2"></i> Mon Plan pour les 3 Prochains Mois
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="planStartDate" class="form-label">Date de début du plan :</label>
+                        <input type="date" class="form-control" id="planStartDate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="planReviewDate" class="form-label">Date de révision du plan (dans 3 mois) :</label>
+                        <input type="date" class="form-control" id="planReviewDate">
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Feuille de route ciblée :</h4>
+                        <div id="planRoadmapContent" class="alert alert-secondary">
+                            <p>Votre feuille de route détaillée apparaîtra ici après le quiz.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Objectifs Spécifiques (SMART) :</h4>
+                        <ul class="list-group" id="smartGoalsList">
+                            <li class="list-group-item">
+                                <label for="goal1" class="form-label">Objectif 1 (Ex: Améliorer ma Niaque en lisant un livre sur la résilience) :</label>
+                                <input type="text" class="form-control" id="goal1" placeholder="Décrivez votre objectif SMART ici">
+                            </li>
+                            <li class="list-group-item">
+                                <label for="goal2" class="form-label">Objectif 2 (Ex: Mettre en pratique l'écoute active avec 3 personnes par semaine) :</label>
+                                <input type="text" class="form-control" id="goal2" placeholder="Décrivez votre objectif SMART ici">
+                            </li>
+                            <li class="list-group-item">
+                                <label for="goal3" class="form-label">Objectif 3 :</label>
+                                <input type="text" class="form-control" id="goal3" placeholder="Décrivez votre objectif SMART ici">
+                            </li>
+                        </ul>
+                        <button class="btn btn-outline-secondary btn-sm mt-2" onclick="addGoalField()">Ajouter un objectif</button>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Actions Quotidiennes / Hebdomadaires :</h4>
+                        <textarea class="form-control" rows="5" id="dailyActions" placeholder="Notez les actions concrètes que vous allez entreprendre régulièrement pour atteindre vos objectifs..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Ressources Supplémentaires :</h4>
+                        <textarea class="form-control" rows="3" id="additionalResources" placeholder="Identifiez des cours, mentors, podcasts, articles qui peuvent vous aider..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4>Comment je mesurerai mes progrès :</h4>
+                        <textarea class="form-control" rows="3" id="progressMeasurement" placeholder="Décrivez comment vous suivrez votre évolution (journal, feedback, auto-évaluation hebdomadaire)..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button id="printPlanBtn" class="btn btn-info me-2"><i class="fas fa-print me-2"></i> Imprimer le Plan</button>
+                        <button id="savePlanBtn" class="btn btn-success"><i class="fas fa-save me-2"></i> Enregistrer le Plan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Les 5 Dimensions Clés de la Réussite. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Vérifier si Chart.js est chargé
+        if (typeof Chart === 'undefined') {
+            console.warn('Chart.js n\'est pas chargé. Le graphique radar ne sera pas affiché.');
+        }
+
+        // --- Début du script amélioré du quiz ---
+
+        // Logique du Quiz
+        const quizForm = document.getElementById('quizForm');
+        const quizResultsSection = document.getElementById('quizResultsSection');
+        const submitQuizBtn = document.getElementById('submitQuizBtn');
+        let quizRadarChart;
+
+        const quizQuestions = [
+            { id: 'q1', dimension: 'values', weight: 0.30 },
+            { id: 'q2', dimension: 'values', weight: 0.30 },
+            { id: 'q3', dimension: 'grit', weight: 0.25 },
+            { id: 'q4', dimension: 'grit', weight: 0.25 },
+            { id: 'q5', dimension: 'smart', weight: 0.20 },
+            { id: 'q6', dimension: 'smart', weight: 0.20 },
+            { id: 'q7', dimension: 'soft', weight: 0.15 },
+            { id: 'q8', dimension: 'soft', weight: 0.15 },
+            { id: 'q9', dimension: 'hard', weight: 0.10 },
+            { id: 'q10', dimension: 'hard', weight: 0.10 }
+        ];
+
+        // Fonction principale pour calculer et afficher les résultats
+        function calculateAndDisplayResults() {
+            const scores = {
+                values: 0,
+                grit: 0,
+                smart: 0,
+                soft: 0,
+                hard: 0
+            };
+            const dimensionQuestionCounts = {
+                values: 0,
+                grit: 0,
+                smart: 0,
+                soft: 0,
+                hard: 0
+            };
+
+            let allQuestionsAnswered = true;
+
+            quizQuestions.forEach(q => {
+                const selectedOption = quizForm.querySelector(`input[name="${q.id}"]:checked`);
+                if (selectedOption) {
+                    scores[q.dimension] += parseInt(selectedOption.value);
+                    dimensionQuestionCounts[q.dimension]++;
+                } else {
+                    allQuestionsAnswered = false;
+                }
+            });
+
+            if (!allQuestionsAnswered) {
+                alert('Veuillez répondre à toutes les questions du quiz pour obtenir une analyse complète.');
+                return;
+            }
+
+            // Calculer le score moyen par dimension (sur 4, puis mise à l'échelle sur 10)
+            const dimensionScores = {};
+            Object.keys(scores).forEach(dimension => {
+                if (dimensionQuestionCounts[dimension] > 0) {
+                    dimensionScores[dimension] = (scores[dimension] / (dimensionQuestionCounts[dimension] * 4)) * 10;
+                } else {
+                    dimensionScores[dimension] = 0;
+                }
+            });
+            
+            // Arrondir à 1 décimale
+            Object.keys(dimensionScores).forEach(key => {
+                dimensionScores[key] = Math.round(dimensionScores[key] * 10) / 10;
+            });
+            
+            // Calculer le score total pondéré (sur 100)
+            const weightedValues = dimensionScores.values * 0.30;
+            const weightedGrit = dimensionScores.grit * 0.25;
+            const weightedSmart = dimensionScores.smart * 0.20;
+            const weightedSoft = dimensionScores.soft * 0.15;
+            const weightedHard = dimensionScores.hard * 0.10;
+            
+            const totalWeightedScore = Math.round(
+                (weightedValues * 10) + 
+                (weightedGrit * 10) + 
+                (weightedSmart * 10) + 
+                (weightedSoft * 10) + 
+                (weightedHard * 10)
+            );
+
+            // Mettre à jour les barres de progression
+            document.getElementById('quizValuesProgress').style.width = `${dimensionScores.values * 10}%`;
+            document.getElementById('quizValuesProgress').textContent = `${dimensionScores.values}/10`;
+            
+            document.getElementById('quizGritProgress').style.width = `${dimensionScores.grit * 10}%`;
+            document.getElementById('quizGritProgress').textContent = `${dimensionScores.grit}/10`;
+            
+            document.getElementById('quizSmartProgress').style.width = `${dimensionScores.smart * 10}%`;
+            document.getElementById('quizSmartProgress').textContent = `${dimensionScores.smart}/10`;
+            
+            document.getElementById('quizSoftProgress').style.width = `${dimensionScores.soft * 10}%`;
+            document.getElementById('quizSoftProgress').textContent = `${dimensionScores.soft}/10`;
+            
+            document.getElementById('quizHardProgress').style.width = `${dimensionScores.hard * 10}%`;
+            document.getElementById('quizHardProgress').textContent = `${dimensionScores.hard}/10`;
+
+            // Mettre à jour le score total
+            document.getElementById('quizTotalScore').textContent = totalWeightedScore;
+            document.getElementById('quizTotalProgress').style.width = `${totalWeightedScore}%`;
+            document.getElementById('quizTotalProgress').className = `progress-bar progress-bar-striped progress-bar-animated ${getProgressBarColor(totalWeightedScore)}`;
+
+            // Interprétation
+            let interpretation = '';
+            if (totalWeightedScore >= 80) {
+                interpretation = '<p class="mb-1"><strong>Excellent !</strong></p><p>Votre profil est très équilibré et solide. Vous avez une forte conscience de l\'importance de toutes les dimensions pour la réussite durable. Continuez à cultiver cet alignement et à inspirer les autres.</p>';
+            } else if (totalWeightedScore >= 60) {
+                interpretation = '<p class="mb-1"><strong>Bon équilibre</strong></p><p>Vos dimensions sont bien développées, avec des points forts clairs. Vous êtes sur la bonne voie, mais l\'identification de vos dimensions les moins fortes peut vous aider à optimiser votre potentiel.</p>';
+            } else if (totalWeightedScore >= 40) {
+                interpretation = '<p class="mb-1"><strong>Équilibre moyen</strong></p><p>Vous avez des bases solides, mais certaines dimensions nécessitent un développement plus poussé pour atteindre votre plein potentiel. C\'est une excellente opportunité de croissance.</p>';
+            } else {
+                interpretation = '<p class="mb-1"><strong>Besoin de développement ciblé</strong></p><p>Plusieurs dimensions clés nécessitent une attention particulière. Un plan de développement structuré axé sur vos faiblesses identifiées serait extrêmement bénéfique pour votre réussite.</p>';
+            }
+            document.getElementById('quizScoreInterpretation').innerHTML = interpretation;
+
+            // Générer les résultats détaillés et feuille de route
+            generateDetailedResults(dimensionScores);
+            generateRoadmap(dimensionScores);
+
+            // Afficher la section des résultats
+            quizResultsSection.style.display = 'block';
+            document.getElementById('plan').style.display = 'block';
+            
+            // Faire défiler vers les résultats après un léger délai
+            setTimeout(() => {
+                quizResultsSection.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+
+            // Initialiser ou mettre à jour le graphique radar
+            if (typeof Chart !== 'undefined') {
+                updateRadarChart(dimensionScores);
+            } else {
+                console.error('Chart.js n\'est pas disponible pour afficher le graphique radar.');
+            }
+        }
+
+        // Écouteur d'événement pour le bouton de soumission
+        submitQuizBtn.addEventListener('click', calculateAndDisplayResults);
+
+        function getProgressBarColor(score) {
+            if (score >= 80) return 'bg-success';
+            if (score >= 60) return 'bg-info';
+            if (score >= 40) return 'bg-warning';
+            return 'bg-danger';
+        }
+
+        function updateRadarChart(scores) {
+            const chartData = [
+                scores.values,
+                scores.grit,
+                scores.smart,
+                scores.soft,
+                scores.hard
+            ];
+
+            const ctx = document.getElementById('quizRadarChart');
+            if (!ctx) {
+                console.error("Élément 'quizRadarChart' introuvable.");
+                return;
+            }
+
+            if (quizRadarChart) {
+                quizRadarChart.data.datasets[0].data = chartData;
+                quizRadarChart.update();
+            } else {
+                quizRadarChart = new Chart(ctx.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Valeurs', 'Niaque', 'Smart Skills', 'Soft Skills', 'Hard Skills'],
+                        datasets: [{
+                            label: 'Votre profil',
+                            data: chartData,
+                            backgroundColor: 'rgba(52, 152, 219, 0.4)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+                        }, {
+                            label: 'Profil idéal',
+                            data: [10, 10, 10, 10, 10],
+                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(46, 204, 113, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(46, 204, 113, 1)',
+                            borderDash: [5, 5]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true,
+                                    color: 'rgba(0,0,0,0.1)'
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 10,
+                                pointLabels: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    },
+                                    color: 'var(--dark-color)'
+                                },
+                                ticks: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw}/10`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function generateDetailedResults(scores) {
+            const recommendationsDiv = document.getElementById('quizRecommendations');
+            const bookRecommendationsList = document.getElementById('bookRecommendations');
+            const bestPracticesList = document.getElementById('bestPractices');
+
+            let recommendationsHtml = '<h4>Synthèse de votre profil :</h4>';
+            let bookListHtml = '';
+            let practicesHtml = '';
+
+            // Trier les dimensions par score croissant pour les recommandations
+            const sortedDimensions = Object.entries(scores).sort(([,scoreA], [,scoreB]) => scoreA - scoreB);
+
+            recommendationsHtml += '<div class="row">';
+
+            sortedDimensions.forEach(([dimension, score]) => {
+                let dimensionName = '';
+                let colorClass = '';
+                let iconClass = '';
+                let advice = '';
+                let actions = [];
+                let books = [];
+                let practices = [];
+
+                switch (dimension) {
+                    case 'values': 
+                        dimensionName = 'Valeurs Fondamentales'; 
+                        colorClass = 'border-success'; 
+                        iconClass = 'fas fa-dove';
+                        
+                        if (score < 5) {
+                            advice = `Vos valeurs semblent peu alignées avec vos actions. Cela peut créer un sentiment de dissonance et réduire votre motivation à long terme.`;
+                            actions = [
+                                "Faites une liste de vos 5 valeurs fondamentales",
+                                "Notez chaque jour une action qui a respecté ces valeurs",
+                                "Lisez des biographies de personnes qui incarnent ces valeurs"
+                            ];
+                            books = [
+                                {title: "Trouver son pourquoi", author: "Simon Sinek"},
+                                {title: "L'homme en quête de sens", author: "Viktor Frankl"}
+                            ];
+                        } else if (score < 7) {
+                            advice = `Vos valeurs guident souvent vos actions, mais il reste des opportunités d'alignement plus profond.`;
+                            actions = [
+                                "Identifiez 3 situations récentes où vos actions n'étaient pas alignées avec vos valeurs",
+                                "Créez un tableau de vision qui représente vos valeurs",
+                                "Partagez vos valeurs avec votre entourage"
+                            ];
+                            books = [
+                                {title: "Les 7 habitudes des gens efficaces", author: "Stephen Covey"},
+                                {title: "Le pouvoir du moment présent", author: "Eckhart Tolle"}
+                            ];
+                        } else {
+                            advice = `Vos actions sont fortement alignées avec vos valeurs - c'est une force majeure pour votre réussite durable.`;
+                            actions = [
+                                "Mentorez quelqu'un sur l'importance des valeurs",
+                                "Documentez comment vos valeurs ont guidé des décisions importantes",
+                                "Évaluez si vos valeurs évoluent avec le temps"
+                            ];
+                            books = [
+                                {title: "Donner et recevoir", author: "Adam Grant"},
+                                {title: "La puissance de la vulnérabilité", author: "Brené Brown"}
+                            ];
+                        }
+                        practices = [
+                            "Revoyez vos valeurs chaque trimestre",
+                            "Prenez des décisions importantes en vous demandant d'abord si elles respectent vos valeurs",
+                            "Entourez-vous de personnes partageant des valeurs similaires"
+                        ];
+                        break;
+                        
+                    case 'grit': 
+                        dimensionName = 'La Niaque'; 
+                        colorClass = 'border-danger'; 
+                        iconClass = 'fas fa-fire';
+                        
+                        if (score < 5) {
+                            advice = `Votre persévérance face aux obstacles semble limitée. Développer cette dimension vous aidera à surmonter les défis inévitables.`;
+                            actions = [
+                                "Fixez-vous un petit défi quotidien pendant 30 jours",
+                                "Notez 3 échecs passés et ce que vous en avez appris",
+                                "Pratiquez une activité difficile mais enrichissante (méditation, sport)"
+                            ];
+                            books = [
+                                {title: "Grit: The Power of Passion and Perseverance", author: "Angela Duckworth"},
+                                {title: "L'art de la victoire", author: "Phil Knight"}
+                            ];
+                        } else if (score < 7) {
+                            advice = `Vous faites preuve de persévérance, mais pourriez renforcer votre résilience face aux échecs majeurs.`;
+                            actions = [
+                                "Identifiez un objectif à long terme et divisez-le en étapes",
+                                "Cherchez délibérément des défis modérés",
+                                "Analysez vos réactions aux échecs récents"
+                            ];
+                            books = [
+                                {title: "Antifragile", author: "Nassim Nicholas Taleb"},
+                                {title: "Le mental des champions", author: "Nicolas Colsaerts"}
+                            ];
+                        } else {
+                            advice = `Votre capacité à persévérer et rebondir est exceptionnelle - utilisez cette force pour atteindre des objectifs ambitieux.`;
+                            actions = [
+                                "Partagez vos stratégies de résilience avec d'autres",
+                                "Fixez-vous un objectif qui vous effraie un peu",
+                                "Documentez votre parcours pour inspirer"
+                            ];
+                            books = [
+                                {title: "Can't Hurt Me", author: "David Goggins"},
+                                {title: "Endurance", author: "Alfred Lansing"}
+                            ];
+                        }
+                        practices = [
+                            "Visualisez les obstacles comme des opportunités d'apprentissage",
+                            "Célébrez les petits progrès vers les grands objectifs",
+                            "Développez une routine matinale pour renforcer la discipline"
+                        ];
+                        break;
+                        
+                    case 'smart': 
+                        dimensionName = 'Smart Skills'; 
+                        colorClass = 'border-primary'; 
+                        iconClass = 'fas fa-brain';
+                        
+                        if (score < 5) {
+                            advice = `Vos capacités d'adaptation et d'apprentissage semblent limitées. Les développer vous aidera à prospérer dans un monde en changement rapide.`;
+                            actions = [
+                                "Apprenez une nouvelle compétence chaque mois",
+                                "Lisez des livres sur des sujets variés",
+                                "Pratiquez la pensée critique sur des sujets complexes"
+                            ];
+                            books = [
+                                {title: "Range", author: "David Epstein"},
+                                {title: "Thinking, Fast and Slow", author: "Daniel Kahneman"}
+                            ];
+                        } else if (score < 7) {
+                            advice = `Vous avez de bonnes capacités d'apprentissage, mais pourriez les renforcer pour mieux vous adapter aux changements.`;
+                            actions = [
+                                "Sortez régulièrement de votre zone de confort intellectuelle",
+                                "Participez à des discussions sur des sujets nouveaux",
+                                "Analysez vos processus de prise de décision"
+                            ];
+                            books = [
+                                {title: "The Art of Thinking Clearly", author: "Rolf Dobelli"},
+                                {title: "Super Thinking", author: "Gabriel Weinberg"}
+                            ];
+                        } else {
+                            advice = `Votre agilité intellectuelle et votre capacité d'apprentissage sont excellentes - utilisez-les pour innover et résoudre des problèmes complexes.`;
+                            actions = [
+                                "Enseignez ce que vous savez à d'autres",
+                                "Trouvez des applications innovantes pour vos connaissances",
+                                "Créez un système pour capturer et organiser vos idées"
+                            ];
+                            books = [
+                                {title: "The Innovator's DNA", author: "Jeff Dyer"},
+                                {title: "Range", author: "David Epstein"}
+                            ];
+                        }
+                        practices = [
+                            "Consacrez du temps chaque semaine à apprendre quelque chose de nouveau",
+                            "Remettez en question vos propres hypothèses régulièrement",
+                            "Entourez-vous de personnes qui pensent différemment"
+                        ];
+                        break;
+                        
+                    case 'soft': 
+                        dimensionName = 'Soft Skills'; 
+                        colorClass = 'border-warning'; 
+                        iconClass = 'fas fa-seedling';
+                        
+                        if (score < 5) {
+                            advice = `Vos compétences relationnelles semblent limitées. Les développer améliorera vos collaborations et votre influence.`;
+                            actions = [
+                                "Pratiquez l'écoute active dans toutes vos conversations",
+                                "Demandez des feedbacks sur vos interactions",
+                                "Participez à des activités de groupe"
+                            ];
+                            books = [
+                                {title: "Comment se faire des amis", author: "Dale Carnegie"},
+                                {title: "L'intelligence émotionnelle", author: "Daniel Goleman"}
+                            ];
+                        } else if (score < 7) {
+                            advice = `Vous avez de bonnes compétences relationnelles, mais pourriez les affiner pour mieux collaborer et influencer.`;
+                            actions = [
+                                "Identifiez vos points faibles en communication",
+                                "Pratiquez l'empathie dans vos interactions",
+                                "Observez les personnes très compétentes en relations humaines"
+                            ];
+                            books = [
+                                {title: "Influence et manipulation", author: "Robert Cialdini"},
+                                {title: "Le pouvoir des introvertis", author: "Susan Cain"}
+                            ];
+                        } else {
+                            advice = `Vos compétences relationnelles sont excellentes - utilisez-les pour construire des relations solides et inspirer les autres.`;
+                            actions = [
+                                "Mentorez quelqu'un dans le développement de ses soft skills",
+                                "Créez des opportunités de collaboration",
+                                "Développez votre leadership serviteur"
+                            ];
+                            books = [
+                                {title: "Leaders Eat Last", author: "Simon Sinek"},
+                                {title: "Dare to Lead", author: "Brené Brown"}
+                            ];
+                        }
+                        practices = [
+                            "Soyez authentique dans toutes vos interactions",
+                            "Pratiquez la gratitude quotidiennement",
+                            "Adaptez votre style de communication à votre interlocuteur"
+                        ];
+                        break;
+                        
+                    case 'hard': 
+                        dimensionName = 'Hard Skills'; 
+                        colorClass = 'border-info'; 
+                        iconClass = 'fas fa-bullseye';
+                        
+                        if (score < 5) {
+                            advice = `Vos compétences techniques semblent limitées. Les renforcer vous donnera plus de crédibilité dans votre domaine.`;
+                            actions = [
+                                "Identifiez les compétences techniques les plus importantes dans votre domaine",
+                                "Suivez un cours ou une formation certifiante",
+                                "Trouvez un mentor technique"
+                            ];
+                            books = [
+                                {title: "Deep Work", author: "Cal Newport"},
+                                {title: "The Pragmatic Programmer", author: "Andrew Hunt"}
+                            ];
+                        } else if (score < 7) {
+                            advice = `Vous avez de bonnes compétences techniques, mais pourriez les approfondir pour exceller dans votre domaine.`;
+                            actions = [
+                                "Identifiez les nouvelles tendances dans votre domaine",
+                                "Approfondissez un aspect technique spécifique",
+                                "Participez à des projets pratiques pour appliquer vos connaissances"
+                            ];
+                            books = [
+                                {title: "Atomic Habits", author: "James Clear"},
+                                {title: "Peak", author: "Anders Ericsson"}
+                            ];
+                        } else {
+                            advice = `Vos compétences techniques sont excellentes - assurez-vous de les maintenir à jour et de les combiner avec vos autres dimensions.`;
+                            actions = [
+                                "Partagez vos connaissances en enseignant ou en mentorant",
+                                "Contribuez à des projets open source ou à des publications",
+                                "Développez des compétences techniques complémentaires"
+                            ];
+                            books = [
+                                {title: "The Clean Coder", author: "Robert C. Martin"},
+                                {title: "Designing Data-Intensive Applications", author: "Martin Kleppmann"}
+                            ];
+                        }
+                        practices = [
+                            "Consacrez du temps chaque mois à mettre à jour vos compétences",
+                            "Documentez vos connaissances techniques pour les partager",
+                            "Appliquez vos compétences à des projets concrets"
+                        ];
+                        break;
+                }
+
+                recommendationsHtml += `
+                    <div class="col-md-6 mb-4">
+                        <div class="card ${colorClass} h-100 dimension-card">
+                            <div class="card-header bg-light">
+                                <i class="${iconClass} me-2"></i> <strong>${dimensionName}</strong> (Score: ${score}/10)
+                            </div>
+                            <div class="card-body">
+                                <p>${advice}</p>
+                                <h6>Actions recommandées :</h6>
+                                <ul>${actions.map(a => `<li>${a}</li>`).join('')}</ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Ajouter les livres spécifiques à cette dimension
+                books.forEach(book => {
+                    bookListHtml += `<li class="list-group-item"><strong>${book.title}</strong> - ${book.author} (${dimensionName})</li>`;
+                });
+
+                // Ajouter les pratiques spécifiques
+                practices.forEach(practice => {
+                    practicesHtml += `<li class="list-group-item"><strong>${dimensionName}:</strong> ${practice}</li>`;
+                });
+            });
+
+            recommendationsHtml += '</div>'; // Fermer la row
+
+            recommendationsDiv.innerHTML = recommendationsHtml;
+            bookRecommendationsList.innerHTML = bookListHtml;
+            bestPracticesList.innerHTML = practicesHtml;
+        }
+
+        function generateRoadmap(scores) {
+            const roadmapContentDiv = document.getElementById('roadmapContent');
+            const planRoadmapContentDiv = document.getElementById('planRoadmapContent');
+            
+            // Trouver la dimension la plus faible
+            const weakestDimension = Object.entries(scores).reduce((weakest, [dim, score]) => 
+                score < weakest.score ? {dim, score} : weakest, 
+                {dim: '', score: 10}
+            );
+            
+            // Trouver la dimension la plus forte
+            const strongestDimension = Object.entries(scores).reduce((strongest, [dim, score]) => 
+                score > strongest.score ? {dim, score} : strongest, 
+                {dim: '', score: 0}
+            );
+            
+            let roadmapHtml = `
+                <h4>Votre Feuille de Route Personnalisée</h4>
+                <div class="alert alert-info">
+                    <strong>Priorité absolue :</strong> Travailler sur votre dimension la plus faible (<strong>${getDimensionName(weakestDimension.dim)}</strong> - Score: ${weakestDimension.score}/10)
+                </div>
+                
+                <h5 class="mt-4">Plan sur 3 mois :</h5>
+                <div class="timeline">
+            `;
+            
+            // Ajouter des étapes mensuelles
+            const months = [
+                { month: 1, focus: "Identifier les lacunes et établir un plan basique" },
+                { month: 2, focus: "Mettre en œuvre des actions correctives" },
+                { month: 3, focus: "Consolider les progrès et évaluer" }
+            ];
+            
+            months.forEach(step => {
+                roadmapHtml += `
+                    <div class="timeline-step">
+                        <div class="timeline-step-header">
+                            <strong>Mois ${step.month}</strong>
+                        </div>
+                        <div class="timeline-step-content">
+                            <p>${step.focus}</p>
+                            <ul>
+                                ${generateMonthlyActions(weakestDimension.dim, step.month)}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            roadmapHtml += `
+                </div>
+                
+                <div class="mt-4 p-3 bg-light rounded">
+                    <h5>Stratégie d'amélioration :</h5>
+                    <p>Utilisez votre dimension la plus forte (<strong>${getDimensionName(strongestDimension.dim)}</strong> - Score: ${strongestDimension.score}/10) pour renforcer votre dimension la plus faible :</p>
+                    <ul>
+                        ${generateSynergyActions(strongestDimension.dim, weakestDimension.dim)}
+                    </ul>
+                </div>
+                
+                <div class="mt-3">
+                    <button class="btn btn-outline-primary" onclick="downloadRoadmap()">
+                        <i class="fas fa-download me-2"></i>Télécharger cette feuille de route
+                    </button>
+                </div>
+            `;
+            
+            roadmapContentDiv.innerHTML = roadmapHtml;
+            
+            // Générer également le contenu pour la section Plan d'Action
+            let planRoadmapHtml = `
+                <h5>Priorité : Améliorer votre ${getDimensionName(weakestDimension.dim)}</h5>
+                <p>Votre score actuel : ${weakestDimension.score}/10</p>
+                <h6 class="mt-3">Actions clés :</h6>
+                <ol>
+                    ${generateMonthlyActions(weakestDimension.dim, 1).replace(/<li>/g, '<li>Mois 1 : ').replace(/<\/li>/g, '</li>')}
+                    ${generateMonthlyActions(weakestDimension.dim, 2).replace(/<li>/g, '<li>Mois 2 : ').replace(/<\/li>/g, '</li>')}
+                    ${generateMonthlyActions(weakestDimension.dim, 3).replace(/<li>/g, '<li>Mois 3 : ').replace(/<\/li>/g, '</li>')}
+                </ol>
+                <div class="alert alert-info mt-3">
+                    <strong>Astuce :</strong> Utilisez votre force en ${getDimensionName(strongestDimension.dim)} pour soutenir vos efforts d'amélioration.
+                </div>
+            `;
+            
+            planRoadmapContentDiv.innerHTML = planRoadmapHtml;
+        }
+
+        function getDimensionName(dim) {
+            const names = {
+                values: "Valeurs Fondamentales",
+                grit: "La Niaque",
+                smart: "Smart Skills",
+                soft: "Soft Skills",
+                hard: "Hard Skills"
+            };
+            return names[dim] || dim;
+        }
+
+        function generateMonthlyActions(dimension, month) {
+            const actions = {
+                values: [
+                    "Listez vos 5 valeurs fondamentales",
+                    "Analysez l'alignement de vos actions avec ces valeurs",
+                    "Identifiez 3 ajustements à faire"
+                ],
+                grit: [
+                    "Fixez-vous un défi de 30 jours",
+                    "Analysez vos réactions aux obstacles récents",
+                    "Pratiquez la sortie de zone de confort"
+                ],
+                smart: [
+                    "Apprenez une nouvelle compétence cognitive",
+                    "Lisez un livre stimulant intellectuellement",
+                    "Pratiquez la résolution de problèmes complexes"
+                ],
+                soft: [
+                    "Pratiquez l'écoute active quotidiennement",
+                    "Demandez des feedbacks sur vos interactions",
+                    "Participez à une activité de team-building"
+                ],
+                hard: [
+                    "Identifiez les compétences techniques à améliorer",
+                    "Suivez un cours ou tutoriel sur le sujet",
+                    "Appliquez ces compétences dans un projet concret"
+                ]
+            };
+            
+            return actions[dimension]?.map(a => `<li>${a}</li>`).join('') || '';
+        }
+
+        function generateSynergyActions(strongDim, weakDim) {
+            const synergies = {
+                "values-grit": [
+                    "Utilisez vos valeurs comme motivation pour persévérer dans les moments difficiles",
+                    "Ancrez votre persévérance dans quelque chose de plus grand que vous"
+                ],
+                "values-smart": [
+                    "Appliquez vos valeurs pour guider votre processus d'apprentissage",
+                    "Choisissez des domaines d'étude alignés avec vos principes"
+                ],
+                "values-soft": [
+                    "Communiquez avec authenticité en vous appuyant sur vos valeurs",
+                    "Construisez des relations basées sur des valeurs partagées"
+                ],
+                "values-hard": [
+                    "Développez des compétences techniques qui servent vos valeurs",
+                    "Appliquez votre expertise technique en respectant vos principes éthiques"
+                ],
+                "grit-values": [
+                    "Utilisez votre persévérance pour rester fidèle à vos valeurs dans l'adversité",
+                    "Persistez dans l'alignement de vos actions avec vos principes"
+                ],
+                "grit-smart": [
+                    "Appliquez votre persévérance à l'apprentissage de nouvelles compétences cognitives",
+                    "Utilisez votre résilience pour surmonter la frustration lors de l'acquisition de nouvelles connaissances"
+                ],
+                "grit-soft": [
+                    "Utilisez votre détermination pour améliorer vos compétences relationnelles",
+                    "Persistez dans le développement de votre intelligence émotionnelle"
+                ],
+                "grit-hard": [
+                    "Appliquez votre ténacité à l'acquisition de compétences techniques",
+                    "Persistez dans la maîtrise des aspects difficiles de votre domaine"
+                ],
+                "smart-values": [
+                    "Utilisez votre agilité intellectuelle pour mieux comprendre et articuler vos valeurs",
+                    "Appliquez votre pensée critique à l'examen de vos principes fondamentaux"
+                ],
+                "smart-grit": [
+                    "Utilisez vos capacités d'apprentissage pour développer des stratégies de persévérance",
+                    "Analysez vos échecs pour en tirer des leçons et rebondir"
+                ],
+                "smart-soft": [
+                    "Appliquez votre intelligence à la compréhension des dynamiques relationnelles",
+                    "Utilisez vos capacités d'analyse pour améliorer votre communication"
+                ],
+                "smart-hard": [
+                    "Utilisez vos capacités d'apprentissage pour acquérir plus rapidement de nouvelles compétences techniques",
+                    "Appliquez votre pensée critique à la résolution de problèmes techniques complexes"
+                ],
+                "soft-values": [
+                    "Utilisez vos compétences relationnelles pour partager et promouvoir vos valeurs",
+                    "Communiquez vos principes avec empathie et clarté"
+                ],
+                "soft-grit": [
+                    "Utilisez votre intelligence émotionnelle pour gérer les moments difficiles",
+                    "Tirez parti de vos relations pour maintenir votre motivation"
+                ],
+                "soft-smart": [
+                    "Appliquez votre empathie pour mieux comprendre différents points de vue",
+                    "Utilisez vos compétences relationnelles pour apprendre des autres"
+                ],
+                "soft-hard": [
+                    "Utilisez vos compétences de communication pour mieux expliquer des concepts techniques",
+                    "Collaborez efficacement pour résoudre des problèmes complexes"
+                ],
+                "hard-values": [
+                    "Utilisez votre expertise technique pour servir vos valeurs",
+                    "Appliquez vos compétences spécialisées en respectant vos principes éthiques"
+                ],
+                "hard-grit": [
+                    "Tirez parti de votre maîtrise technique pour surmonter les obstacles",
+                    "Utilisez votre expertise comme base pour persévérer dans des projets complexes"
+                ],
+                "hard-smart": [
+                    "Appliquez vos connaissances techniques pour résoudre des problèmes innovants",
+                    "Utilisez votre expertise comme fondement pour l'apprentissage de nouveaux concepts"
+                ],
+                "hard-soft": [
+                    "Partagez vos connaissances techniques pour aider les autres",
+                    "Utilisez votre expertise pour établir votre crédibilité dans les relations professionnelles"
+                ]
+            };
+            
+            const key = `${strongDim}-${weakDim}`;
+            return synergies[key]?.map(s => `<li>${s}</li>`).join('') || 
+                   `<li>Utilisez vos forces en ${getDimensionName(strongDim)} pour compenser les faiblesses en ${getDimensionName(weakDim)}</li>`;
+        }
+
+        function downloadRoadmap() {
+            alert("Fonctionnalité de téléchargement à implémenter");
+        }
+
+        // Fonction pour ajouter un champ d'objectif au plan d'action
+        function addGoalField() {
+            const smartGoalsList = document.getElementById('smartGoalsList');
+            const newGoalId = `goal${smartGoalsList.children.length + 1}`;
+            const newGoalItem = document.createElement('li');
+            newGoalItem.className = 'list-group-item';
+            newGoalItem.innerHTML = `
+                <label for="${newGoalId}" class="form-label">Objectif ${smartGoalsList.children.length + 1} :</label>
+                <input type="text" class="form-control" id="${newGoalId}" placeholder="Décrivez votre objectif SMART ici">
+            `;
+            smartGoalsList.appendChild(newGoalItem);
+        }
+
+        // Bouton Plan d'action
+        document.getElementById('quizActionPlanBtn')?.addEventListener('click', function() {
+            const planSection = document.getElementById('plan');
+            if (planSection) {
+                planSection.style.display = 'block';
+                planSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Définir les dates
+                const today = new Date();
+                const reviewDate = new Date(today);
+                reviewDate.setMonth(today.getMonth() + 3);
+
+                const planStartDateInput = document.getElementById('planStartDate');
+                const planReviewDateInput = document.getElementById('planReviewDate');
+
+                if (planStartDateInput) planStartDateInput.valueAsDate = today;
+                if (planReviewDateInput) planReviewDateInput.valueAsDate = reviewDate;
+            }
+        });
+        
+        // Bouton Imprimer le plan
+        document.getElementById('printPlanBtn')?.addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Bouton Enregistrer le plan
+        document.getElementById('savePlanBtn')?.addEventListener('click', function() {
+            alert('Plan enregistré avec succès ! (Fonctionnalité d\'enregistrement réel à implémenter)');
+        });
+        
+        // Bouton Enregistrer les résultats du quiz
+        document.getElementById('saveQuizResultsBtn')?.addEventListener('click', function() {
+            alert('Résultats du quiz enregistrés avec succès ! (Fonctionnalité d\'enregistrement réel à implémenter)');
+        });
+        
+        // Initialiser les tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof bootstrap !== 'undefined' && typeof bootstrap.Tooltip !== 'undefined') {
+                const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
