@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 10 Dimensions de la Réussite Durable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-light: #2ecc71;
+            --purple: #9b59b6;
+            --teal: #16a085;
+            --violet: #8e44ad;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 0;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dimension-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(0);
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-header {
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .dimension-card:hover .card-header {
+            letter-spacing: 0.5px;
+        }
+        
+        /* Colors for each dimension */
+        .values-card { border-top: 5px solid #1abc9c; }
+        .spirituality-card { border-top: 5px solid #9b59b6; }
+        .grit-card { border-top: 5px solid #e74c3c; }
+        .smart-card { border-top: 5px solid #3498db; }
+        .decision-card { border-top: 5px solid #f39c12; }
+        .soft-card { border-top: 5px solid #2ecc71; }
+        .balance-card { border-top: 5px solid #16a085; }
+        .money-card { border-top: 5px solid #27ae60; }
+        .hard-card { border-top: 5px solid #2980b9; }
+        .impact-card { border-top: 5px solid #8e44ad; }
+        
+        .progress {
+            height: 25px;
+            border-radius: 12px;
+        }
+        
+        .progress-bar {
+            font-weight: 600;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        
+        .chart-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .test-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .btn-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-custom::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-custom:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .result-card {
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+        
+        .result-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .impact-visual {
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .dimension-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .dimension-card:hover .dimension-icon {
+            transform: rotate(15deg) scale(1.2);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1abc9c, #9b59b6, #e74c3c, #3498db, #f39c12, #2ecc71, #16a085, #27ae60, #2980b9, #8e44ad);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .tech-card {
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #1abc9c, #9b59b6, #e74c3c, #3498db, #f39c12, #2ecc71, #16a085, #27ae60, #2980b9, #8e44ad);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+        }
+        
+        .game-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .game-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .game-card .card-body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .game-card:hover .card-body::before {
+            opacity: 1;
+        }
+        
+        .game-card .card-title {
+            transition: all 0.3s;
+        }
+        
+        .game-card:hover .card-title {
+            transform: scale(1.1);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .parallax::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+            height: 300px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(255,255,255,0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255,255,255,0.8);
+            }
+        }
+        
+        .bg-purple { background-color: var(--purple); }
+        .bg-success-light { background-color: var(--success-light); }
+        .bg-teal { background-color: var(--teal); }
+        .bg-violet { background-color: var(--violet); }
+        
+        .text-purple { color: var(--purple); }
+        .text-success-light { color: var(--success-light); }
+        .text-teal { color: var(--teal); }
+        .text-violet { color: var(--violet); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-chess-queen me-2"></i>10 Dimensions
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dimensions">Dimensions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#test">Auto-évaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#plan">Plan d'action</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technologies">Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#game">Jeu Éducatif</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center hero-content">
+            <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Les 10 Dimensions de la Réussite Durable</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Découvrez l'équilibre fondamental entre compétences, énergie, valeurs et technologies pour une réussite holistique</p>
+            <div class="animate__animated animate__fadeIn animate__delay-2s">
+                <a href="#test" class="btn btn-light btn-lg px-4 me-2">Faire le test</a>
+                <a href="#dimensions" class="btn btn-outline-light btn-lg px-4">Explorer</a>
+            </div>
+            <div class="mt-5 animate__animated animate__fadeIn animate__delay-3s">
+                <img src="https://cdn.pixabay.com/photo/2017/01/10/03/06/geometric-1968246_1280.png" alt="Dimensions" class="img-fluid floating" style="max-width: 300px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Introduction -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="fw-bold mb-4 animate__animated animate__fadeIn">🔎 Introduction</h2>
+                    <p class="lead animate__animated animate__fadeIn animate__delay-1s">La réussite professionnelle et personnelle repose sur <strong>un équilibre dynamique entre 10 dimensions essentielles</strong>. Elle s'ancre dans des racines profondes (valeurs, sens, discipline) et se manifeste à travers des compétences, des choix et des impacts concrets.</p>
+                    <p class="animate__animated animate__fadeIn animate__delay-2s">Chaque dimension joue un rôle <strong>complémentaire</strong> avec un <strong>poids spécifique</strong> dans votre épanouissement global.</p>
+                    <blockquote class="blockquote mt-4 animate__animated animate__fadeIn animate__delay-3s">
+                        <p>🎯 <strong>Réussir durablement, c'est aligner ses racines (valeurs), son tronc (compétences) et ses branches (impacts).</strong></p>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Visualization -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="text-center mb-4">📊 Répartition des 10 dimensions selon leur impact</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Dimension</th>
+                                    <th>Poids (%)</th>
+                                    <th>Priorité</th>
+                                    <th>Pourquoi ?</th>
+                                    <th>Exemples concrets</th>
+                                    <th>Technologies utiles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-dove me-2"></i> Valeurs fondamentales</td>
+                                    <td><strong>20%</strong></td>
+                                    <td>1️⃣</td>
+                                    <td>Boussole intérieure qui guide toutes les décisions</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Refuser une offre contraire à l'éthique</li>
+                                            <li>Prendre ses responsabilités</li>
+                                            <li>Défendre un collègue injustement critiqué</li>
+                                        </ul>
+                                    </td>
+                                    <td>Podcasts éthiques, jeux sérieux, forums</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-pray me-2"></i> Spiritualité & sens</td>
+                                    <td><strong>15%</strong></td>
+                                    <td>2️⃣</td>
+                                    <td>Donne direction à long terme et motivation authentique</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Méditer chaque matin</li>
+                                            <li>Trouver sa mission personnelle</li>
+                                            <li>Pratiquer la gratitude</li>
+                                        </ul>
+                                    </td>
+                                    <td>Apps de méditation, journaux intelligents</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-fire me-2"></i> Niaque</td>
+                                    <td><strong>15%</strong></td>
+                                    <td>3️⃣</td>
+                                    <td>Énergie durable et courage pour aller au bout</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Se lever tôt malgré la fatigue</li>
+                                            <li>Terminer un projet difficile</li>
+                                            <li>Apprendre après un échec</li>
+                                        </ul>
+                                    </td>
+                                    <td>Apps gamifiées, défis en ligne</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-brain me-2"></i> Smart Skills</td>
+                                    <td><strong>10%</strong></td>
+                                    <td>4️⃣</td>
+                                    <td>Agilité intellectuelle pour s'adapter et innover</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Résoudre un problème inédit</li>
+                                            <li>Relier des idées de domaines différents</li>
+                                            <li>Apprendre rapidement</li>
+                                        </ul>
+                                    </td>
+                                    <td>IA générative, MOOC créativité</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-chess me-2"></i> Art de la décision</td>
+                                    <td><strong>10%</strong></td>
+                                    <td>5️⃣</td>
+                                    <td>Choix pertinents qui déterminent la trajectoire</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Choisir avec lucidité</li>
+                                            <li>Utiliser la méthode 10/10/10</li>
+                                            <li>Savoir renoncer à temps</li>
+                                        </ul>
+                                    </td>
+                                    <td>Matrices IA, simulateurs</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-seedling me-2"></i> Soft Skills</td>
+                                    <td><strong>10%</strong></td>
+                                    <td>6️⃣</td>
+                                    <td>Crée confiance, coopération et crédibilité</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Gérer un conflit avec diplomatie</li>
+                                            <li>Écouter activement</li>
+                                            <li>Adapter son discours</li>
+                                        </ul>
+                                    </td>
+                                    <td>VR, chatbots, cours interactifs</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-balance-scale me-2"></i> Équilibre de vie</td>
+                                    <td><strong>7%</strong></td>
+                                    <td>7️⃣</td>
+                                    <td>Préserve l'énergie et évite le burnout</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Planifier des moments de repos</li>
+                                            <li>Dormir suffisamment</li>
+                                            <li>Pratiquer un hobby</li>
+                                        </ul>
+                                    </td>
+                                    <td>Wearables, apps bien-être</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-coins me-2"></i> Relation à l'argent</td>
+                                    <td><strong>5%</strong></td>
+                                    <td>8️⃣</td>
+                                    <td>Outil puissant pour liberté d'action</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Budgétiser ses revenus</li>
+                                            <li>Investir dans ses compétences</li>
+                                            <li>Développer des revenus passifs</li>
+                                        </ul>
+                                    </td>
+                                    <td>Simulateurs, apps financières</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-bullseye me-2"></i> Hard Skills</td>
+                                    <td><strong>5%</strong></td>
+                                    <td>9️⃣</td>
+                                    <td>Savoir-faire technique indispensable</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Maîtriser un logiciel</li>
+                                            <li>Savoir coder</li>
+                                            <li>Rédiger un rapport clair</li>
+                                        </ul>
+                                    </td>
+                                    <td>Tutoriels, plateformes de pratique</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-globe-americas me-2"></i> Impact & contribution</td>
+                                    <td><strong>3%</strong></td>
+                                    <td>🔟</td>
+                                    <td>Finalité visible de la réussite</td>
+                                    <td>
+                                        <ul class="mb-0 ps-3">
+                                            <li>Lancer une initiative écoresponsable</li>
+                                            <li>Éduquer des jeunes</li>
+                                            <li>Créer du contenu utile</li>
+                                        </ul>
+                                    </td>
+                                    <td>Réseaux à impact, plateformes de bénévolat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-8 mx-auto">
+                    <h4 class="text-center mb-3">Représentation visuelle de l'impact</h4>
+                    <div class="impact-visual">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-dove me-2"></i> Valeurs :</span>
+                            <span class="text-success">████████████████████░░░░░░░░ 20%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-pray me-2"></i> Spiritualité :</span>
+                            <span class="text-purple">███████████████░░░░░░░░░░░░ 15%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-fire me-2"></i> Niaque :</span>
+                            <span class="text-danger">███████████████░░░░░░░░░░░░ 15%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-brain me-2"></i> Smart Skills :</span>
+                            <span class="text-primary">█████████░░░░░░░░░░░░░░░░░ 10%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-chess me-2"></i> Décision :</span>
+                            <span class="text-warning">█████████░░░░░░░░░░░░░░░░░ 10%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-seedling me-2"></i> Soft Skills :</span>
+                            <span class="text-success-light">█████████░░░░░░░░░░░░░░░░░ 10%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-balance-scale me-2"></i> Équilibre :</span>
+                            <span class="text-teal">██████░░░░░░░░░░░░░░░░░░░░ 7%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-coins me-2"></i> Argent :</span>
+                            <span class="text-green">█████░░░░░░░░░░░░░░░░░░░░░ 5%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-bullseye me-2"></i> Hard Skills :</span>
+                            <span class="text-info">█████░░░░░░░░░░░░░░░░░░░░░ 5%</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="me-3" style="width: 180px;"><i class="fas fa-globe-americas me-2"></i> Impact :</span>
+                            <span class="text-violet">███░░░░░░░░░░░░░░░░░░░░░░ 3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensions Cards -->
+        <section id="dimensions" class="mb-5">
+            <h2 class="text-center fw-bold mb-5">🧩 Détail des 10 dimensions</h2>
+            
+            <div class="row g-4">
+                <!-- Valeurs Fondamentales -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card values-card h-100">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-dove me-2"></i> 1. Valeurs Fondamentales (20%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-success">
+                                <i class="fas fa-dove"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Les principes moraux et éthiques qui guident vos décisions.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Intégrité, honnêteté, foi</li>
+                                <li>Vision du long terme</li>
+                                <li>Humilité, gratitude</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Donne du sens</li>
+                                <li>Inspire confiance</li>
+                                <li>Guide dans les choix difficiles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spiritualité & Sens -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card spirituality-card h-100">
+                        <div class="card-header bg-purple text-white">
+                            <i class="fas fa-pray me-2"></i> 2. Spiritualité & Sens (15%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-purple">
+                                <i class="fas fa-pray"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Recherche d'un but profond qui donne du sens à vos actions.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Méditation, journal de gratitude</li>
+                                <li>Mission personnelle</li>
+                                <li>Pardon, humilité</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Paix intérieure</li>
+                                <li>Motivation authentique</li>
+                                <li>Résilience face aux épreuves</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- La Niaque -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card grit-card h-100">
+                        <div class="card-header bg-danger text-white">
+                            <i class="fas fa-fire me-2"></i> 3. La Niaque (15%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-danger">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Volonté, discipline et courage pour persévérer.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Routines matinales</li>
+                                <li>Persévérance dans l'effort</li>
+                                <li>Résilience après l'échec</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Vous rend <strong>imparable</strong></li>
+                                <li>Permet de <strong>tenir dans la durée</strong></li>
+                                <li>Transforme les rêves en réalité</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Smart Skills -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card smart-card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-brain me-2"></i> 4. Smart Skills (10%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-primary">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Agilité intellectuelle pour apprendre et innover.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Résolution de problèmes</li>
+                                <li>Créativité, innovation</li>
+                                <li>Apprendre à apprendre</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Adaptation au changement</li>
+                                <li>Solutions innovantes</li>
+                                <li>Apprentissage continu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Art de la Décision -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card decision-card h-100">
+                        <div class="card-header bg-warning text-dark">
+                            <i class="fas fa-chess me-2"></i> 5. Art de la Décision (10%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-warning">
+                                <i class="fas fa-chess"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Capacité à faire des choix pertinents et assumés.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Méthode 10/10/10</li>
+                                <li>Intuition + analyse</li>
+                                <li>Renoncer à temps</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Trajectoire de vie optimale</li>
+                                <li>Moins de regrets</li>
+                                <li>Confiance en ses choix</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card soft-card h-100">
+                        <div class="card-header bg-success-light text-dark">
+                            <i class="fas fa-seedling me-2"></i> 6. Soft Skills (10%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-success-light">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Compétences relationnelles et émotionnelles.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Empathie, écoute active</li>
+                                <li>Communication efficace</li>
+                                <li>Gestion des conflits</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Relations harmonieuses</li>
+                                <li>Leadership inspirant</li>
+                                <li>Collaboration efficace</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Équilibre de Vie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card balance-card h-100">
+                        <div class="card-header bg-teal text-white">
+                            <i class="fas fa-balance-scale me-2"></i> 7. Équilibre de Vie (7%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-teal">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Harmonie entre vie professionnelle et personnelle.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Gestion du temps</li>
+                                <li>Activités de détente</li>
+                                <li>Soin de sa santé</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Prévention du burnout</li>
+                                <li>Énergie durable</li>
+                                <li>Épanouissement global</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Relation à l'Argent -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card money-card h-100">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-coins me-2"></i> 8. Relation à l'Argent (5%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-success">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Gestion saine et productive des ressources financières.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Budget et épargne</li>
+                                <li>Investissements</li>
+                                <li>Revenus passifs</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Liberté financière</li>
+                                <li>Sécurité économique</li>
+                                <li>Possibilités accrues</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hard Skills -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card dimension-card hard-card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-bullseye me-2"></i> 9. Hard Skills (5%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-primary">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Compétences techniques spécifiques et mesurables.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Maîtrise de logiciels</li>
+                                <li>Compétences linguistiques</li>
+                                <li>Savoir-faire métier</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Efficacité opérationnelle</li>
+                                <li>Crédibilité professionnelle</li>
+                                <li>Capacité à exécuter</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Impact & Contribution -->
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="card dimension-card impact-card h-100">
+                        <div class="card-header bg-violet text-white">
+                            <i class="fas fa-globe-americas me-2"></i> 10. Impact & Contribution (3%)
+                        </div>
+                        <div class="card-body">
+                            <div class="dimension-icon text-violet">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h5 class="card-title">Définition</h5>
+                            <p class="card-text">Influence positive sur les autres et la société.</p>
+                            
+                            <h5 class="card-title mt-4">Exemples :</h5>
+                            <ul>
+                                <li>Mentorat</li>
+                                <li>Actions sociales</li>
+                                <li>Création de valeur</li>
+                            </ul>
+                            
+                            <h5 class="card-title mt-4">Impact :</h5>
+                            <ul>
+                                <li>Legs durable</li>
+                                <li>Sens profond</li>
+                                <li>Réalisation ultime</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auto-Evaluation Test -->
+        <section id="test" class="mb-5 test-section">
+            <h2 class="text-center fw-bold mb-4">📝 Auto-évaluation des 10 Dimensions</h2>
+            <p class="text-center mb-5">Évaluez votre niveau actuel sur chaque dimension (de 1 à 10) pour obtenir un profil personnalisé.</p>
+            
+            <form id="evaluation-form">
+                <div class="row">
+                    <!-- Valeurs Fondamentales -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-dove me-2"></i> Valeurs Fondamentales
+                            </div>
+                            <div class="card-body">
+                                <p>À quel point vos actions sont-elles alignées avec vos valeurs profondes ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="values-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Peu aligné</span>
+                                    <span>10 - Parfait alignement</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="values-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spiritualité & Sens -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-purple text-white">
+                                <i class="fas fa-pray me-2"></i> Spiritualité & Sens
+                            </div>
+                            <div class="card-body">
+                                <p>Votre vie a-t-elle un sens profond qui vous guide ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="spirituality-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Peu de sens</span>
+                                    <span>10 - Mission claire</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="spirituality-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- La Niaque -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-danger text-white">
+                                <i class="fas fa-fire me-2"></i> La Niaque
+                            </div>
+                            <div class="card-body">
+                                <p>Votre capacité à persévérer face aux difficultés ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="grit-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Abandon facile</span>
+                                    <span>10 - Persévérant</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="grit-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart Skills -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-brain me-2"></i> Smart Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Votre capacité à résoudre des problèmes complexes ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="smart-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Difficultés</span>
+                                    <span>10 - Excellente</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="smart-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Art de la Décision -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning text-dark">
+                                <i class="fas fa-chess me-2"></i> Art de la Décision
+                            </div>
+                            <div class="card-body">
+                                <p>Votre capacité à prendre de bonnes décisions ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="decision-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Hésitant</span>
+                                    <span>10 - Décideur avisé</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="decision-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Soft Skills -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-success-light text-dark">
+                                <i class="fas fa-seedling me-2"></i> Soft Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Vos compétences relationnelles et émotionnelles ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="soft-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - À développer</span>
+                                    <span>10 - Excellentes</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="soft-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Équilibre de Vie -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-teal text-white">
+                                <i class="fas fa-balance-scale me-2"></i> Équilibre de Vie
+                            </div>
+                            <div class="card-body">
+                                <p>Votre équilibre entre vie pro et perso ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="balance-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Déséquilibré</span>
+                                    <span>10 - Harmonieux</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="balance-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relation à l'Argent -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-coins me-2"></i> Relation à l'Argent
+                            </div>
+                            <div class="card-body">
+                                <p>Votre gestion et compréhension des finances ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="money-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Difficultés</span>
+                                    <span>10 - Excellente</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="money-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hard Skills -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-bullseye me-2"></i> Hard Skills
+                            </div>
+                            <div class="card-body">
+                                <p>Vos compétences techniques spécifiques ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="hard-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Débutant</span>
+                                    <span>10 - Expert</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="hard-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Impact & Contribution -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-violet text-white">
+                                <i class="fas fa-globe-americas me-2"></i> Impact & Contribution
+                            </div>
+                            <div class="card-body">
+                                <p>Votre impact positif sur les autres/société ?</p>
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="impact-range">
+                                <div class="d-flex justify-content-between">
+                                    <span>1 - Minimal</span>
+                                    <span>10 - Maximum</span>
+                                </div>
+                                <div class="mt-2">
+                                    <strong>Score : </strong><span id="impact-score">5</span>/10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-custom btn-lg">
+                        <i class="fas fa-chart-pie me-2"></i>Voir mes résultats
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Results Section (hidden by default) -->
+            <div id="results-section" class="mt-5" style="display: none;">
+                <h3 class="text-center mb-4">📊 Vos résultats</h3>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <canvas id="radar-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <canvas id="bar-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h4 class="text-center mb-3">Analyse de vos résultats</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card result-card mb-3">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-trophy text-warning me-2"></i> Points forts</h5>
+                                    <ul id="strengths-list" class="mb-0">
+                                        <!-- Dynamically filled by JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card result-card mb-3">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i> Axes d'amélioration</h5>
+                                    <ul id="improvements-list" class="mb-0">
+                                        <!-- Dynamically filled by JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#plan" class="btn btn-custom">
+                        <i class="fas fa-rocket me-2"></i>Voir le plan d'action
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Plan -->
+        <section id="plan" class="mb-5">
+            <h2 class="text-center fw-bold mb-4">🚀 Plan d'action personnalisé</h2>
+            <p class="text-center mb-5">Découvrez des stratégies concrètes pour progresser sur chaque dimension.</p>
+            
+            <div class="accordion" id="planAccordion">
+                <!-- Valeurs Fondamentales -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            <i class="fas fa-dove text-success me-2"></i> Valeurs Fondamentales
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#planAccordion">
+                        <div class="accordion-body">
+                            <h5>Actions recommandées :</h5>
+                            <ol>
+                                <li>Listez vos 5 valeurs fondamentales</li>
+                                <li>Évaluez l'alignement de vos actions avec ces valeurs</li>
+                                <li>Prenez une décision difficile en vous basant sur vos valeurs</li>
+                            </ol>
+                            <h5 class="mt-3">Ressources :</h5>
+                            <ul>
+                                <li>Livre : "Le Choix" d'Edith Eger</li>
+                                <li>Exercice : Journal d'alignement valeurs/actions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spiritualité & Sens -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            <i class="fas fa-pray text-purple me-2"></i> Spiritualité & Sens
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                        <div class="accordion-body">
+                            <h5>Actions recommandées :</h5>
+                            <ol>
+                                <li>Pratiquez 5 minutes de méditation quotidienne</li>
+                                <li>Rédigez votre mission personnelle</li>
+                                <li>Tenez un journal de gratitude</li>
+                            </ol>
+                            <h5 class="mt-3">Ressources :</h5>
+                            <ul>
+                                <li>App : Headspace ou Petit Bambou</li>
+                                <li>Exercice : "Pourquoi je me lève le matin ?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- La Niaque -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            <i class="fas fa-fire text-danger me-2"></i> La Niaque
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
+                        <div class="accordion-body">
+                            <h5>Actions recommandées :</h5>
+                            <ol>
+                                <li>Créez une routine matinale productive</li>
+                                <li>Fixez-vous un défi difficile mais réalisable</li>
+                                <li>Analysez un échec récent pour en tirer des leçons</li>
+                            </ol>
+                            <h5 class="mt-3">Ressources :</h5>
+                            <ul>
+                                <li>Livre : "Grit" d'Angela Duckworth</li>
+                                <li>Technique : La règle des 5 secondes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Autres dimensions... -->
+                <!-- Les autres dimensions suivent le même modèle -->
+                
+            </div>
+            
+            <div class="text-center mt-4">
+                <button class="btn btn-custom">
+                    <i class="fas fa-download me-2"></i>Télécharger le plan complet
+                </button>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section id="technologies" class="mb-5">
+            <h2 class="text-center fw-bold mb-4">🤖 Technologies pour progresser</h2>
+            <p class="text-center mb-5">Découvrez des outils technologiques pour développer chaque dimension.</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card tech-card h-100">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-mobile-alt me-2"></i> Applications
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Pour les dimensions internes</h5>
+                            <ul>
+                                <li>Headspace (méditation)</li>
+                                <li>Habitica (habitudes gamifiées)</li>
+                                <li>Daylio (journal émotionnel)</li>
+                                <li>Notion (organisation)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card tech-card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-laptop-code me-2"></i> Plateformes
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Pour les compétences</h5>
+                            <ul>
+                                <li>Coursera (formations)</li>
+                                <li>Brilliant (résolution problèmes)</li>
+                                <li>Mimo (apprentissage code)</li>
+                                <li>MasterClass (experts)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card tech-card h-100">
+                        <div class="card-header bg-purple text-white">
+                            <i class="fas fa-vr-cardboard me-2"></i> Technologies émergentes
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Pour l'immersion</h5>
+                            <ul>
+                                <li>Réalité Virtuelle (entraînement soft skills)</li>
+                                <li>IA conversationnelle (pratique langues)</li>
+                                <li>Biofeedback (gestion stress)</li>
+                                <li>Blockchain (gestion finances)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Game -->
+        <section id="game" class="mb-5">
+            <h2 class="text-center fw-bold mb-4">🎮 Jeu Éducatif : Le Voyage des 10 Dimensions</h2>
+            <p class="text-center mb-5">Apprenez en jouant à travers des scénarios réalistes.</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100">
+                        <img src="https://cdn.pixabay.com/photo/2017/03/31/14/37/chess-2191279_1280.png" class="card-img-top" alt="Défi Valeurs">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Le Dilemme Éthique</h5>
+                            <p class="card-text">Un choix difficile mettra vos valeurs à l'épreuve...</p>
+                            <button class="btn btn-outline-light">Jouer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100">
+                        <img src="https://cdn.pixabay.com/photo/2017/05/11/11/15/workplace-2303851_1280.jpg" class="card-img-top" alt="Défi Compétences">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">La Crise Professionnelle</h5>
+                            <p class="card-text">Vos compétences seront cruciales pour résoudre cette situation...</p>
+                            <button class="btn btn-outline-light">Jouer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/16/07/26/under-pressure-2408358_1280.png" class="card-img-top" alt="Défi Persévérance">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Le Mur de la Persévérance</h5>
+                            <p class="card-text">Votre niaque sera testée face à cet obstacle...</p>
+                            <button class="btn btn-outline-light">Jouer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-5">
+            <h2 class="text-center fw-bold mb-4">📬 Contact & Ressources</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-envelope me-2"></i> Restez informé
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Votre email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="interest" class="form-label">Dimensions qui vous intéressent</label>
+                                    <select class="form-select" id="interest" multiple>
+                                        <option value="values">Valeurs fondamentales</option>
+                                        <option value="spirituality">Spiritualité & Sens</option>
+                                        <option value="grit">La Niaque</option>
+                                        <option value="smart">Smart Skills</option>
+                                        <option value="decision">Art de la Décision</option>
+                                        <option value="soft">Soft Skills</option>
+                                        <option value="balance">Équilibre de Vie</option>
+                                        <option value="money">Relation à l'Argent</option>
+                                        <option value="hard">Hard Skills</option>
+                                        <option value="impact">Impact & Contribution</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-custom">S'abonner</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-book me-2"></i> Ressources complémentaires
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-book text-primary me-2"></i> 
+                                    <a href="#" class="text-decoration-none">Bibliographie complète</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-podcast text-success me-2"></i> 
+                                    <a href="#" class="text-decoration-none">Podcasts recommandés</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-users text-purple me-2"></i> 
+                                    <a href="#" class="text-decoration-none">Communauté d'entraide</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-chalkboard-teacher text-warning me-2"></i> 
+                                    <a href="#" class="text-decoration-none">Formations en ligne</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-chess-queen me-2"></i> Les 10 Dimensions</h5>
+                    <p>Un cadre holistique pour une réussite durable et équilibrée dans tous les aspects de la vie.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#dimensions" class="text-white text-decoration-none">Dimensions</a></li>
+                        <li><a href="#test" class="text-white text-decoration-none">Auto-évaluation</a></li>
+                        <li><a href="#plan" class="text-white text-decoration-none">Plan d'action</a></li>
+                        <li><a href="#technologies" class="text-white text-decoration-none">Technologies</a></li>
+                        <li><a href="#game" class="text-white text-decoration-none">Jeu Éducatif</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Réseaux sociaux</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-outline-light btn-sm">Mentions légales</a>
+                        <a href="#" class="btn btn-outline-light btn-sm ms-2">Confidentialité</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2023 Les 10 Dimensions de la Réussite Durable. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Update range values in real-time
+        document.querySelectorAll('input[type="range"]').forEach(range => {
+            const scoreId = range.id.replace('-range', '-score');
+            range.addEventListener('input', () => {
+                document.getElementById(scoreId).textContent = range.value;
+            });
+        });
+
+        // Form submission
+        document.getElementById('evaluation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get all scores
+            const scores = {
+                values: parseInt(document.getElementById('values-range').value),
+                spirituality: parseInt(document.getElementById('spirituality-range').value),
+                grit: parseInt(document.getElementById('grit-range').value),
+                smart: parseInt(document.getElementById('smart-range').value),
+                decision: parseInt(document.getElementById('decision-range').value),
+                soft: parseInt(document.getElementById('soft-range').value),
+                balance: parseInt(document.getElementById('balance-range').value),
+                money: parseInt(document.getElementById('money-range').value),
+                hard: parseInt(document.getElementById('hard-range').value),
+                impact: parseInt(document.getElementById('impact-range').value)
+            };
+            
+            // Show results section
+            document.getElementById('results-section').style.display = 'block';
+            
+            // Create charts
+            createRadarChart(scores);
+            createBarChart(scores);
+            
+            // Generate strengths and improvements
+            generateAnalysis(scores);
+            
+            // Scroll to results
+            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function createRadarChart(scores) {
+            const ctx = document.getElementById('radar-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Valeurs', 'Spiritualité', 'Niaque', 'Smart Skills', 'Décision', 'Soft Skills', 'Équilibre', 'Argent', 'Hard Skills', 'Impact'],
+                    datasets: [{
+                        label: 'Votre profil',
+                        data: [
+                            scores.values,
+                            scores.spirituality,
+                            scores.grit,
+                            scores.smart,
+                            scores.decision,
+                            scores.soft,
+                            scores.balance,
+                            scores.money,
+                            scores.hard,
+                            scores.impact
+                        ],
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(52, 152, 219, 1)'
+                    }, {
+                        label: 'Profil idéal',
+                        data

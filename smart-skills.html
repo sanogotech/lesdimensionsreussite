@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Skills – Intelligence organisationnelle</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    header {
+      background-color: #10b981;
+      padding: 30px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background-color: #e5e7eb;
+      padding: 10px 0;
+    }
+
+    .tab {
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #d1d5db;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .tab.active {
+      background-color: #10b981;
+      color: white;
+    }
+
+    .tab:hover {
+      background-color: #6ee7b7;
+    }
+
+    .content {
+      display: none;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    h2 {
+      color: #065f46;
+    }
+
+    p, li {
+      line-height: 1.7;
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      background-color: #fef9c3;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌟 Smart Skills : Intelligence Exécutive & Organisationnelle</h1>
+  <p>5 piliers pour transformer les idées en résultats mesurables</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">Introduction</div>
+  <div class="tab" onclick="showTab(1)">Organisation & Exécution</div>
+  <div class="tab" onclick="showTab(2)">Veille & Innovation</div>
+  <div class="tab" onclick="showTab(3)">Cas d’usage</div>
+  <div class="tab" onclick="showTab(4)">Ressources</div>
+</div>
+
+<div class="content active" id="tab0">
+  <section class="section">
+    <h2>🧠 Comprendre les Smart Skills</h2>
+    <p>Les <strong>Smart Skills</strong> sont l'ensemble des capacités pratiques et stratégiques permettant à un individu ou une organisation de passer rapidement de l'idée à l'action. Elles représentent la capacité à :</p>
+    <ul>
+      <li>Planifier et prioriser avec méthode</li>
+      <li>Agir avec efficacité</li>
+      <li>S’adapter à un contexte changeant</li>
+      <li>Innover en continu</li>
+      <li>Exploiter l'information stratégique via la veille</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🎯 Objectifs de cette page</h2>
+    <p>Cette page est conçue pour :</p>
+    <ul>
+      <li>Explorer les 5 piliers essentiels des Smart Skills</li>
+      <li>Proposer des cas concrets d'application</li>
+      <li>Fournir des ressources clés pour les développer</li>
+      <li>Offrir des outils d’auto-évaluation et de mise en pratique</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>📊 Impact estimé</h2>
+    <p>Les Smart Skills contribuent à hauteur de <strong class="highlight">10% à 20%</strong> du succès personnel et professionnel, selon plusieurs études managériales sur la performance opérationnelle.</p>
+  </section>
+</div>
+
+<div class="content" id="tab1">
+  <section class="section">
+    <h2>📋 Organisation stratégique</h2>
+    <p>Organiser, c’est créer une structure qui facilite l’exécution et la prise de décision rapide. Une bonne organisation repose sur :</p>
+    <ul>
+      <li><strong>Clarté des objectifs</strong> : Définir précisément les livrables et les échéances</li>
+      <li><strong>Outils de planification</strong> : Gantt, Kanban, Matrices Eisenhower</li>
+      <li><strong>Routines efficaces</strong> : Revue quotidienne, hebdomadaire, mensuelle</li>
+      <li><strong>Standardisation</strong> : Créer des modèles, procédures, checklists</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🚀 Exécution performante</h2>
+    <p>Exécuter, c’est livrer. Cela nécessite discipline, priorisation, suivi, et remise en question. Les ingrédients clés sont :</p>
+    <ul>
+      <li><strong>Focalisation</strong> sur les tâches à fort impact (principe de Pareto 80/20)</li>
+      <li><strong>Rétroactions rapides</strong> (approche agile, boucles courtes)</li>
+      <li><strong>Suivi d’avancement</strong> par KPI ou indicateurs visuels</li>
+      <li><strong>Gestion de l’énergie</strong> plus que du temps (méthode Pomodoro, Deep Work)</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🧰 Outils recommandés</h2>
+    <ul>
+      <li>📆 <strong>Notion</strong> ou <strong>ClickUp</strong> pour structurer les tâches et projets</li>
+      <li>📊 <strong>Trello</strong> pour des tableaux Kanban dynamiques</li>
+      <li>📋 <strong>Google Calendar</strong> + <strong>Time-blocking</strong> pour planifier les blocs d’exécution</li>
+      <li>🧠 <strong>MindMeister</strong> pour créer des cartes mentales organisationnelles</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🧮 Exemples de bonnes pratiques</h2>
+    <ul>
+      <li>✅ Commencer la semaine avec un <strong>Weekly Review</strong> de 30 minutes</li>
+      <li>✅ Finir chaque journée par une revue des 3 priorités du lendemain</li>
+      <li>✅ Appliquer la règle des 2 minutes (si une tâche prend < 2 min, faites-la tout de suite)</li>
+      <li>✅ Bloquer des plages sans distraction pour les Deep Tasks (Tâches profondes)</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>📌 Modèle de Tableau d’Organisation (Schéma Textuel)</h2>
+    <pre style="background:#f3f4f6;padding:15px;border-radius:8px;overflow-x:auto;">
+╔════════════════════════════════════════════╗
+║             PLAN D’ACTION HEBDOMADAIRE    ║
+╠════════════════════╦════════════╦═════════╣
+║ Objectif Clé       ║ Priorité   ║ Statut  ║
+╠════════════════════╬════════════╬═════════╣
+║ Préparer rapport Q2║ Haute      ║ En cours║
+║ Lancer veille tech ║ Moyenne    ║ Planifié║
+║ Mettre à jour CRM  ║ Basse      ║ Fait    ║
+╚════════════════════╩════════════╩═════════╝
+    </pre>
+  </section>
+
+  <section class="section">
+    <h2>📚 Méthodes éprouvées</h2>
+    <ul>
+      <li>📌 <strong>Getting Things Done (GTD)</strong> – de David Allen</li>
+      <li>📌 <strong>Scrum personnel</strong> – appliquer les principes agiles à sa vie</li>
+      <li>📌 <strong>La Matrice Eisenhower</strong> – Urgent vs Important</li>
+      <li>📌 <strong>Routines 5 AM / Miracle Morning</strong> pour démarrer avec clarté</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🎯 Résumé</h2>
+    <ul>
+      <li>✔ Organisation = Clarté, structure, préparation</li>
+      <li>✔ Exécution = Action, priorisation, discipline</li>
+      <li>✔ Les deux ensemble = <span class="highlight">impact rapide et mesurable</span></li>
+    </ul>
+  </section>
+</div>
+
+
+<div class="content" id="tab2">
+  <section class="section">
+    <h2>🔍 Veille stratégique : pilier de la réussite</h2>
+    <p>La veille est une activité continue et structurée qui permet d’anticiper les évolutions du marché, des technologies, des concurrents et des tendances sociétales. Elle alimente la prise de décision et stimule l’innovation.</p>
+    <ul>
+      <li><strong>Types de veille</strong> :
+        <ul>
+          <li>Veille technologique</li>
+          <li>Veille concurrentielle</li>
+          <li>Veille réglementaire</li>
+          <li>Veille sociétale / RSE</li>
+        </ul>
+      </li>
+      <li><strong>Outils et méthodes</strong> : flux RSS, alertes Google, plateformes spécialisées (Feedly, Talkwalker, etc.)</li>
+      <li><strong>Cycle de veille</strong> : collecte → analyse → diffusion → exploitation → retour</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🚀 Innovation continue : s’adapter et créer de la valeur</h2>
+    <p>L’innovation ne consiste pas uniquement à inventer, mais à améliorer en permanence. Elle combine créativité, expérimentation, et adaptation rapide :</p>
+    <ul>
+      <li><strong>Innovation incrémentale</strong> : amélioration progressive des produits et processus</li>
+      <li><strong>Innovation disruptive</strong> : rupture complète, création de nouveaux marchés</li>
+      <li><strong>Méthodes d’innovation</strong> : Design Thinking, Lean Startup, Agile</li>
+      <li><strong>Culture de l’échec constructif</strong> : apprendre rapidement pour pivoter efficacement</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🧭 Adaptation organisationnelle</h2>
+    <p>Dans un environnement changeant, la capacité d’adaptation est vitale. Cela inclut :</p>
+    <ul>
+      <li>Flexibilité des processus</li>
+      <li>Formation continue des équipes</li>
+      <li>Prise de décision décentralisée</li>
+      <li>Utilisation des données en temps réel pour ajuster la stratégie</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Outils et pratiques recommandés</h2>
+    <ul>
+      <li><strong>Plateformes de veille collaborative</strong> : SharePoint, Confluence</li>
+      <li><strong>Logiciels d’analyse de données</strong> : Power BI, Tableau</li>
+      <li><strong>Plateformes d'innovation participative</strong> : IdeaScale, Brightidea</li>
+      <li><strong>Formations en continu</strong> via MOOCs, ateliers internes</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>📈 Exemple d’un processus de veille simple</h2>
+    <pre style="background:#f3f4f6;padding:15px;border-radius:8px;overflow-x:auto;">
+1. Identifier les sources clés d’information (sites, blogs, réseaux sociaux)
+2. Automatiser la collecte via alertes et outils
+3. Analyser les données pour détecter opportunités et menaces
+4. Partager les résultats avec l’équipe via un rapport hebdomadaire
+5. Intégrer les insights dans la planification stratégique
+    </pre>
+  </section>
+
+  <section class="section">
+    <h2>💡 Cas concret d’innovation dans une PME</h2>
+    <p>Une PME du secteur agroalimentaire a mis en place une veille technologique qui a permis de détecter une tendance émergente vers les emballages biodégradables. En quelques mois, l’entreprise a adapté ses processus et lancé une nouvelle gamme, augmentant son chiffre d’affaires de 15% en un an.</p>
+  </section>
+
+  <section class="section">
+    <h2>📚 Ressources clés pour développer ces compétences</h2>
+    <ul>
+      <li><a href="https://www.cleverism.com/importance-competitive-intelligence-business/" target="_blank" rel="noopener">Introduction à la veille concurrentielle</a></li>
+      <li><a href="https://hbr.org/2009/05/the-discipline-of-innovation" target="_blank" rel="noopener">Discipline de l’innovation – Harvard Business Review</a></li>
+      <li><a href="https://fr.feedly.com/" target="_blank" rel="noopener">Feedly – Agrégateur de contenu pour veille technologique</a></li>
+      <li><a href="https://www.ideascale.com/" target="_blank" rel="noopener">IdeaScale – Plateforme d’innovation participative</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🎯 Résumé</h2>
+    <ul>
+      <li>✔ La veille est une activité indispensable pour anticiper les changements</li>
+      <li>✔ L’innovation doit être intégrée comme un processus continu</li>
+      <li>✔ L’adaptation rapide est une force compétitive majeure</li>
+      <li>✔ Ces éléments nourrissent la capacité d’exécution agile et intelligente</li>
+    </ul>
+  </section>
+</div>
+
+
+<div class="content" id="tab3">
+  <section class="section">
+    <h2>🏢 Cas d’usage : Gestion de projet agile dans une équipe IT</h2>
+    <p>Une équipe de développement logiciel a adopté une méthode agile pour améliorer sa productivité et la qualité des livrables. Grâce à une organisation claire et un suivi quotidien via des outils comme Jira, elle a pu réduire le délai moyen de livraison de 30 % en six mois.</p>
+    <ul>
+      <li>Planification en sprints de 2 semaines</li>
+      <li>Stand-up meetings quotidiens de 15 minutes</li>
+      <li>Révision et rétrospective pour ajuster le processus</li>
+      <li>Utilisation d’indicateurs clés (burndown chart, vélocité)</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🎯 Cas d’usage : Innovation produit par design thinking</h2>
+    <p>Une start-up a utilisé la méthode Design Thinking pour repenser son produit phare. Après une phase d’empathie et d’idéation, elle a prototypé rapidement une nouvelle interface qui a été très bien accueillie par ses utilisateurs.</p>
+    <ul>
+      <li>Immersion auprès des utilisateurs</li>
+      <li>Sessions de brainstorming créatif</li>
+      <li>Prototypage rapide avec retours fréquents</li>
+      <li>Validation avant le développement complet</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Bonnes pratiques pour développer les Smart Skills</h2>
+    <ul>
+      <li>✔ Développer une routine quotidienne de planification et revue</li>
+      <li>✔ Se former régulièrement sur les nouvelles méthodes (MOOCs, webinars)</li>
+      <li>✔ Pratiquer la veille pour rester informé et pertinent</li>
+      <li>✔ Cultiver la curiosité et la créativité en s’exposant à divers domaines</li>
+      <li>✔ Apprendre à gérer son énergie et ses priorités plutôt que juste le temps</li>
+      <li>✔ Expérimenter de nouvelles approches sans peur de l’échec</li>
+      <li>✔ Solliciter et donner des feedbacks constructifs</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>✅ Checklist pour une organisation efficace</h2>
+    <ol>
+      <li>Définir clairement ses objectifs hebdomadaires et quotidiens</li>
+      <li>Utiliser des outils digitaux pour centraliser les tâches</li>
+      <li>Prioriser selon l’impact et l’urgence</li>
+      <li>Allouer des plages horaires dédiées aux tâches complexes</li>
+      <li>Réviser régulièrement son plan d’action</li>
+      <li>Prendre des pauses régulières pour recharger son énergie</li>
+      <li>Documenter les apprentissages et ajuster sa méthode</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>📊 Étude de cas : Transformation digitale réussie</h2>
+    <p>Une entreprise traditionnelle de distribution a digitalisé ses process en combinant organisation agile, innovation produit et formation des équipes. Résultat : augmentation du chiffre d’affaires de 25 % en 18 mois et meilleure satisfaction client.</p>
+    <ul>
+      <li>Implémentation d’un CRM intégré</li>
+      <li>Lancement d’une plateforme e-commerce</li>
+      <li>Adoption d’un outil collaboratif en cloud</li>
+      <li>Programme de formation continue pour les collaborateurs</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🔄 Synthèse des bonnes pratiques</h2>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+      <thead>
+        <tr style="background-color:#2E86C1; color:#fff;">
+          <th>Pratique</th>
+          <th>Description</th>
+          <th>Impact attendu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Planification Agile</td>
+          <td>Organisation flexible en sprints avec rétrospectives régulières</td>
+          <td>Amélioration continue et réactivité accrue</td>
+        </tr>
+        <tr>
+          <td>Veille régulière</td>
+          <td>Suivi des tendances et innovations sectorielles</td>
+          <td>Anticipation des risques et opportunités</td>
+        </tr>
+        <tr>
+          <td>Prototypage rapide</td>
+          <td>Développement d’ébauches testables pour validation rapide</td>
+          <td>Réduction des coûts et délais</td>
+        </tr>
+        <tr>
+          <td>Feedback constructif</td>
+          <td>Échanges transparents pour améliorer les résultats</td>
+          <td>Cohésion et qualité renforcées</td>
+        </tr>
+        <tr>
+          <td>Formation continue</td>
+          <td>Mise à jour des compétences et adaptation aux changements</td>
+          <td>Employabilité et innovation accrues</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>📌 Conclusion</h2>
+    <p>Les Smart Skills combinent organisation rigoureuse, exécution disciplinée, veille active, innovation continue et adaptation permanente. Leur maîtrise ouvre la voie à une performance durable et à un impact positif dans toutes les sphères professionnelles.</p>
+  </section>
+</div>
+
+<div class="content" id="tab4">
+  <section class="section">
+    <h2>📚 Livres incontournables pour développer ses Smart Skills</h2>
+    <ul>
+      <li><strong>“Deep Work”</strong> – Cal Newport  
+        <p>Apprenez à maîtriser la concentration intense pour un travail efficace et sans distraction.</p>
+      </li>
+      <li><strong>“The Lean Startup”</strong> – Eric Ries  
+        <p>Guide pour innover rapidement avec une approche expérimentale et agile.</p>
+      </li>
+      <li><strong>“Design Thinking”</strong> – Tim Brown  
+        <p>Introduction complète à la pensée design pour résoudre les problèmes complexes de manière créative.</p>
+      </li>
+      <li><strong>“Atomic Habits”</strong> – James Clear  
+        <p>Apprenez à construire des habitudes puissantes pour booster votre organisation personnelle et professionnelle.</p>
+      </li>
+      <li><strong>“The 7 Habits of Highly Effective People”</strong> – Stephen R. Covey  
+        <p>Les principes fondamentaux pour développer des compétences relationnelles et organisationnelles durables.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🌐 Plateformes en ligne et MOOCs</h2>
+    <ul>
+      <li><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera</a> — Cours sur la gestion du temps, l’innovation, l’agilité et plus</li>
+      <li><a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> — Programmes certifiants en leadership, créativité et méthodologies modernes</li>
+      <li><a href="https://www.udemy.com" target="_blank" rel="noopener">Udemy</a> — Formations pratiques et accessibles sur la gestion de projet et la productivité</li>
+      <li><a href="https://www.linkedin.com/learning" target="_blank" rel="noopener">LinkedIn Learning</a> — Bibliothèque étendue de tutoriels professionnels</li>
+      <li><a href="https://www.skillshare.com" target="_blank" rel="noopener">Skillshare</a> — Cours courts et dynamiques sur la créativité et l’innovation</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Outils numériques recommandés</h2>
+    <ul>
+      <li><strong>Trello</strong> — Gestion visuelle des tâches et projets par cartes</li>
+      <li><strong>Notion</strong> — Plateforme tout-en-un pour notes, tâches, bases de données</li>
+      <li><strong>Evernote</strong> — Prise de notes et organisation personnelle</li>
+      <li><strong>Asana</strong> — Gestion de projet et collaboration d’équipe</li>
+      <li><strong>Google Workspace</strong> — Suite collaborative et cloud (Docs, Sheets, Drive)</li>
+      <li><strong>Feedly</strong> — Agrégateur pour la veille technologique et sectorielle</li>
+      <li><strong>Slack</strong> — Communication instantanée et intégration d’outils</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🎓 Certifications utiles</h2>
+    <ul>
+      <li><strong>Certified Scrum Master (CSM)</strong> — Pour maîtriser les méthodes agiles</li>
+      <li><strong>Project Management Professional (PMP)</strong> — Gestion avancée de projets</li>
+      <li><strong>Google Project Management Certificate</strong> — Formation accessible et pratique</li>
+      <li><strong>Design Thinking Certification</strong> — Plusieurs organismes offrent des programmes certifiants</li>
+      <li><strong>ITIL Foundation</strong> — Gestion des services informatiques et processus d’amélioration continue</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🔗 Liens utiles pour approfondir</h2>
+    <ul>
+      <li><a href="https://hbr.org" target="_blank" rel="noopener">Harvard Business Review</a> — Articles et études de cas sur leadership et innovation</li>
+      <li><a href="https://www.mckinsey.com/business-functions/strategy-and-corporate-finance/our-insights" target="_blank" rel="noopener">McKinsey Insights</a> — Tendances et analyses sectorielles</li>
+      <li><a href="https://www.agilealliance.org" target="_blank" rel="noopener">Agile Alliance</a> — Ressources et communauté agile</li>
+      <li><a href="https://medium.com" target="_blank" rel="noopener">Medium</a> — Blogs d’experts sur la productivité et la gestion du temps</li>
+      <li><a href="https://www.ted.com/topics/creativity" target="_blank" rel="noopener">TED Talks sur la créativité</a> — Conférences inspirantes et pédagogiques</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>📝 Conseils pratiques pour intégrer les Smart Skills au quotidien</h2>
+    <ul>
+      <li>Définissez des objectifs clairs et mesurables chaque jour</li>
+      <li>Pratiquez la méditation ou la pleine conscience pour améliorer la concentration</li>
+      <li>Automatisez les tâches répétitives pour libérer du temps créatif</li>
+      <li>Entourez-vous d’une communauté qui partage les mêmes valeurs d’apprentissage</li>
+      <li>Testez régulièrement de nouveaux outils et méthodes pour trouver ce qui vous convient</li>
+      <li>Tenez un journal de vos progrès pour maintenir la motivation</li>
+      <li>Priorisez le repos et la récupération pour éviter le burnout</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🚀 Conclusion générale</h2>
+    <p>Les Smart Skills sont aujourd’hui indispensables pour évoluer dans un monde professionnel complexe et rapide. En cultivant l’organisation, la bonne exécution, la veille, l’innovation et l’adaptation, vous vous donnez les moyens d’être performant, résilient et innovant, quels que soient les défis rencontrés.</p>
+  </section>
+</div>
+
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.content');
+
+  function showTab(index) {
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      contents[i].classList.toggle('active', i === index);
+    });
+  }
+</script>
+
+
+</body>
+</html>
