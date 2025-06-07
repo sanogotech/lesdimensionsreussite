@@ -1,0 +1,74 @@
+/* Custom CSS for additional styling and "Whaou" effects */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.header {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    padding: 60px 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1, h2, h3 {
+    color: #000bff;
+    margin-bottom: 1.5rem;
+}
+
+.accordion-button {
+    font-weight: bold;
+    color: black;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.accordion-body {
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+blockquote {
+    font-style: italic;
+    color: #f8f9fa;
+    margin-top: 20px;
+}
+
+/* "Whaou" effects could include: */
+/* - Hover effects on accordion items */
+/* - Subtle animations on scroll */
+/* - Dynamic background changes or particle effects (more advanced) */
+

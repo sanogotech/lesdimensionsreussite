@@ -93,6 +93,13 @@
             padding: 1rem;
         }
         
+        .concept-details {
+            display: none;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+        
         .case-study {
             background: var(--light-color);
             border-left: 5px solid var(--secondary-color);
@@ -107,6 +114,11 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .quiz-question.active {
+            display: block;
         }
         
         .quiz-option {
@@ -141,18 +153,14 @@
         }
         
         .wow-effect {
-            animation: fadeInUp 0.5s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .wow-effect.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .simulation-container {
@@ -210,18 +218,30 @@
             padding: 3rem 0;
             margin-top: 5rem;
         }
+        
+        .progress-container {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero-section text-center wow-effect">
+    <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Aide à la Prise de Décision</h1>
-            <p class="slogan">
+            <h1 class="display-4 fw-bold mb-4 wow-effect">Aide à la Prise de Décision</h1>
+            <p class="slogan wow-effect">
                 "<strong>Une décision optimale</strong> émerge d'un processus rigoureux, <strong>adaptatif et résilient</strong>, 
                 combinant probabilité de succès, durabilité économique et alignement éthique."
             </p>
-            <button class="btn btn-light btn-lg px-4 py-2">Commencer le parcours</button>
+            <button class="btn btn-light btn-lg px-4 py-2 wow-effect">Commencer le parcours</button>
         </div>
     </section>
 
@@ -258,6 +278,7 @@
             <div class="tab-pane fade show active" id="concepts" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-brain me-2"></i>Concepts Fondamentaux</h2>
                 <div class="row">
+                    <!-- Concept 1 -->
                     <div class="col-md-4">
                         <div class="concept-card wow-effect">
                             <div class="card-header">
@@ -265,10 +286,17 @@
                             </div>
                             <div class="card-body">
                                 <p>Une bonne décision ne garantit pas toujours un bon résultat, et vice versa. Apprenez à évaluer la qualité du processus décisionnel indépendamment du résultat.</p>
-                                <button class="btn btn-sm btn-outline-primary">En savoir plus</button>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="1">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-1">
+                                <h5>Détails sur Décision vs Résultat</h5>
+                                <p>Dans un monde incertain, même les meilleures décisions peuvent conduire à de mauvais résultats en raison de facteurs imprévisibles. À l'inverse, une décision médiocre peut parfois donner un bon résultat par chance.</p>
+                                <p><strong>Implications :</strong> Évaluez toujours la qualité de votre processus décisionnel indépendamment du résultat. Un bon processus augmente la probabilité de succès à long terme.</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Concept 2 -->
                     <div class="col-md-4">
                         <div class="concept-card wow-effect">
                             <div class="card-header">
@@ -276,10 +304,22 @@
                             </div>
                             <div class="card-body">
                                 <p>Comprendre les différents niveaux de complexité des décisions : simples, compliquées, complexes et chaotiques (modèle Cynefin).</p>
-                                <button class="btn btn-sm btn-outline-primary">En savoir plus</button>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="2">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-2">
+                                <h5>Détails sur Complexité Décisionnelle</h5>
+                                <p>Le cadre Cynefin catégorise les problèmes en quatre domaines :</p>
+                                <ul>
+                                    <li><strong>Simple :</strong> Relations de cause à effet évidentes, meilleures pratiques applicables</li>
+                                    <li><strong>Compliqué :</strong> Relations de cause à effet nécessitant une expertise, bonnes pratiques</li>
+                                    <li><strong>Complexe :</strong> Relations de cause à effet rétrospectives seulement, approche expérimentale</li>
+                                    <li><strong>Chaotique :</strong> Aucune relation de cause à effet perceptible, action immédiate nécessaire</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Concept 3 -->
                     <div class="col-md-4">
                         <div class="concept-card wow-effect">
                             <div class="card-header">
@@ -287,7 +327,237 @@
                             </div>
                             <div class="card-body">
                                 <p>Différenciez les situations de risque (probabilités connues) et d'incertitude (probabilités inconnues) pour adapter votre approche.</p>
-                                <button class="btn btn-sm btn-outline-primary">En savoir plus</button>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="3">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-3">
+                                <h5>Détails sur Risque & Incertitude</h5>
+                                <p><strong>Risque :</strong> Les résultats possibles et leurs probabilités sont connus (ex: lancer de dé). On peut utiliser des analyses quantitatives.</p>
+                                <p><strong>Incertitude :</strong> Les résultats possibles ou leurs probabilités sont inconnus (ex: lancement d'un produit innovant). Nécessite des approches plus qualitatives.</p>
+                                <p>La distinction, introduite par Frank Knight, est cruciale pour choisir les outils décisionnels appropriés.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 4 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-arrows-alt me-2"></i> Rationalité Limitée
+                            </div>
+                            <div class="card-body">
+                                <p>Concept de Herbert Simon selon lequel les décideurs ont des capacités cognitives limitées et doivent "satisfaire" plutôt qu'optimiser.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="4">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-4">
+                                <h5>Détails sur Rationalité Limitée</h5>
+                                <p>La théorie de la rationalité limitée (bounded rationality) explique que :</p>
+                                <ul>
+                                    <li>Les décideurs ont une capacité limitée à traiter l'information</li>
+                                    <li>Ils utilisent des heuristiques pour simplifier les problèmes complexes</li>
+                                    <li>Ils cherchent des solutions "satisfaisantes" (satisficing) plutôt qu'optimales</li>
+                                </ul>
+                                <p>Cette théorie a valu à Herbert Simon le prix Nobel d'économie en 1978.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 5 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-layer-group me-2"></i> Niveaux de Décision
+                            </div>
+                            <div class="card-body">
+                                <p>Les décisions stratégiques, tactiques et opérationnelles nécessitent des approches et des échelles de temps différentes.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="5">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-5">
+                                <h5>Détails sur Niveaux de Décision</h5>
+                                <p><strong>Stratégiques :</strong> Long terme, impact organisationnel global, prise par la haute direction</p>
+                                <p><strong>Tactiques :</strong> Moyen terme, mise en œuvre de la stratégie, prise par les managers</p>
+                                <p><strong>Opérationnelles :</strong> Court terme, activités quotidiennes, prise par les employés</p>
+                                <p>Chaque niveau nécessite des outils et processus décisionnels adaptés.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 6 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-users me-2"></i> Décision Individuelle vs Collective
+                            </div>
+                            <div class="card-body">
+                                <p>Avantages et inconvénients des décisions individuelles (rapidité) et collectives (diversité des perspectives).</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="6">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-6">
+                                <h5>Détails sur Décision Individuelle vs Collective</h5>
+                                <p><strong>Individuelle :</strong></p>
+                                <ul>
+                                    <li>Avantages : Rapidité, clarté de responsabilité</li>
+                                    <li>Risques : Biais personnels, manque de diversité</li>
+                                </ul>
+                                <p><strong>Collective :</strong></p>
+                                <ul>
+                                    <li>Avantages : Diversité des perspectives, meilleure acceptation</li>
+                                    <li>Risques : Plus lente, pensée de groupe (groupthink)</li>
+                                </ul>
+                                <p>Le choix dépend de l'urgence, de la complexité et de l'importance de la décision.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 7 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-clock me-2"></i> Temporalité Décisionnelle
+                            </div>
+                            <div class="card-body">
+                                <p>L'impact temporel des décisions : effets immédiats, différés et cumulatifs. L'importance du timing.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="7">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-7">
+                                <h5>Détails sur Temporalité Décisionnelle</h5>
+                                <p>Les décisions ont différents effets dans le temps :</p>
+                                <ul>
+                                    <li><strong>Court terme :</strong> Impacts immédiats souvent visibles</li>
+                                    <li><strong>Moyen terme :</strong> Conséquences secondaires et effets d'entraînement</li>
+                                    <li><strong>Long terme :</strong> Impacts structurels et cumulatifs</li>
+                                </ul>
+                                <p>Le "moment décisionnel" optimal est crucial - ni trop tôt (manque d'info) ni trop tard (opportunité perdue).</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 8 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-tachometer-alt me-2"></i> Décision en Situation de Crise
+                            </div>
+                            <div class="card-body">
+                                <p>Caractéristiques spécifiques des décisions en situation de crise : urgence, incertitude extrême, enjeux élevés.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="8">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-8">
+                                <h5>Détails sur Décision en Situation de Crise</h5>
+                                <p>En situation de crise :</p>
+                                <ul>
+                                    <li>Le temps est limité et la pression élevée</li>
+                                    <li>L'information est incomplète ou contradictoire</li>
+                                    <li>Les enjeux sont importants (sécurité, réputation, survie)</li>
+                                    <li>Les émotions interfèrent avec la rationalité</li>
+                                </ul>
+                                <p>Approches recommandées : protocoles préétablis, cellules de crise, communication transparente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 9 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-chart-pie me-2"></i> Analyse Coûts-Avantages
+                            </div>
+                            <div class="card-body">
+                                <p>Méthode fondamentale pour évaluer systématiquement les gains et pertes potentiels de chaque option.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="9">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-9">
+                                <h5>Détails sur Analyse Coûts-Avantages</h5>
+                                <p>Processus en 5 étapes :</p>
+                                <ol>
+                                    <li>Identifier toutes les options possibles</li>
+                                    <li>Lister tous les coûts et bénéfices pour chaque option</li>
+                                    <li>Attribuer une valeur monétaire (quand possible)</li>
+                                    <li>Actualiser les valeurs pour le temps (pour les projets longs)</li>
+                                    <li>Comparer les ratios coûts/avantages</li>
+                                </ol>
+                                <p>Limitation : difficile à appliquer pour les aspects qualitatifs (éthique, bien-être).</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 10 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-random me-2"></i> Décisions Séquentielles
+                            </div>
+                            <div class="card-body">
+                                <p>Les décisions ne sont souvent pas isolées mais font partie d'une séquence avec interdépendances.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="10">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-10">
+                                <h5>Détails sur Décisions Séquentielles</h5>
+                                <p>Dans les décisions séquentielles :</p>
+                                <ul>
+                                    <li>Chaque choix influence les options futures</li>
+                                    <li>La flexibilité a de la valeur (options réelles)</li>
+                                    <li>L'apprentissage progressif est possible</li>
+                                </ul>
+                                <p>Outils utiles :</p>
+                                <ul>
+                                    <li>Arbres de décision avec plusieurs étapes</li>
+                                    <li>Analyse de scénarios</li>
+                                    <li>Planification adaptative</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 11 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-lightbulb me-2"></i> Intuition Décisionnelle
+                            </div>
+                            <div class="card-body">
+                                <p>Le rôle de l'intuition - quand faire confiance à son "instinct" et quand s'en méfier.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="11">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-11">
+                                <h5>Détails sur Intuition Décisionnelle</h5>
+                                <p>L'intuition est utile quand :</p>
+                                <ul>
+                                    <li>L'expertise est élevée dans le domaine</li>
+                                    <li>Le temps est limité</li>
+                                    <li>Les informations sont ambiguës</li>
+                                </ul>
+                                <p>L'intuition est risquée quand :</p>
+                                <ul>
+                                    <li>Le domaine est nouveau</li>
+                                    <li>Les enjeux sont élevés</li>
+                                    <li>Les biais cognitifs peuvent influencer</li>
+                                </ul>
+                                <p>L'intuition des experts est souvent fiable, celle des novices rarement.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concept 12 -->
+                    <div class="col-md-4">
+                        <div class="concept-card wow-effect">
+                            <div class="card-header">
+                                <i class="fas fa-redo me-2"></i> Boucles de Feedback
+                            </div>
+                            <div class="card-body">
+                                <p>L'importance des mécanismes de retour d'information pour améliorer les décisions futures.</p>
+                                <button class="btn btn-sm btn-outline-primary learn-more-btn" data-concept="12">En savoir plus</button>
+                            </div>
+                            <div class="concept-details" id="concept-details-12">
+                                <h5>Détails sur Boucles de Feedback</h5>
+                                <p>Pour améliorer continuellement la prise de décision :</p>
+                                <ol>
+                                    <li>Documentez les décisions importantes (contexte, alternatives, critères)</li>
+                                    <li>Suivez les résultats obtenus</li>
+                                    <li>Analysez les écarts entre attentes et réalité</li>
+                                    <li>Identifiez les leçons apprises</li>
+                                    <li>Adaptez les processus futurs</li>
+                                </ol>
+                                <p>Les organisations qui institutionnalisent ce processus deviennent des "organisations apprenantes".</p>
                             </div>
                         </div>
                     </div>
@@ -299,26 +569,60 @@
                 <h2 class="mb-4"><i class="fas fa-sitemap me-2"></i>Processus Décisionnel Structuré</h2>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="case-study">
-                            <h4><i class="fas fa-list-ol me-2"></i> Les 7 étapes du processus décisionnel</h4>
+                        <div class="case-study wow-effect">
+                            <h4><i class="fas fa-list-ol me-2"></i> Les 7 étapes du processus décisionnel rationnel</h4>
                             <ol>
-                                <li>Identification du problème ou de l'opportunité</li>
-                                <li>Collecte d'informations pertinentes</li>
-                                <li>Génération d'alternatives</li>
-                                <li>Évaluation des options</li>
-                                <li>Sélection de la meilleure option</li>
-                                <li>Mise en œuvre</li>
-                                <li>Évaluation et feedback</li>
+                                <li><strong>Identification</strong> du problème ou de l'opportunité</li>
+                                <li><strong>Collecte</strong> d'informations pertinentes et fiables</li>
+                                <li><strong>Génération</strong> d'alternatives créatives</li>
+                                <li><strong>Évaluation</strong> des options selon des critères clairs</li>
+                                <li><strong>Sélection</strong> de la meilleure option</li>
+                                <li><strong>Mise en œuvre</strong> avec plan d'action</li>
+                                <li><strong>Évaluation</strong> des résultats et feedback</li>
                             </ol>
+                            <p class="mt-3">Ce modèle classique est idéal pour les décisions structurées avec information disponible. Il nécessite des adaptations pour les situations complexes ou incertaines.</p>
+                        </div>
+                        
+                        <div class="case-study wow-effect">
+                            <h4><i class="fas fa-fire me-2"></i> Processus en situation de crise</h4>
+                            <p>En situation de crise, le processus est accéléré et adapté :</p>
+                            <ol>
+                                <li><strong>Évaluation rapide</strong> de la situation</li>
+                                <li><strong>Activation</strong> des protocoles prédéfinis</li>
+                                <li><strong>Consultation</strong> rapide des experts clés</li>
+                                <li><strong>Décision</strong> avec options limitées</li>
+                                <li><strong>Communication</strong> immédiate et transparente</li>
+                                <li><strong>Adaptation</strong> continue selon l'évolution</li>
+                            </ol>
+                            <p>La clé est de combiner rapidité et flexibilité tout en évitant la panique.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="case-study">
+                        <div class="case-study wow-effect">
                             <h4><i class="fas fa-chart-line me-2"></i> Modèle OODA (Observe, Oriente, Décide, Agis)</h4>
                             <p>Approche cyclique développée pour l'aviation militaire, maintenant appliquée en business pour des décisions rapides en environnement incertain.</p>
                             <div class="text-center mt-3">
                                 <img src="https://via.placeholder.com/300x150?text=OODA+Cycle" alt="Cycle OODA" class="img-fluid rounded">
                             </div>
+                            <p class="mt-3"><strong>Observe :</strong> Collecte d'information en temps réel</p>
+                            <p><strong>Orient :</strong> Interprétation selon modèles mentaux</p>
+                            <p><strong>Décide :</strong> Choix parmi les options disponibles</p>
+                            <p><strong>Agis :</strong> Mise en œuvre rapide</p>
+                            <p>Le but est de "boucler" plus vite que l'adversaire dans les situations compétitives.</p>
+                        </div>
+                        
+                        <div class="case-study wow-effect">
+                            <h4><i class="fas fa-users me-2"></i> Processus décisionnel collaboratif</h4>
+                            <p>Pour les décisions complexes impliquant plusieurs parties prenantes :</p>
+                            <ol>
+                                <li><strong>Cadrage</strong> partagé du problème</li>
+                                <li><strong>Inclusion</strong> des perspectives diverses</li>
+                                <li><strong>Génération</strong> collective d'options</li>
+                                <li><strong>Évaluation</strong> transparente des alternatives</li>
+                                <li><strong>Consensus</strong> ou vote raisonné</li>
+                                <li><strong>Engagement</strong> collectif dans la mise en œuvre</li>
+                            </ol>
+                            <p>Les techniques comme le brainstorming structuré ou les six chapeaux de Bono sont utiles.</p>
                         </div>
                     </div>
                 </div>
@@ -328,12 +632,13 @@
             <div class="tab-pane fade" id="methods" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-tools me-2"></i>Méthodes & Outils Décisionnels</h2>
                 <div class="row">
-                    <div class="col-md-6">
-                        <h4>Matrice de Décision</h4>
+                    <div class="col-md-6 wow-effect">
+                        <h4><i class="fas fa-table me-2"></i> Matrice de Décision</h4>
+                        <p>Outil fondamental pour évaluer systématiquement les alternatives selon des critères pondérés.</p>
                         <table class="decision-matrix">
                             <thead>
                                 <tr>
-                                    <th>Critères</th>
+                                    <th>Critères (Poids)</th>
                                     <th>Option A</th>
                                     <th>Option B</th>
                                     <th>Option C</th>
@@ -359,7 +664,7 @@
                                     <td>3</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Total</strong></td>
+                                    <td><strong>Total Pondéré</strong></td>
                                     <td><strong>4.4</strong></td>
                                     <td><strong>4.2</strong></td>
                                     <td><strong>3.7</strong></td>
@@ -367,22 +672,89 @@
                             </tbody>
                         </table>
                         <p class="mt-3">Note: Les scores vont de 1 (faible) à 5 (excellent). Les pourcentages représentent le poids relatif de chaque critère.</p>
+                        <div class="alert alert-info mt-3">
+                            <h5><i class="fas fa-lightbulb me-2"></i> Conseils d'utilisation</h5>
+                            <ul>
+                                <li>Impliquez plusieurs parties prenantes pour définir les critères</li>
+                                <li>Utilisez des données objectives quand possible</li>
+                                <li>Testez la sensibilité aux changements de poids</li>
+                                <li>Complétez par une analyse qualitative</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h4>Autres Méthodes</h4>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-chess-queen me-2"></i> Analyse SWOT (Forces, Faiblesses, Opportunités, Menaces)
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-tree me-2"></i> Arbres de décision
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-brain me-2"></i> Six Thinking Hats (Six Chapeaux de Bono)
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-project-diagram me-2"></i> Analyse des Partis Prenants
-                            </a>
+                    <div class="col-md-6 wow-effect">
+                        <h4><i class="fas fa-project-diagram me-2"></i> Autres Méthodes Populaires</h4>
+                        <div class="accordion" id="methodsAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSwot">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSwot">
+                                        <i class="fas fa-chess-queen me-2"></i> Analyse SWOT
+                                    </button>
+                                </h2>
+                                <div id="collapseSwot" class="accordion-collapse collapse show" aria-labelledby="headingSwot">
+                                    <div class="accordion-body">
+                                        <p><strong>Forces, Faiblesses, Opportunités, Menaces</strong></p>
+                                        <p>Méthode simple pour évaluer une situation ou une option selon quatre dimensions internes et externes.</p>
+                                        <p><strong>Application :</strong> Idéal pour les décisions stratégiques, le lancement de produits, l'évaluation de projets.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTree">
+                                        <i class="fas fa-tree me-2"></i> Arbres de Décision
+                                    </button>
+                                </h2>
+                                <div id="collapseTree" class="accordion-collapse collapse" aria-labelledby="headingTree">
+                                    <div class="accordion-body">
+                                        <p>Représentation visuelle des options, conséquences possibles et probabilités associées.</p>
+                                        <p><strong>Avantages :</strong> Clarifie les séquences décisionnelles, calcule les valeurs attendues.</p>
+                                        <p><strong>Limites :</strong> Devient complexe avec beaucoup d'options, nécessite des estimations de probabilité.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingHats">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHats">
+                                        <i class="fas fa-brain me-2"></i> Six Thinking Hats
+                                    </button>
+                                </h2>
+                                <div id="collapseHats" class="accordion-collapse collapse" aria-labelledby="headingHats">
+                                    <div class="accordion-body">
+                                        <p>Méthode de Edward de Bono pour explorer une décision sous six angles différents (logique, émotion, créativité, etc.).</p>
+                                        <p><strong>Avantages :</strong> Réduit les conflits, encourage la pensée latérale, couvre tous les aspects.</p>
+                                        <p><strong>Application :</strong> Particulièrement utile pour les décisions en groupe complexes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingCostBenefit">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCostBenefit">
+                                        <i class="fas fa-calculator me-2"></i> Analyse Coûts-Bénéfices
+                                    </button>
+                                </h2>
+                                <div id="collapseCostBenefit" class="accordion-collapse collapse" aria-labelledby="headingCostBenefit">
+                                    <div class="accordion-body">
+                                        <p>Comparaison systématique des avantages et inconvénients en termes monétaires.</p>
+                                        <p><strong>Avantages :</strong> Approche quantitative rigoureuse, utile pour les décisions d'investissement.</p>
+                                        <p><strong>Limites :</strong> Difficile à appliquer pour les aspects non-monétaires (éthique, bien-être).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingDelphi">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelphi">
+                                        <i class="fas fa-users me-2"></i> Méthode Delphi
+                                    </button>
+                                </h2>
+                                <div id="collapseDelphi" class="accordion-collapse collapse" aria-labelledby="headingDelphi">
+                                    <div class="accordion-body">
+                                        <p>Processus structuré de consultation d'experts itératif et anonyme.</p>
+                                        <p><strong>Avantages :</strong> Évite le biais de domination, converge vers un consensus informé.</p>
+                                        <p><strong>Application :</strong> Prévisions à long terme, décisions techniques complexes.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -392,34 +764,74 @@
             <div class="tab-pane fade" id="biases" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-exclamation-triangle me-2"></i>Biais Cognitifs en Prise de Décision</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="alert alert-warning">
                             <h4><i class="fas fa-anchor me-2"></i> Biais d'Ancrage</h4>
                             <p>Tendance à trop s'appuyer sur la première information reçue (l'"ancre") pour prendre des décisions.</p>
-                            <p><strong>Contre-mesure:</strong> Considérez plusieurs sources avant de décider.</p>
+                            <p><strong>Exemple :</strong> Le premier prix proposé dans une négociation influence disproportionnellement toute la discussion.</p>
+                            <p><strong>Contre-mesure :</strong> Considérez plusieurs sources avant de décider, ignorez délibérément la première information.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="alert alert-warning">
                             <h4><i class="fas fa-check-circle me-2"></i> Biais de Confirmation</h4>
                             <p>Tendance à rechercher, interpréter et privilégier les informations qui confirment nos croyances existantes.</p>
-                            <p><strong>Contre-mesure:</strong> Recherchez activement des informations contradictoires.</p>
+                            <p><strong>Exemple :</strong> Ne retenir que les études qui soutiennent votre position politique.</p>
+                            <p><strong>Contre-mesure :</strong> Recherchez activement des informations contradictoires, désignez un "avocat du diable".</p>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="alert alert-warning">
                             <h4><i class="fas fa-history me-2"></i> Biais Rétrospectif</h4>
-                            <p>Tendance à voir les événements passés comme ayant été plus prévisibles qu'ils ne l'étaient réellement.</p>
-                            <p><strong>Contre-mesure:</strong> Documentez vos prévisions avant les résultats.</p>
+                            <p>Tendance à voir les événements passés comme ayant été plus prévisibles qu'ils ne l'étaient réellement ("je le savais depuis le début").</p>
+                            <p><strong>Exemple :</strong> Après un accident, penser que les signes avant-coureurs étaient évidents.</p>
+                            <p><strong>Contre-mesure :</strong> Documentez vos prévisions avant les résultats, tenez un journal décisionnel.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="alert alert-warning">
                             <h4><i class="fas fa-heart me-2"></i> Biais Affectif</h4>
                             <p>Tendance à prendre des décisions basées sur des émotions plutôt que sur des faits.</p>
-                            <p><strong>Contre-mesure:</strong> Identifiez et séparez les faits des émotions.</p>
+                            <p><strong>Exemple :</strong> Garder des actions en chute parce qu'on "aime" l'entreprise.</p>
+                            <p><strong>Contre-mesure :</strong> Identifiez et séparez les faits des émotions, établissez des critères objectifs à l'avance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 wow-effect">
+                        <div class="alert alert-warning">
+                            <h4><i class="fas fa-dollar-sign me-2"></i> Biais des Coûts Irrécupérables</h4>
+                            <p>Tendance à continuer à investir dans un projet à cause des ressources déjà engagées, même si l'abandon serait plus rationnel.</p>
+                            <p><strong>Exemple :</strong> Continuer un projet informatique défaillant parce qu'on y a déjà investi des millions.</p>
+                            <p><strong>Contre-mesure :</strong> Évaluez les décisions sur la base des coûts et bénéfices futurs seulement.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow-effect">
+                        <div class="alert alert-warning">
+                            <h4><i class="fas fa-users me-2"></i> Pensée de Groupe (Groupthink)</h4>
+                            <p>Tendance des groupes à rechercher le consensus à tout prix, étouffant la dissidence et l'évaluation critique.</p>
+                            <p><strong>Exemple :</strong> La décision du lancement de la navette Challenger malgré les avertissements des ingénieurs.</p>
+                            <p><strong>Contre-mesure :</strong> Encouragez les opinions divergentes, désignez un critique officiel, faites des réunions anonymes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 wow-effect">
+                        <div class="alert alert-warning">
+                            <h4><i class="fas fa-chart-line me-2"></i> Biais de Disponibilité</h4>
+                            <p>Tendance à surestimer l'importance des informations immédiatement disponibles à notre mémoire.</p>
+                            <p><strong>Exemple :</strong> Surestimer le risque d'attaque terroriste après un événement médiatisé.</p>
+                            <p><strong>Contre-mesure :</strong> Recherchez des données statistiques plutôt que des exemples frappants.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow-effect">
+                        <div class="alert alert-warning">
+                            <h4><i class="fas fa-bullseye me-2"></i> Biais de Surconfiance</h4>
+                            <p>Tendance à surestimer ses propres capacités, connaissances ou prévisions.</p>
+                            <p><strong>Exemple :</strong> 90% des conducteurs pensent être meilleurs que la moyenne.</p>
+                            <p><strong>Contre-mesure :</strong> Recherchez des feedbacks objectifs, envisagez systématiquement que vous pourriez avoir tort.</p>
                         </div>
                     </div>
                 </div>
@@ -429,24 +841,40 @@
             <div class="tab-pane fade" id="ethics" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-leaf me-2"></i>Éthique & Durabilité dans la Décision</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="card mb-4">
                             <div class="card-header bg-success text-white">
                                 <i class="fas fa-globe-europe me-2"></i> Cadre DECIDE
                             </div>
                             <div class="card-body">
                                 <ol>
-                                    <li><strong>D</strong>éfinir le problème</li>
-                                    <li><strong>E</strong>thique - identifier les enjeux</li>
-                                    <li><strong>C</strong>onsidérer les alternatives</li>
-                                    <li><strong>I</strong>nvestiguer les impacts</li>
-                                    <li><strong>D</strong>écider et agir</li>
-                                    <li><strong>E</strong>valuer les résultats</li>
+                                    <li><strong>D</strong>éfinir le problème ou l'opportunité</li>
+                                    <li><strong>E</strong>thique - identifier les enjeux et parties prenantes</li>
+                                    <li><strong>C</strong>onsidérer toutes les alternatives possibles</li>
+                                    <li><strong>I</strong>nvestiguer les impacts à court et long terme</li>
+                                    <li><strong>D</strong>écider en intégrant les dimensions éthiques</li>
+                                    <li><strong>E</strong>valuer les résultats et ajuster</li>
                                 </ol>
+                                <p class="mt-3">Ce cadre systématise la réflexion éthique dans le processus décisionnel, particulièrement utile pour les dilemmes complexes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-hand-holding-heart me-2"></i> Test des 3 Questions
+                            </div>
+                            <div class="card-body">
+                                <p>Pour évaluer l'éthique d'une décision, posez-vous :</p>
+                                <ol>
+                                    <li>Serais-je à l'aise que cette décision soit rendue publique ?</li>
+                                    <li>Que se passerait-il si tout le monde prenait la même décision ?</li>
+                                    <li>Cette décision respecte-t-elle les droits fondamentaux des personnes concernées ?</li>
+                                </ol>
+                                <p>Si vous hésitez à répondre à l'une de ces questions, reconsidérez votre décision.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 wow-effect">
                         <div class="card mb-4">
                             <div class="card-header bg-success text-white">
                                 <i class="fas fa-balance-scale-right me-2"></i> Triple Bottom Line
@@ -457,10 +885,26 @@
                                 </div>
                                 <p>Évaluez les décisions sur trois dimensions :</p>
                                 <ul>
-                                    <li>People (impact social)</li>
-                                    <li>Planet (impact environnemental)</li>
-                                    <li>Profit (viabilité économique)</li>
+                                    <li><strong>People (Social):</strong> Impact sur employés, clients, communautés</li>
+                                    <li><strong>Planet (Environnement):</strong> Impact écologique, durabilité</li>
+                                    <li><strong>Profit (Économique):</strong> Viabilité financière à long terme</li>
                                 </ul>
+                                <p>Une décision vraiment durable optimise ces trois dimensions simultanément.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-hourglass-end me-2"></i> Principe de Durabilité
+                            </div>
+                            <div class="card-body">
+                                <p>Pour chaque décision importante, posez ces questions :</p>
+                                <ul>
+                                    <li>Cette décision sera-t-elle toujours valable dans 10 ans ?</li>
+                                    <li>Quelles seront les conséquences pour les générations futures ?</li>
+                                    <li>Pouvons-nous maintenir cette décision indéfiniment ?</li>
+                                </ul>
+                                <p>Appliquez le "principe des 7 générations" issu de la sagesse amérindienne : comment cette décision affectera-t-elle les 7 générations à venir ?</p>
                             </div>
                         </div>
                     </div>
@@ -470,96 +914,170 @@
             <!-- Cas Pratiques Tab -->
             <div class="tab-pane fade" id="cases" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-briefcase me-2"></i>Cas Pratiques de Simulation</h2>
-                <div class="simulation-container">
+                <div class="simulation-container wow-effect">
                     <div class="text-center mb-4">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline-primary btn-decision active">Cas 1: Décision Stratégique</button>
-                            <button type="button" class="btn btn-outline-primary btn-decision">Cas 2: Crise Opérationnelle</button>
-                            <button type="button" class="btn btn-outline-primary btn-decision">Cas 3: Dilemme Éthique</button>
-                            <button type="button" class="btn btn-outline-primary btn-decision">Cas 4: Investissement</button>
-                            <button type="button" class="btn btn-outline-primary btn-decision">Cas 5: Gestion de Projet</button>
+                        <div class="btn-group" role="group" id="case-buttons">
+                            <button type="button" class="btn btn-outline-primary btn-decision active" data-case="1">Cas 1: Décision Stratégique</button>
+                            <button type="button" class="btn btn-outline-primary btn-decision" data-case="2">Cas 2: Crise Opérationnelle</button>
+                            <button type="button" class="btn btn-outline-primary btn-decision" data-case="3">Cas 3: Dilemme Éthique</button>
+                            <button type="button" class="btn btn-outline-primary btn-decision" data-case="4">Cas 4: Investissement</button>
+                            <button type="button" class="btn btn-outline-primary btn-decision" data-case="5">Cas 5: Gestion de Projet</button>
                         </div>
                     </div>
                     
-                    <div class="simulation-step">
-                        <h4>Cas 1: Décision Stratégique d'Entreprise</h4>
-                        <p><strong>Scénario:</strong> Votre entreprise manufacturière doit décider entre trois options stratégiques face à des changements du marché.</p>
-                    </div>
-                    
-                    <div class="simulation-step">
-                        <h5>Étape 1: Identification du Problème</h5>
-                        <p>Les ventes ont chuté de 15% cette année en raison de nouveaux concurrents et de changements dans les préférences des consommateurs.</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="problemIdent" id="problem1" checked>
-                            <label class="form-check-label" for="problem1">
-                                Problème principal: Perte de compétitivité sur le marché
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="simulation-step">
-                        <h5>Étape 2: Options Stratégiques</h5>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        Option A: Réduction des Coûts
+                    <div id="case-content">
+                        <!-- Case 1 Content -->
+                        <div class="case-section" id="case-section-1">
+                            <div class="simulation-step">
+                                <h4>Cas 1: Décision Stratégique d'Entreprise</h4>
+                                <p><strong>Scénario:</strong> Vous êtes le PDG d'une entreprise manufacturière de taille moyenne. Les ventes ont chuté de 15% cette année en raison de nouveaux concurrents internationaux et de changements dans les préférences des consommateurs. Le conseil d'administration vous demande de proposer une nouvelle stratégie.</p>
+                            </div>
+                            
+                            <div class="simulation-step">
+                                <h5>Étape 1: Identification du Problème</h5>
+                                <p>Sélectionnez la formulation la plus précise du problème :</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="problemIdent" id="problem1" checked>
+                                    <label class="form-check-label" for="problem1">
+                                        Perte de compétitivité due à des changements structurels du marché
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="problemIdent" id="problem2">
+                                    <label class="form-check-label" for="problem2">
+                                        Mauvaise performance de l'équipe commerciale
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="problemIdent" id="problem3">
+                                    <label class="form-check-label" for="problem3">
+                                        Produits de mauvaise qualité
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="simulation-step">
+                                <h5>Étape 2: Options Stratégiques</h5>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <div class="card-header">
+                                                Option A: Réduction des Coûts
+                                            </div>
+                                            <div class="card-body">
+                                                <p>Diminuer les coûts de production de 20% par des mesures drastiques (licenciements, réduction qualité)</p>
+                                                <ul>
+                                                    <li>Coût: €500,000</li>
+                                                    <li>Durée: 6 mois</li>
+                                                    <li>Risque: Élevé (morale, qualité)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <p>Diminuer les coûts de production de 20% par des mesures drastiques (licenciements, réduction qualité)</p>
-                                        <ul>
-                                            <li>Coût: €500,000</li>
-                                            <li>Durée: 6 mois</li>
-                                            <li>Risque: Élevé (morale, qualité)</li>
-                                        </ul>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <div class="card-header">
+                                                Option B: Innovation Produit
+                                            </div>
+                                            <div class="card-body">
+                                                <p>Lancer une nouvelle gamme de produits innovants</p>
+                                                <ul>
+                                                    <li>Coût: €2,000,000</li>
+                                                    <li>Durée: 18 mois</li>
+                                                    <li>Risque: Moyen (succès incertain)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <div class="card-header">
+                                                Option C: Partenariat Stratégique
+                                            </div>
+                                            <div class="card-body">
+                                                <p>S'allier avec un concurrent pour mutualiser R&D et distribution</p>
+                                                <ul>
+                                                    <li>Coût: €1,200,000</li>
+                                                    <li>Durée: 12 mois</li>
+                                                    <li>Risque: Moyen-Élevé (dépendance)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        Option B: Innovation Produit
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Lancer une nouvelle gamme de produits innovants</p>
-                                        <ul>
-                                            <li>Coût: €2,000,000</li>
-                                            <li>Durée: 18 mois</li>
-                                            <li>Risque: Moyen (succès incertain)</li>
-                                        </ul>
-                                    </div>
+                            
+                            <div class="simulation-step">
+                                <h5>Étape 3: Analyse des Options</h5>
+                                <p>Utilisez la matrice de décision ci-dessous pour évaluer les options selon trois critères clés :</p>
+                                <table class="decision-matrix">
+                                    <thead>
+                                        <tr>
+                                            <th>Critères (Poids)</th>
+                                            <th>Réduction Coûts</th>
+                                            <th>Innovation</th>
+                                            <th>Partenariat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Potentiel de Croissance (40%)</td>
+                                            <td>2</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Risque Financier (30%)</td>
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alignement Stratégique (30%)</td>
+                                            <td>3</td>
+                                            <td>5</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Pondéré</strong></td>
+                                            <td><strong>2.9</strong></td>
+                                            <td><strong>4.1</strong></td>
+                                            <td><strong>3.7</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="simulation-step">
+                                <h5>Étape 4: Prenez Votre Décision</h5>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <button class="btn btn-primary me-2 mb-2 decision-btn" data-option="A">Option A: Réduction des Coûts</button>
+                                    <button class="btn btn-primary me-2 mb-2 decision-btn" data-option="B">Option B: Innovation Produit</button>
+                                    <button class="btn btn-primary me-2 mb-2 decision-btn" data-option="C">Option C: Partenariat Stratégique</button>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        Option C: Partenariat Stratégique
-                                    </div>
-                                    <div class="card-body">
-                                        <p>S'allier avec un concurrent pour mutualiser R&D et distribution</p>
-                                        <ul>
-                                            <li>Coût: €1,200,000</li>
-                                            <li>Durée: 12 mois</li>
-                                            <li>Risque: Moyen-Élevé (dépendance)</li>
-                                        </ul>
-                                    </div>
+                            
+                            <div class="alert alert-info mt-4" id="case1-feedback" style="display: none;">
+                                <h5><i class="fas fa-lightbulb me-2"></i>Analyse Post-Décision</h5>
+                                <div id="case1-feedback-A" style="display: none;">
+                                    <p><strong>Option A choisie : Réduction des Coûts</strong></p>
+                                    <p><strong>Résultats après 2 ans :</strong> Réduction des coûts atteinte mais perte supplémentaire de 10% de parts de marché. Moral des équipes en baisse. Rentabilité à court terme mais avenir incertain.</p>
+                                    <p><strong>Leçon :</strong> Les stratégies purement défensives peuvent sauver à court terme mais compromettent souvent la position future.</p>
+                                </div>
+                                <div id="case1-feedback-B" style="display: none;">
+                                    <p><strong>Option B choisie : Innovation Produit</strong></p>
+                                    <p><strong>Résultats après 2 ans :</strong> Lancement difficile avec retard mais nouveau produit bien accueilli. Reprise de 8% de parts de marché. Rentabilité retrouvée après 18 mois.</p>
+                                    <p><strong>Leçon :</strong> L'innovation demande du temps et des ressources mais offre la meilleure perspective de différenciation à long terme.</p>
+                                </div>
+                                <div id="case1-feedback-C" style="display: none;">
+                                    <p><strong>Option C choisie : Partenariat Stratégique</strong></p>
+                                    <p><strong>Résultats après 2 ans :</strong> Difficultés initiales d'intégration mais synergies réalisées après 12 mois. Économies de 15% sur la R&D. Position concurrentielle renforcée.</p>
+                                    <p><strong>Leçon :</strong> Les partenariats peuvent apporter des solutions gagnant-gagnant mais nécessitent une gestion attentive des relations.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="simulation-step">
-                        <h5>Étape 3: Prenez Votre Décision</h5>
-                        <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary me-2 mb-2">Option A: Réduction des Coûts</button>
-                            <button class="btn btn-primary me-2 mb-2">Option B: Innovation Produit</button>
-                            <button class="btn btn-primary me-2 mb-2">Option C: Partenariat Stratégique</button>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-info mt-4">
-                        <h5><i class="fas fa-lightbulb me-2"></i>Analyse Post-Décision</h5>
-                        <p>Après avoir fait votre choix, vous pourrez voir l'analyse détaillée des conséquences à court, moyen et long terme de chaque option, ainsi qu'une évaluation comparative.</p>
+                        
+                        <!-- Other cases would be here with similar structure but different content -->
                     </div>
                 </div>
             </div>
@@ -567,59 +1085,21 @@
             <!-- Quiz Interactif Tab -->
             <div class="tab-pane fade" id="quiz" role="tabpanel">
                 <h2 class="mb-4"><i class="fas fa-question-circle me-2"></i>Quiz Interactif d'Apprentissage</h2>
-                <div class="alert alert-info">
+                <div class="alert alert-info wow-effect">
                     <p>Ce quiz comprend 30 questions sur les concepts de prise de décision. Pour chaque question, vous verrez immédiatement la réponse correcte avec une explication détaillée.</p>
-                    <p>Score actuel: <strong>0/30</strong></p>
+                    <div class="progress-container wow-effect">
+                        <div class="progress-bar" id="quiz-progress" style="width: 3.33%"></div>
+                    </div>
+                    <p>Score actuel: <strong><span id="quiz-score">0</span>/30</strong></p>
                 </div>
                 
-                <div class="quiz-question">
-                    <h4>Question 1/30</h4>
-                    <p>Quel est le principal avantage d'utiliser une matrice de décision dans le processus décisionnel?</p>
-                    
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> Elle élimine complètement le besoin de jugement humain
-                    </div>
-                    <div class="quiz-option correct">
-                        <i class="far fa-check-circle me-2"></i> Elle permet une évaluation systématique et transparente des options selon des critères prédéfinis
-                    </div>
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> Elle garantit toujours le choix de la meilleure option possible
-                    </div>
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> Elle réduit le temps nécessaire pour prendre une décision de moitié
-                    </div>
-                    
-                    <div class="explanation">
-                        <h5><i class="fas fa-info-circle me-2"></i>Explication:</h5>
-                        <p>Une matrice de décision ne remplace pas le jugement humain mais fournit un cadre structuré pour évaluer les options. Elle ne garantit pas le meilleur choix (dépend des critères et pondérations) mais rend le processus plus transparent et systématique. Le temps nécessaire peut même augmenter avec cette méthode.</p>
-                    </div>
+                <div id="quiz-container">
+                    <!-- Questions will be inserted here by JavaScript -->
                 </div>
                 
-                <div class="quiz-question">
-                    <h4>Question 2/30</h4>
-                    <p>Le biais d'ancrage se réfère à:</p>
-                    
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> La tendance à s'en tenir à ses premières impressions d'une personne
-                    </div>
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> La difficulté à abandonner un projet après y avoir investi des ressources
-                    </div>
-                    <div class="quiz-option correct">
-                        <i class="far fa-check-circle me-2"></i> La tendance à trop s'appuyer sur la première information reçue lors d'une décision
-                    </div>
-                    <div class="quiz-option">
-                        <i class="far fa-circle me-2"></i> La préférence pour le statu quo par peur du changement
-                    </div>
-                    
-                    <div class="explanation">
-                        <h5><i class="fas fa-info-circle me-2"></i>Explication:</h5>
-                        <p>Le biais d'ancrage est un phénomène cognitif où les individus s'appuient trop lourdement sur la première information offerte (l'"ancre") lorsqu'ils prennent des décisions. Même lorsque l'ancre est clairement arbitraire ou non pertinente, elle peut influencer considérablement les jugements ultérieurs.</p>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <button class="btn btn-primary btn-lg">Question Suivante <i class="fas fa-arrow-right ms-2"></i></button>
+                <div class="text-center mt-4 wow-effect">
+                    <button class="btn btn-primary btn-lg" id="next-question-btn" style="display: none;">Question Suivante <i class="fas fa-arrow-right ms-2"></i></button>
+                    <button class="btn btn-success btn-lg" id="quiz-results-btn" style="display: none;">Voir les Résultats</button>
                 </div>
             </div>
         </div>
@@ -662,61 +1142,553 @@
     <script>
         // Animation for wow-effect elements
         document.addEventListener('DOMContentLoaded', function() {
+            // Make wow-effect elements visible
             const wowElements = document.querySelectorAll('.wow-effect');
+            wowElements.forEach(el => el.classList.add('visible'));
             
+            // Check scroll position for elements that appear later
             const animateOnScroll = () => {
                 wowElements.forEach(element => {
+                    if(element.classList.contains('visible')) return;
+                    
                     const elementPosition = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
                     
-                    if (elementPosition < windowHeight - 100) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
+                    if(elementPosition < windowHeight - 100) {
+                        element.classList.add('visible');
                     }
                 });
             };
             
-            // Initial check in case elements are already in view
-            animateOnScroll();
-            
             // Check on scroll
             window.addEventListener('scroll', animateOnScroll);
             
-            // Quiz functionality
-            const quizOptions = document.querySelectorAll('.quiz-option');
-            quizOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Remove any existing selections
-                    quizOptions.forEach(opt => {
-                        opt.querySelector('i').className = 'far fa-circle me-2';
-                        opt.classList.remove('correct', 'incorrect');
-                    });
+            // Learn more buttons functionality
+            const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+            learnMoreBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const conceptId = this.getAttribute('data-concept');
+                    const details = document.getElementById(`concept-details-${conceptId}`);
                     
-                    // Mark this option
-                    const icon = this.querySelector('i');
-                    icon.className = 'far fa-check-circle me-2';
-                    
-                    // Check if correct
-                    if (this.classList.contains('correct')) {
-                        this.classList.add('correct');
+                    // Toggle display
+                    if(details.style.display === 'block') {
+                        details.style.display = 'none';
+                        this.textContent = 'En savoir plus';
                     } else {
-                        this.classList.add('incorrect');
+                        details.style.display = 'block';
+                        this.textContent = 'Réduire';
                     }
-                    
-                    // Show explanation
-                    this.closest('.quiz-question').querySelector('.explanation').style.display = 'block';
                 });
             });
             
-            // Simulation case buttons
+            // Case study buttons functionality
             const caseButtons = document.querySelectorAll('.btn-decision');
             caseButtons.forEach(button => {
                 button.addEventListener('click', function() {
+                    // Remove active class from all buttons
                     caseButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
                     this.classList.add('active');
-                    // Here you would update the case content dynamically
+                    
+                    // Here you would load the appropriate case content
+                    // For this example, we're just showing the first case
                 });
             });
+            
+            // Decision buttons in case study
+            const decisionBtns = document.querySelectorAll('.decision-btn');
+            decisionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const option = this.getAttribute('data-option');
+                    const feedback = document.getElementById('case1-feedback');
+                    
+                    // Hide all feedback sections
+                    document.querySelectorAll('#case1-feedback > div').forEach(div => {
+                        div.style.display = 'none';
+                    });
+                    
+                    // Show selected feedback
+                    document.getElementById(`case1-feedback-${option}`).style.display = 'block';
+                    feedback.style.display = 'block';
+                    
+                    // Scroll to feedback
+                    feedback.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Quiz functionality
+            const quizQuestions = [
+                {
+                    question: "Quel est le principal avantage d'utiliser une matrice de décision dans le processus décisionnel?",
+                    options: [
+                        "Elle élimine complètement le besoin de jugement humain",
+                        "Elle permet une évaluation systématique et transparente des options selon des critères prédéfinis",
+                        "Elle garantit toujours le choix de la meilleure option possible",
+                        "Elle réduit le temps nécessaire pour prendre une décision de moitié"
+                    ],
+                    correct: 1,
+                    explanation: "Une matrice de décision ne remplace pas le jugement humain mais fournit un cadre structuré pour évaluer les options. Elle ne garantit pas le meilleur choix (dépend des critères et pondérations) mais rend le processus plus transparent et systématique. Le temps nécessaire peut même augmenter avec cette méthode."
+                },
+                {
+                    question: "Le biais d'ancrage se réfère à:",
+                    options: [
+                        "La tendance à s'en tenir à ses premières impressions d'une personne",
+                        "La difficulté à abandonner un projet après y avoir investi des ressources",
+                        "La tendance à trop s'appuyer sur la première information reçue lors d'une décision",
+                        "La préférence pour le statu quo par peur du changement"
+                    ],
+                    correct: 2,
+                    explanation: "Le biais d'ancrage est un phénomène cognitif où les individus s'appuient trop lourdement sur la première information offerte (l'ancre) lorsqu'ils prennent des décisions. Même lorsque l'ancre est clairement arbitraire ou non pertinente, elle peut influencer considérablement les jugements ultérieurs."
+                },
+                {
+                    question: "Selon la théorie de la rationalité limitée de Herbert Simon:",
+                    options: [
+                        "Les décideurs ont une capacité illimitée à traiter l'information",
+                        "Les décideurs cherchent toujours la solution optimale",
+                        "Les décideurs ont des capacités cognitives limitées et se contentent de solutions satisfaisantes",
+                        "Les décisions sont toujours basées sur une analyse coûts-avantages complète"
+                    ],
+                    correct: 2,
+                    explanation: "La théorie de la rationalité limitée explique que les décideurs, face à des limites cognitives et informationnelles, se contentent souvent de solutions satisfaisantes (satisficing) plutôt que de chercher la solution optimale. Cette théorie a valu à Simon le prix Nobel d'économie."
+                },
+                {
+                    question: "Le modèle Cynefin catégorise les problèmes en quatre domaines. Lequel de ces éléments ne fait PAS partie de ce modèle?",
+                    options: [
+                        "Simple",
+                        "Compliqué",
+                        "Complexe",
+                        "Critique"
+                    ],
+                    correct: 3,
+                    correct: 3,
+                    explanation: "Le cadre Cynefin comprend les domaines Simple, Compliqué, Complexe et Chaotique. Le terme Critique n'est pas une catégorie dans ce modèle. Ce cadre aide à adapter l'approche décisionnelle selon la nature du problème."
+                },
+                {
+                    question: "Qu'est-ce que le biais de confirmation?",
+                    options: [
+                        "La tendance à rechercher des informations qui confirment nos croyances existantes",
+                        "La tendance à se fier à la première information reçue",
+                        "La difficulté à changer d'avis même face à des preuves contraires",
+                        "La tendance à surestimer sa propre capacité à prendre de bonnes décisions"
+                    ],
+                    correct: 0,
+                    explanation: "Le biais de confirmation est la tendance à rechercher, interpréter et privilégier les informations qui confirment nos croyances préexistantes, tout en ignorant ou en minimisant les informations contradictoires. C'est l'un des biais cognitifs les plus répandus et les plus problématiques."
+                },
+                {
+                    question: "Dans le processus décisionnel, qu'est-ce qu'une décision 'satisficing'?",
+                    options: [
+                        "Une décision qui maximise tous les critères simultanément",
+                        "Une décision qui répond à des critères d'acceptabilité sans être nécessairement optimale",
+                        "Une décision prise sous la pression du temps",
+                        "Une décision basée uniquement sur l'intuition"
+                    ],
+                    correct: 1,
+                    explanation: "Le terme 'satisficing', contraction de satisfy et suffice, désigne une décision qui répond à des critères d'acceptabilité minimaux sans chercher la solution optimale. Ce concept clé de la théorie de la rationalité limitée reflète comment les décideurs traitent avec leurs limites cognitives."
+                },
+                {
+                    question: "Quelle méthode est particulièrement utile pour éviter la pensée de groupe (groupthink)?",
+                    options: [
+                        "La technique des six chapeaux de Bono",
+                        "La méthode Delphi",
+                        "La désignation d'un avocat du diable",
+                        "Toutes ces réponses"
+                    ],
+                    correct: 3,
+                    explanation: "Toutes ces méthodes aident à éviter la pensée de groupe. La technique des six chapeaux encourage différentes perspectives, la méthode Delphi permet des contributions anonymes, et l'avocat du diable challenge systématiquement les opinions dominantes. La combinaison de ces approches est souvent la plus efficace."
+                },
+                {
+                    question: "Qu'est-ce que le biais des coûts irrécupérables?",
+                    options: [
+                        "La tendance à ignorer les coûts déjà engagés dans une décision",
+                        "La tendance à continuer à investir dans un projet à cause des ressources déjà engagées",
+                        "La sous-estimation des coûts futurs d'un projet",
+                        "La surestimation des bénéfices potentiels"
+                    ],
+                    correct: 1,
+                    explanation: "Le biais des coûts irrécupérables (sunk cost fallacy) est la tendance à continuer à investir dans un projet principalement parce qu'on y a déjà investi des ressources (temps, argent, effort), même lorsque l'abandon serait plus rationnel. Les décisions devraient se baser sur les coûts et bénéfices futurs, non passés."
+                },
+                {
+                    question: "Dans le modèle OODA (Observe, Orient, Decide, Act), quelle est la phase 'Orient'?",
+                    options: [
+                        "La collecte d'informations objectives",
+                        "L'interprétation des informations selon nos modèles mentaux",
+                        "Le choix entre différentes options",
+                        "La mise en œuvre de l'action choisie"
+                    ],
+                    correct: 1,
+                    explanation: "Dans le modèle OODA, 'Orient' est la phase où les informations observées sont interprétées à travers le prisme de nos expériences, culture, connaissances et modèles mentaux existants. C'est souvent l'étape la plus critique et la plus personnelle du cycle."
+                },
+                {
+                    question: "Quelle est la principale caractéristique d'une décision stratégique?",
+                    options: [
+                        "Elle concerne les opérations quotidiennes",
+                        "Elle a un impact à long terme sur toute l'organisation",
+                        "Elle est prise par les employés de première ligne",
+                        "Elle est facilement réversible"
+                    ],
+                    correct: 1,
+                    explanation: "Les décisions stratégiques se distinguent par leur impact à long terme sur l'ensemble de l'organisation. Elles concernent la définition des objectifs fondamentaux, l'allocation des ressources majeures et le positionnement concurrentiel. Elles sont généralement prises par la haute direction."
+                },
+                {
+                    question: "Qu'est-ce que la 'triple bottom line' dans la prise de décision?",
+                    options: [
+                        "Une méthode pour évaluer les décisions sur trois dimensions : people, planet, profit",
+                        "Une technique d'analyse financière à trois niveaux",
+                        "Un processus décisionnel en trois étapes",
+                        "Un cadre pour évaluer les risques à court, moyen et long terme"
+                    ],
+                    correct: 0,
+                    explanation: "La 'triple bottom line' (ou résultats triples) est un cadre qui évalue les décisions selon trois dimensions : people (impact social), planet (impact environnemental) et profit (viabilité économique). Ce concept, développé par John Elkington, est fondamental dans les approches de développement durable."
+                },
+                {
+                    question: "Quelle est la principale différence entre risque et incertitude selon Frank Knight?",
+                    options: [
+                        "Le risque concerne le futur, l'incertitude le présent",
+                        "Le risque est quantifiable, l'incertitude ne l'est pas",
+                        "Le risque est toujours négatif, l'incertitude peut être positive",
+                        "Il n'y a pas de différence substantielle"
+                    ],
+                    correct: 1,
+                    explanation: "Frank Knight a distingué risque (situations où les probabilités des différents résultats sont connues ou calculables) et incertitude (situations où ces probabilités sont inconnues). Cette distinction est cruciale pour choisir les outils décisionnels appropriés."
+                },
+                {
+                    question: "Qu'est-ce que le biais de disponibilité?",
+                    options: [
+                        "La tendance à juger la probabilité d'un événement par la facilité avec laquelle des exemples viennent à l'esprit",
+                        "La tendance à surestimer la disponibilité des ressources",
+                        "La sous-estimation du temps nécessaire pour prendre une décision",
+                        "La préférence pour les options immédiatement accessibles"
+                    ],
+                    correct: 0,
+                    explanation: "Le biais de disponibilité est la tendance à estimer la probabilité d'un événement en fonction de la facilité avec laquelle des exemples similaires viennent à l'esprit. Les événements récents, dramatiques ou médiatisés sont ainsi souvent surestimés, tandis que les risques moins visibles sont sous-estimés."
+                },
+                {
+                    question: "Dans la prise de décision éthique, que signifie le principe de 'justice distributive'?",
+                    options: [
+                        "La distribution équitable des bénéfices et charges d'une décision",
+                        "L'application stricte des règles sans exception",
+                        "La rapidité du processus décisionnel",
+                        "La transparence dans la communication des décisions"
+                    ],
+                    correct: 0,
+                    explanation: "Le principe de justice distributive dans l'éthique décisionnelle se réfère à l'équité dans la répartition des bénéfices et des charges résultant d'une décision. Il implique de considérer comment les impacts sont distribués parmi les différents groupes et individus concernés."
+                },
+                {
+                    question: "Qu'est-ce que la 'paralysie décisionnelle'?",
+                    options: [
+                        "Une condition médicale affectant la capacité à prendre des décisions",
+                        "L'incapacité à prendre une décision en raison d'une surcharge d'options ou d'informations",
+                        "La tendance à reporter systématiquement les décisions difficiles",
+                        "Un biais cognitif qui pousse à maintenir le statu quo"
+                    ],
+                    correct: 1,
+                    explanation: "La paralysie décisionnelle se produit lorsqu'un individu ou une organisation est incapable de prendre une décision, souvent à cause d'une surabondance d'options, d'informations contradictoires ou d'une peur excessive de faire le mauvais choix. Elle peut être atténuée en limitant les options, en établissant des critères clairs et en acceptant qu'aucune décision n'est parfaite."
+                },
+                {
+                    question: "Quelle technique permet de générer un grand nombre d'idées créatives pour résoudre un problème?",
+                    options: [
+                        "L'analyse SWOT",
+                        "Le brainstorming",
+                        "La matrice de décision",
+                        "L'analyse coûts-avantages"
+                    ],
+                    correct: 1,
+                    explanation: "Le brainstorming est une technique de créativité visant à générer un grand nombre d'idées dans un cadre non critique. Ses règles clés incluent : pas de jugement pendant la phase de génération, rechercher la quantité, encourager les idées folles, et construire sur les idées des autres. C'est un outil précieux dans la phase de génération d'alternatives."
+                },
+                {
+                    question: "Qu'est-ce que le 'cadrage' dans la prise de décision?",
+                    options: [
+                        "La façon dont un problème est présenté ou perçu",
+                        "La documentation des décisions importantes",
+                        "La phase finale du processus décisionnel",
+                        "Une technique de gestion de projet"
+                    ],
+                    correct: 0,
+                    explanation: "Le cadrage (framing) désigne la manière dont un problème ou une décision est présenté, structuré ou perçu. Le même problème cadré différemment (en termes de gains vs pertes par exemple) peut conduire à des décisions radicalement différentes. Un bon décideur doit être conscient des effets de cadrage et les questionner."
+                },
+                {
+                    question: "Quelle est la principale caractéristique d'une décision programmée?",
+                    options: [
+                        "Elle est prise par la direction générale",
+                        "Elle concerne des situations nouvelles et non routinières",
+                        "Elle suit des procédures établies pour des problèmes récurrents",
+                        "Elle nécessite une analyse approfondie et créative"
+                    ],
+                    correct: 2,
+                    explanation: "Les décisions programmées sont celles qui concernent des problèmes fréquents et bien structurés, pour lesquels l'organisation a développé des procédures standardisées. À l'opposé, les décisions non programmées concernent des situations nouvelles, complexes ou importantes nécessitant une approche spécifique."
+                },
+                {
+                    question: "Qu'est-ce que l'heuristique de disponibilité?",
+                    options: [
+                        "Une règle empirique basée sur la facilité de rappel d'exemples",
+                        "Une méthode statistique pour évaluer les probabilités",
+                        "Une technique pour améliorer la mémoire décisionnelle",
+                        "Un outil pour évaluer la disponibilité des ressources"
+                    ],
+                    correct: 0,
+                    explanation: "L'heuristique de disponibilité est une règle empirique (mental shortcut) selon laquelle les gens évaluent la probabilité d'un événement par la facilité avec laquelle ils peuvent se souvenir d'exemples similaires. Bien qu'utile dans certaines situations, cette heuristique peut conduire à des biais systématiques, comme surestimer les risques d'événements médiatisés."
+                },
+                {
+                    question: "Quel est l'avantage principal des décisions participatives?",
+                    options: [
+                        "Elles sont toujours plus rapides",
+                        "Elles génèrent un plus grand engagement dans la mise en œuvre",
+                        "Elles nécessitent moins d'informations",
+                        "Elles éliminent tous les conflits"
+                    ],
+                    correct: 1,
+                    explanation: "Les décisions participatives, qui impliquent les personnes concernées dans le processus, ont pour principal avantage de créer un plus grand engagement et acceptation de la décision finale, facilitant ainsi sa mise en œuvre. Elles peuvent aussi bénéficier d'une diversité de perspectives, bien qu'elles prennent généralement plus de temps que les décisions unilatérales."
+                },
+                {
+                    question: "Qu'est-ce que le modèle de décision 'rationnel limité'?",
+                    options: [
+                        "Un modèle qui suppose une rationalité parfaite des décideurs",
+                        "Un modèle qui reconnaît les limites cognitives des décideurs",
+                        "Un modèle exclusivement basé sur l'intuition",
+                        "Un modèle qui ignore les contraintes informationnelles"
+                    ],
+                    correct: 1,
+                    explanation: "Le modèle de rationalité limitée, développé par Herbert Simon, reconnaît que les décideurs ont des capacités cognitives limitées et opèrent dans des environnements où l'information est incomplète. Ils cherchent donc des solutions satisfaisantes plutôt qu'optimales, utilisent des heuristiques et sont influencés par leurs cadres mentaux."
+                },
+                {
+                    question: "Quelle est la première étape du processus décisionnel rationnel?",
+                    options: [
+                        "Identifier le problème ou l'opportunité",
+                        "Générer des alternatives",
+                        "Collecter des informations",
+                        "Évaluer les options"
+                    ],
+                    correct: 0,
+                    explanation: "La première étape cruciale du processus décisionnel rationnel est l'identification et la formulation claire du problème ou de l'opportunité. Une erreur à cette étape peut compromettre tout le processus. Comme le disait Einstein : 'Si j'avais une heure pour sauver le monde, je passerais 55 minutes à définir le problème et 5 minutes à trouver la solution'."
+                },
+                {
+                    question: "Qu'est-ce que l'effet de halo dans la prise de décision?",
+                    options: [
+                        "La tendance à laisser une première impression positive influencer le jugement global",
+                        "L'illusion de comprendre parfaitement une situation complexe",
+                        "La surestimation de l'impact de ses propres décisions",
+                        "La tendance à suivre l'opinion de la majorité"
+                    ],
+                    correct: 0,
+                    explanation: "L'effet de halo est un biais cognitif où une caractéristique positive (ou négative) d'une personne, d'un produit ou d'une situation influence disproportionnellement le jugement global. Par exemple, un candidat d'embauche physiquement attirant pourrait être perçu comme plus compétent, même sans preuve."
+                },
+                {
+                    question: "Qu'est-ce qu'une décision 'irréversible' dans le cadre de la gestion de projet?",
+                    options: [
+                        "Une décision qui ne peut être changée sans coût significatif",
+                        "Une décision prise par la direction générale",
+                        "Une décision concernant les ressources humaines",
+                        "Une décision basée sur des données incomplètes"
+                    ],
+                    correct: 0,
+                    explanation: "Une décision irréversible est une décision qui, une fois mise en œuvre, ne peut être changée sans coûts, délais ou perturbations significatifs. Dans la gestion de projet, il est crucial d'identifier ces décisions clés pour y consacrer l'attention et les analyses nécessaires, tandis que les décisions réversibles peuvent être prises plus rapidement et ajustées ultérieurement."
+                },
+                {
+                    question: "Quel est l'avantage principal de la méthode Delphi dans la prise de décision?",
+                    options: [
+                        "Elle est très rapide",
+                        "Elle élimine les influences interpersonnelles et les biais de domination",
+                        "Elle ne nécessite aucun expert",
+                        "Elle produit toujours un consensus unanime"
+                    ],
+                    correct: 1,
+                    explanation: "La méthode Delphi, une technique structurée de consultation d'experts itérative et anonyme, a pour principal avantage d'éliminer les biais liés aux dynamiques de groupe (comme la domination par certains individus) en permettant à chaque participant de contribuer de manière indépendante. Elle est particulièrement utile pour les prévisions à long terme ou les questions techniques complexes."
+                },
+                {
+                    question: "Qu'est-ce que le 'nudging' dans le contexte des sciences comportementales?",
+                    options: [
+                        "Une technique de manipulation agressive",
+                        "Une méthode pour influencer les décisions par des changements subtils dans la présentation des options",
+                        "Un outil d'analyse quantitative",
+                        "Une forme de prise de décision collective"
+                    ],
+                    correct: 1,
+                    explanation: "Le nudging (ou 'coup de pouce') est une approche qui influence subtilement les comportements et décisions en modifiant la manière dont les choix sont présentés, sans restreindre les options ou changer les incitations économiques. Par exemple, placer les aliments sains à hauteur des yeux dans une cafétéria est un nudge qui encourage de meilleurs choix alimentaires."
+                },
+                {
+                    question: "Quelle est la principale caractéristique d'une bonne décision?",
+                    options: [
+                        "Elle conduit toujours au meilleur résultat possible",
+                        "Elle est prise rapidement",
+                        "Elle résulte d'un processus rigoureux adapté au contexte",
+                        "Elle fait consensus parmi toutes les parties prenantes"
+                    ],
+                    correct: 2,
+                    explanation: "Une bonne décision se caractérise principalement par la qualité du processus qui y a conduit - un processus rigoureux, adapté au contexte, qui prend en compte les informations disponibles, évalue les alternatives de manière systématique et intègre une réflexion sur les risques et l'éthique. Une bonne décision ne garantit pas toujours un bon résultat (qui peut dépendre de facteurs imprévisibles), mais maximise la probabilité de succès."
+                },
+                {
+                    question: "Qu'est-ce que la 'valeur de l'information' dans l'analyse décisionnelle?",
+                    options: [
+                        "Le coût de collecte des informations nécessaires",
+                        "Le bénéfice potentiel d'obtenir des informations supplémentaires avant de décider",
+                        "La quantité d'informations nécessaires pour prendre une décision",
+                        "La valeur monétaire des données dans l'économie numérique"
+                    ],
+                    correct: 1,
+                    explanation: "La valeur de l'information, en analyse décisionnelle, est le bénéfice potentiel qu'apporterait l'obtention d'informations supplémentaires avant de prendre une décision. Elle se calcule comme la différence entre le résultat attendu avec l'information supplémentaire et sans elle. Ce concept aide à déterminer si cela vaut la peine d'investir dans plus de recherche ou d'analyse."
+                },
+                {
+                    question: "Qu'est-ce que l'effet Dunning-Kruger?",
+                    options: [
+                        "La tendance à surestimer sa propre compétence dans un domaine",
+                        "La sous-estimation systématique des risques",
+                        "L'incapacité à prendre des décisions rapides",
+                        "La surestimation de l'importance des petites décisions"
+                    ],
+                    correct: 0,
+                    explanation: "L'effet Dunning-Kruger est un biais cognitif où les personnes peu compétentes dans un domaine surestiment leur capacité, tandis que les experts ont tendance à sous-estimer leur compétence relative. Cela a des implications importantes pour la prise de décision, car les décideurs inexpérimentés peuvent ne pas reconnaître leurs limites et faire des choix inappropriés."
+                },
+                {
+                    question: "Quelle est la différence entre incertitude épistémique et aléatoire?",
+                    options: [
+                                        "L'incertitude épistémique vient du manque de connaissance, l'aléatoire de la variabilité intrinsèque",
+                        "L'incertitude épistémique concerne le futur, l'aléatoire le passé",
+                        "L'incertitude épistémique est quantifiable, l'aléatoire ne l'est pas",
+                        "Il n'y a pas de différence substantielle"
+                    ],
+                    correct: 0,
+                    explanation: "L'incertitude épistémique (ou connaissance) provient d'un manque de connaissances ou de données sur un système, et pourrait en théorie être réduite par plus de recherche. L'incertitude aléatoire (ou variabilité) est intrinsèque au système et ne peut être éliminée. Cette distinction est importante pour choisir les stratégies de réduction d'incertitude appropriées."
+                },
+                {
+                    question: "Qu'est-ce que la 'décision robuste' dans un contexte incertain?",
+                    options: [
+                        "Une décision qui fonctionne raisonnablement bien dans plusieurs scénarios plausibles",
+                        "Une décision prise avec assurance et conviction",
+                        "Une décision difficile à mettre en œuvre",
+                        "Une décision basée uniquement sur des données quantitatives"
+                    ],
+                    correct: 0,
+                    explanation: "Une décision robuste est une décision qui performe raisonnablement bien dans une variété de scénarios futurs plausibles, plutôt qu'optimale dans un seul scénario prévu. Cette approche est particulièrement utile dans des environnements très incertains où les prévisions précises sont impossibles. Elle privilégie la résilience et la flexibilité."
+                },
+                {
+                    question: "Quel est le principal avantage des arbres de décision?",
+                    options: [
+                        "Ils éliminent le besoin d'estimer les probabilités",
+                        "Ils fournissent une visualisation claire des options et de leurs conséquences possibles",
+                        "Ils garantissent toujours la décision optimale",
+                        "Ils sont particulièrement adaptés aux décisions très simples"
+                    ],
+                    correct: 1,
+                    explanation: "Le principal avantage des arbres de décision est de fournir une représentation visuelle claire des différentes options décisionnelles, de leurs conséquences possibles et des probabilités associées. Cela permet de structurer une pensée complexe, d'identifier les points clés de décision et de calculer les valeurs attendues des différentes options."
+                }
+            ];
+
+            let currentQuestion = 0;
+            let score = 0;
+            const quizContainer = document.getElementById('quiz-container');
+            const nextBtn = document.getElementById('next-question-btn');
+            const resultsBtn = document.getElementById('quiz-results-btn');
+            const progressBar = document.getElementById('quiz-progress');
+            const scoreDisplay = document.getElementById('quiz-score');
+
+            function displayQuestion() {
+                if(currentQuestion >= quizQuestions.length) {
+                    showResults();
+                    return;
+                }
+
+                const question = quizQuestions[currentQuestion];
+                let html = `
+                    <div class="quiz-question active">
+                        <h4>Question ${currentQuestion + 1}/30</h4>
+                        <p>${question.question}</p>
+                `;
+
+                question.options.forEach((option, index) => {
+                    html += `
+                        <div class="quiz-option" data-option="${index}">
+                            <i class="far fa-circle me-2"></i> ${option}
+                        </div>
+                    `;
+                });
+
+                html += `
+                        <div class="explanation">
+                            <h5><i class="fas fa-info-circle me-2"></i>Explication:</h5>
+                            <p>${question.explanation}</p>
+                        </div>
+                    </div>
+                `;
+
+                quizContainer.innerHTML = html;
+                updateProgress();
+
+                // Add event listeners to options
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        const selectedOption = parseInt(this.getAttribute('data-option'));
+                        const correctOption = question.correct;
+                        const explanation = this.closest('.quiz-question').querySelector('.explanation');
+
+                        // Mark all options
+                        document.querySelectorAll('.quiz-question .quiz-option').forEach(opt => {
+                            const icon = opt.querySelector('i');
+                            icon.className = 'far fa-circle me-2';
+                            opt.classList.remove('correct', 'incorrect');
+                        });
+
+                        // Mark selected option
+                        const selectedIcon = this.querySelector('i');
+                        selectedIcon.className = 'far fa-check-circle me-2';
+
+                        if(selectedOption === correctOption) {
+                            this.classList.add('correct');
+                            score++;
+                            scoreDisplay.textContent = score;
+                        } else {
+                            this.classList.add('incorrect');
+                            // Also show correct answer
+                            document.querySelector(`.quiz-option[data-option="${correctOption}"]`).classList.add('correct');
+                        }
+
+                        // Show explanation
+                        explanation.style.display = 'block';
+
+                        // Show next button
+                        nextBtn.style.display = 'inline-block';
+                    });
+                });
+            }
+
+            function updateProgress() {
+                const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            function showResults() {
+                quizContainer.innerHTML = `
+                    <div class="alert alert-success">
+                        <h4><i class="fas fa-trophy me-2"></i>Quiz Terminé!</h4>
+                        <p>Votre score final est : <strong>${score}/30</strong></p>
+                        <p>${getResultMessage(score)}</p>
+                    </div>
+                `;
+                nextBtn.style.display = 'none';
+                resultsBtn.style.display = 'none';
+            }
+
+            function getResultMessage(score) {
+                if(score >= 27) return "Excellent! Vous maîtrisez parfaitement les concepts de prise de décision.";
+                if(score >= 24) return "Très bien! Vous avez une compréhension approfondie du sujet.";
+                if(score >= 18) return "Bon travail! Vous avez une bonne base à développer.";
+                if(score >= 12) return "Pas mal! Poursuivez votre apprentissage pour renforcer vos connaissances.";
+                return "Continuez à apprendre! Revoyez les concepts clés pour améliorer votre compréhension.";
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentQuestion++;
+                if(currentQuestion < quizQuestions.length) {
+                    displayQuestion();
+                    nextBtn.style.display = 'none';
+                } else {
+                    showResults();
+                }
+            });
+
+            resultsBtn.addEventListener('click', showResults);
+
+            // Initialize quiz
+            displayQuestion();
         });
     </script>
 </body>
